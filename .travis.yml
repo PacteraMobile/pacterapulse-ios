@@ -4,5 +4,5 @@ before_install:
    - brew update
    - brew outdated xctool || brew upgrade xctool
 script: 
-	- xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
-	- xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulseTests -sdk iphonesimulator
+   - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
+   - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulseTests -sdk iphonesimulator
