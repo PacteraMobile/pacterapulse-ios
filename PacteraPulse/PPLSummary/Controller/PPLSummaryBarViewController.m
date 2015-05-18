@@ -78,7 +78,6 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[PPLSummaryData shareInstance]  emotionValues:@"24hours" callBack:^(BOOL status, NSArray *graphValues, NSError *error)
     {
-        NSLog(@"ret arr:%@", graphValues);
         if (status && error == nil && graphValues != nil && [graphValues count] > 0) {
             
             NSMutableArray* updatedData = [NSMutableArray arrayWithArray:graphValues];
