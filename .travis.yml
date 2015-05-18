@@ -1,0 +1,8 @@
+language: objective-c
+before_install:
+   - pod install
+   - brew update
+   - brew outdated xctool || brew upgrade xctool
+script: 
+   - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
+   - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
