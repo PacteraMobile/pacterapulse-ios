@@ -2,4 +2,5 @@ language: objective-c
 before_install:
    - brew update
    - brew outdated xctool || brew upgrade xctool
-script: xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse test
+script: xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+ - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulseTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
