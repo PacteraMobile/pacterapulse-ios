@@ -18,6 +18,7 @@
 @property (nonatomic, strong) CPTGraphHostingView * hostingView;
 @property (nonatomic, strong) PPLColoredBarChart *barItem;
 @property (nonatomic, strong) NSArray *summaryData;
+@property (nonatomic, strong) CSNotificationView *alertView;
 
 @end
 
@@ -26,19 +27,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.alertView = nil;
     [self showVotedNotification];
     [self setTitle:sPPLSummaryTilte];
     [self configureHost];
     [self fetchRemoteData];
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+    if( self.alertView != nil)
+    {
+
+        self.alertView.showingActivity = NO;
+        [self.alertView setVisible:NO animated:YES completion:nil];
+        self.alertView = nil;
+    }
+    
+}
+
 - (void)showVotedNotification
 {
     if(self.shouldShowAlert )
     {
-        [CSNotificationView showInViewController:self
-                                       style:CSNotificationViewStyleError
-                                     message:sPPLSummaryVoteAgainAlert];
+        self.alertView = [CSNotificationView notificationViewWithParentViewController:self
+                                                                tintColor:[UIColor redColor]
+                                                                image:nil
+                                                                message:sPPLSummaryVoteAgainAlert];
+        self.alertView.showingActivity = YES;
+        [self.alertView setVisible:YES animated:YES completion:nil];
+        [self.alertView dismissWithStyle:CSNotificationViewStyleError message:sPPLSummaryVoteAgainAlert duration:0.1 animated:YES];
+
+
     }
 }
 
@@ -58,6 +78,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[PPLSummaryData shareInstance]  emotionValues:@"24hours" callBack:^(BOOL status, NSArray *graphValues, NSError *error)
     {
+        NSLog(@"ret arr:%@", graphValues);
         if (status && error == nil && graphValues != nil && [graphValues count] > 0) {
             
             NSMutableArray* updatedData = [NSMutableArray arrayWithArray:graphValues];

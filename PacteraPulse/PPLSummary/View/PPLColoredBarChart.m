@@ -210,11 +210,23 @@
 
 -(CPTFill *)barFillForBarPlot:(CPTBarPlot *)barPlot recordIndex:(NSUInteger)index
 {
-    CPTColor* color = [self getColorFromIndex:index];
-    return [CPTFill fillWithColor:color];
-    //Leave this for later extenstion
-    //CPTGradient *fillGradient = [CPTGradient gradientWithBeginningColor:color endingColor:[CPTColor blackColor]];
-    //return [CPTFill fillWithGradient:fillGradient];
+    //Need to convert from index to different emotion, which mean each emotion should alwayse use the same color
+    //index is surpassing 1, so decrease firstly and increase later
+    if( index > 0 && index <= [self.summaryData count])
+    {
+        NSUInteger colorIndex = [[[self.summaryData objectAtIndex:index-1]objectForKey:kEmotion] integerValue ] + 1;
+        CPTColor* color = [self getColorFromIndex:colorIndex];
+        return [CPTFill fillWithColor:color];
+        //Leave this for later extenstion
+        //CPTGradient *fillGradient = [CPTGradient gradientWithBeginningColor:color endingColor:[CPTColor blackColor]];
+        //return [CPTFill fillWithGradient:fillGradient];
+    }
+    else
+    {
+        return [CPTFill fillWithColor:[CPTColor cyanColor]];
+    }
+    
+
     
 }
 
