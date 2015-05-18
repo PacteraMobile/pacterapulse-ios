@@ -1,4 +1,5 @@
 language: objective-c
+podfile: path/to/Podfile
 before_install:
    - brew update
    - brew outdated xctool || brew upgrade xctool
