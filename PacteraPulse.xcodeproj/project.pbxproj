@@ -19,6 +19,9 @@
 		6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BF21AEE05E80036447F /* PPLColoredBarChart.m */; };
 		700DE18B1AEDC1AE00CBF19F /* PPLVoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 700DE18A1AEDC1AE00CBF19F /* PPLVoteData.m */; };
 		704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */; };
+		705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026431B0AE85100B31919 /* PPLAuthenticationTests.m */; };
+		7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */; };
+		7050264E1B0AF3DE00B31919 /* PPLAuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
 		709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 709441751AF04C6E006C30EB /* PPLVoteRow.m */; };
 		70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB01AE8B3C0003C006C /* AppDelegate.m */; };
@@ -74,6 +77,11 @@
 		700DE18A1AEDC1AE00CBF19F /* PPLVoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteData.m; sourceTree = "<group>"; };
 		704B97BA1B057C6400422C4B /* PPLVoteManagerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteManagerClass.h; sourceTree = "<group>"; };
 		704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerClass.m; sourceTree = "<group>"; };
+		705026431B0AE85100B31919 /* PPLAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationTests.m; sourceTree = "<group>"; };
+		705026491B0AEB9600B31919 /* PPLAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationController.h; sourceTree = "<group>"; };
+		7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationController.m; sourceTree = "<group>"; };
+		7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationModel.h; sourceTree = "<group>"; };
+		7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationModel.m; sourceTree = "<group>"; };
 		70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerTests.m; sourceTree = "<group>"; };
 		709441741AF04C6E006C30EB /* PPLVoteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteRow.h; sourceTree = "<group>"; };
 		709441751AF04C6E006C30EB /* PPLVoteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteRow.m; sourceTree = "<group>"; };
@@ -188,6 +196,7 @@
 				70C5FDAE1AE8B3C0003C006C /* Others */,
 				70C5FDB31AE8B3C0003C006C /* PPLLaunch */,
 				70C5FDB41AE8B3C0003C006C /* PPLSummary */,
+				705026461B0AE8E000B31919 /* PPLAuthentication */,
 				70C5FDB51AE8B3C0003C006C /* PPLVote */,
 				3CDD84C01B0ACCDF00F490B1 /* PPLVoteDetail */,
 			);
@@ -197,6 +206,7 @@
 		6CC95B991AE883C10036447F /* PacteraPulseTests */ = {
 			isa = PBXGroup;
 			children = (
+				705026421B0AE83700B31919 /* PPLAuthenticationTests */,
 				3CDD84CA1B0AD59500F490B1 /* PPLVoteDetailTests */,
 				70668F701B045D4E0080E8B2 /* PPLVoteManagerTests */,
 				70C5FDBE1AE8B59B003C006C /* PPLLaunchTests */,
@@ -213,6 +223,41 @@
 				6CC95B9B1AE883C10036447F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		705026421B0AE83700B31919 /* PPLAuthenticationTests */ = {
+			isa = PBXGroup;
+			children = (
+				705026431B0AE85100B31919 /* PPLAuthenticationTests.m */,
+			);
+			path = PPLAuthenticationTests;
+			sourceTree = "<group>";
+		};
+		705026461B0AE8E000B31919 /* PPLAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				705026471B0AE93300B31919 /* Controller */,
+				705026481B0AE93300B31919 /* Model */,
+			);
+			path = PPLAuthentication;
+			sourceTree = "<group>";
+		};
+		705026471B0AE93300B31919 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				705026491B0AEB9600B31919 /* PPLAuthenticationController.h */,
+				7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		705026481B0AE93300B31919 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */,
+				7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		70668F701B045D4E0080E8B2 /* PPLVoteManagerTests */ = {
@@ -608,6 +653,8 @@
 				3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */,
 				70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */,
 				6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */,
+				7050264E1B0AF3DE00B31919 /* PPLAuthenticationModel.m in Sources */,
+				7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +664,7 @@
 			files = (
 				70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */,
 				70C5FDC81AE8B620003C006C /* PPLVoteTests.m in Sources */,
+				705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */,
 				3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */,
 				70C5FDCA1AE8B62B003C006C /* PPLSummaryTests.m in Sources */,
 				70C5FDC41AE8B59B003C006C /* PPLLaunchTests.m in Sources */,
