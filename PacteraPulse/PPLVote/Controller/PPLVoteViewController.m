@@ -28,6 +28,7 @@ static NSString *kViewTitle = @"How Do You Feel Today?";
 @implementation PPLVoteViewController
 
 NSString *const kSummarySegueId = @"toSummary";
+NSString *const kVoteDetailSegeId = @"showVoteDetail";
 NSString *const kCellId = @"voteCell";
 NSString *const kNavigationButtonTitle = @"Info";
 NSInteger const kPadding = 10;
@@ -100,7 +101,7 @@ enum voteAction
     if ([voteManager checkIfVoteSubmittedToday])
     {
         voteState = VOTE_NOT_SUBMITTED;
-        [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
 
     }
     else
@@ -115,7 +116,7 @@ enum voteAction
                  voteState = VOTE_SUBMITTED;
                  [voteManager recordVoteSubmission:[NSString stringWithFormat:@"%ld", (long)sourceTag]];
                  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                 [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+                 [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
              }
              else
              {
