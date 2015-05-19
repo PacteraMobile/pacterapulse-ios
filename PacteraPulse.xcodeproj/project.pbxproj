@@ -22,6 +22,8 @@
 		705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026431B0AE85100B31919 /* PPLAuthenticationTests.m */; };
 		7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */; };
 		7050264E1B0AF3DE00B31919 /* PPLAuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */; };
+		705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */; };
+		705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 705026581B0B04EB00B31919 /* AuthenticationSettings.plist */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
 		709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 709441751AF04C6E006C30EB /* PPLVoteRow.m */; };
 		70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB01AE8B3C0003C006C /* AppDelegate.m */; };
@@ -82,6 +84,9 @@
 		7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationController.m; sourceTree = "<group>"; };
 		7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationModel.h; sourceTree = "<group>"; };
 		7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationModel.m; sourceTree = "<group>"; };
+		705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationSettings.h; sourceTree = "<group>"; };
+		705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationSettings.m; sourceTree = "<group>"; };
+		705026581B0B04EB00B31919 /* AuthenticationSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthenticationSettings.plist; sourceTree = "<group>"; };
 		70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerTests.m; sourceTree = "<group>"; };
 		709441741AF04C6E006C30EB /* PPLVoteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteRow.h; sourceTree = "<group>"; };
 		709441751AF04C6E006C30EB /* PPLVoteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteRow.m; sourceTree = "<group>"; };
@@ -256,6 +261,8 @@
 			children = (
 				7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */,
 				7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */,
+				705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */,
+				705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 		70C5FDAE1AE8B3C0003C006C /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				705026581B0B04EB00B31919 /* AuthenticationSettings.plist */,
 				6CC95B8F1AE883C10036447F /* LaunchScreen.xib */,
 				6CC95B8A1AE883C10036447F /* Main.storyboard */,
 				70C5FDAF1AE8B3C0003C006C /* AppDelegate.h */,
@@ -544,6 +552,7 @@
 				70C5FDBC1AE8B42F003C006C /* Images.xcassets in Resources */,
 				6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */,
 				6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */,
+				705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +649,7 @@
 				6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */,
 				700DE18B1AEDC1AE00CBF19F /* PPLVoteData.m in Sources */,
 				70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */,
+				705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */,
 				3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */,
 				3CDD84C41B0ACCF800F490B1 /* PPLVoteDetailViewController.m in Sources */,
 				3CDD84C81B0AD4F600F490B1 /* PPLVoteContentView.m in Sources */,

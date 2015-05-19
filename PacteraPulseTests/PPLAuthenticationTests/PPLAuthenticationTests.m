@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "PPLAuthenticationSettings.h"
 
 @interface PPLAuthenticationTests : XCTestCase
 
@@ -17,26 +18,26 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    //TODO: add proper implementation
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    //TODO: add proper implementation
     [super tearDown];
 }
 
 - (void)testLogin{
-    // This is an example of a functional test case.
+    //TODO: add proper implementation
     XCTAssert(YES, @"Pass");
 }
 
 - (void)testLogout{
-    // This is an example of a functional test case.
+    //TODO: add proper implementation
     XCTAssert(YES, @"Pass");
 }
 
 - (void)testIfLoggedIn{
-    // This is an example of a functional test case.
+    //TODO: add proper implementation
     XCTAssert(YES, @"Pass");
 }
 
@@ -45,6 +46,16 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void)testAuthenticationSettingsLoad
+{
+
+    PPLAuthenticationSettings *settings = [PPLAuthenticationSettings loadSettings];
+    
+    //TODO: add proper implementation
+    XCTAssert(YES, @"Pass");
+
 }
 
 @end

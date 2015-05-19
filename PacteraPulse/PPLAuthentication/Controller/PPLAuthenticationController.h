@@ -7,16 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PPLAuthenticationController : NSObject
 
--(BOOL)checkIfLoggedIn;
++ (PPLAuthenticationController *)sharedInstance;
 
--(BOOL)loginUser;
+- (BOOL)checkIfLoggedIn:(UIViewController *)viewController;
 
--(BOOL)isTokenValid;
+- (BOOL)loginUser:(UIViewController *)viewController;
 
--(void)inValidateToken;
+- (BOOL)checkTokenValid:(UIViewController *)viewController;
 
--(BOOL)logoutUser;
+- (void)inValidateToken;
+
+- (BOOL)logoutUser;
 @end

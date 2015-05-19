@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 #import "PPLVoteManagerClass.h"
 #import "PPLSummaryBarViewController.h"
+#import "PPLAuthenticationController.h"
 static NSString *kViewTitle = @"How Do You Feel Today?";
 
 @interface PPLVoteViewController ()
@@ -50,6 +51,17 @@ enum voteAction
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:kNavigationButtonTitle style:UIBarButtonItemStyleDone target:self action:@selector(showLaunch:)];
     self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.leftBarButtonItem = leftButton;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    PPLAuthenticationController *auth = [PPLAuthenticationController sharedInstance];
+    
+    if (![auth checkIfLoggedIn:self]) {
+        
+        [auth loginUser:self];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -155,7 +167,7 @@ enum voteAction
 - (void)showResult:(id)sender
 {
     voteState = VOTE_NO_ACTION;
-    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+    [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
 }
 /**
  *  This function shows the launch screen which has instructions
