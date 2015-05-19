@@ -9,13 +9,16 @@
 #ifndef PacteraPulse_PPLSummaryGenerals_h
 #define PacteraPulse_PPLSummaryGenerals_h
 
-static NSString* const kEmotion = @"emotion";
-static NSString* const kEmotionValue = @"count";
-static NSString* const sBarchartTitle = @"Employees' Satisfaction is everything";
-static NSString* const sPPLSummaryTilte = @"24 Hours Results";
 
+
+//Navigation bar title
+static NSString* const sPPLSummaryTilte = @"24 Hours Results";
+//Bar chart title
+static NSString* const sBarchartTitle = @"Employees' Satisfaction is everything";
+//Error handling
 static NSString* const sPPLSummaryVoteAgainAlert = @"Already voted, vote once per day only.";
-//This is used for locating space for title in barchart
+static NSString* const sPPLSummaryFetchDataFailed = @"Can't get feedback from server, please kindly try later.";
+//This is used for locating space for title in barchart, and height of segment control as well
 static const NSInteger iTitleSpace = 60;
 //This is used for locating space for label on the top of bar in barchart
 static const NSInteger iLabelSpace = 20;
@@ -24,8 +27,20 @@ static const NSInteger iMaxPercent = 100;
 //showing happy, so so, unhappy
 static const NSInteger iMinColumnInBarchart = 3;
 
+//String used in bar chart
 static NSString* const sBarchartSubtitleHappy = @"Happy";
 static NSString* const sBarchartSubtileSoso = @"So so";
 static NSString* const sBarchartSubtitleUnhappy = @"Unhappy";
+
+//String used in network request
+static NSString* const sResultPeriodDay = @"24hours";
+static NSString* const sResultPeriodWeek = @"7days";
+static NSString* const sResultPeriodMonth = @"30days";
+static NSString* const kEmotion = @"emotion";
+static NSString* const kEmotionValue = @"count";
+//String used in segment control
+static NSString* const sResultPeriodDayTitle = @"24 Hours";
+static NSString* const sResultPeriodWeekTitle = @"7 Days";
+static NSString* const sResultPeriodMonthTitle = @"30 Days";
 
 #endif
