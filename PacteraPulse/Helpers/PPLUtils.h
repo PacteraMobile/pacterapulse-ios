@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PPLUtils : NSObject
 /**
@@ -14,7 +15,7 @@
  *
  *  @return a new created instance or an existing one
  */
-+ (PPLUtils *)sharedClient;
++ (PPLUtils *)sharedInstance;
 /**
  *  Function to get unique ID for this device, this is used for submitting feedback to the server
  *
@@ -23,4 +24,7 @@
 -(NSString*)getUniqueId;
 
 -(NSUserDefaults *)getStandardUserDefaults;
+
+- (void)showLaunch:(UIViewController*)sender;
+
 @end

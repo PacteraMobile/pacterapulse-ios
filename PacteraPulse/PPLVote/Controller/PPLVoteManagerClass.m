@@ -37,7 +37,7 @@
  */
 - (void)recordVoteSubmission:(NSString *)value
 {
-    NSUserDefaults *prefs = [[PPLUtils sharedClient] getStandardUserDefaults];
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
 
 
     [prefs setObject:value forKey:FEEDBACK_VALUE_KEY];
@@ -55,7 +55,7 @@
 - (BOOL)checkIfVoteSubmittedToday
 {
 
-    NSUserDefaults *prefs = [[PPLUtils sharedClient] getStandardUserDefaults];
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
 
     NSDate *voteDate = [prefs objectForKey:FEEDBACK_DATE_KEY];
 

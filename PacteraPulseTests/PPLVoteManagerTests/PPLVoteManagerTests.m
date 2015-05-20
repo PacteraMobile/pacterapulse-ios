@@ -37,7 +37,7 @@ id valueForDate = nil;
 {
     [super setUp];
 
-    NSUserDefaults *prefs = [[PPLUtils sharedClient] getStandardUserDefaults];
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
 
     valueForDate = [prefs objectForKey:FEEDBACK_DATE_KEY];
     valueForFeedback = [prefs objectForKey:FEEDBACK_VALUE_KEY];
@@ -56,7 +56,7 @@ id valueForDate = nil;
 {
     // Put teardown code here. This method is called after the invocation of
     // each test method in the class.
-    NSUserDefaults *prefs = [[PPLUtils sharedClient] getStandardUserDefaults];
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
 
     [prefs setObject:valueForFeedback forKey:FEEDBACK_VALUE_KEY];
     [prefs setObject:valueForDate forKey:FEEDBACK_DATE_KEY];
@@ -88,7 +88,7 @@ id valueForDate = nil;
     // This is an example of a functional test case.
 
     PPLVoteManagerClass *testClass = [PPLVoteManagerClass sharedInstance];
-    NSUserDefaults *prefs = [[PPLUtils sharedClient] getStandardUserDefaults];
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
 
     [prefs setObject:[NSDate date] forKey:FEEDBACK_DATE_KEY];
     [prefs setObject:valueForFeedback forKey:FEEDBACK_VALUE_KEY];

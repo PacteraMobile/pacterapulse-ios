@@ -11,6 +11,7 @@
 #import "PPLSummaryData.h"
 #import "PPLSummaryGenerals.h"
 #import "PPLAuthenticationController.h"
+#import "PPLUtils.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
 
@@ -93,6 +94,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //For all operation, go to homepage
+    [[PPLUtils sharedInstance] showLaunch:self];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
