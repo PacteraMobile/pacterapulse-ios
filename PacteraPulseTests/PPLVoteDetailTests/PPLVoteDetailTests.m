@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "PPLVoteContentView.h"
+#import "PPLVoteContentQuestionView.h"
 @interface PPLVoteDetailTests : XCTestCase
 
 @end
@@ -37,9 +38,12 @@
     }];
 }
 
-- (void)testVoteDetailView {
+- (void)testVoteContentQuestionView {
   
+  PPLVoteContentQuestionView *questionView = [[PPLVoteContentQuestionView alloc]initContentQuestionViewWithFrame:CGRectMake(0, 0, 300, 375) withLabelContent:@"This is a new Question"];
+  XCTAssertNotNil(questionView,@"it should init a queationView successfully");
   
 }
+
 
 @end

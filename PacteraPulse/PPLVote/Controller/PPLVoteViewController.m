@@ -36,12 +36,6 @@ NSString *const kCellId = @"voteCell";
 NSString *const kNavigationButtonTitle = @"Info";
 NSInteger const kPadding = 10;
 FeedBackType currentFeedback = 0;
-enum voteAction
-{
-    VOTE_NOT_SUBMITTED,
-    VOTE_SUBMITTED,
-    VOTE_NO_ACTION
-} voteState;
 
 - (void)viewDidLoad
 {
@@ -231,7 +225,6 @@ enum voteAction
 #pragma mark - Navigation
 - (void)showResult:(id)sender
 {
-    voteState = VOTE_NO_ACTION;
     [self performSegueWithIdentifier:kSummarySegueId sender:nil];
 }
 /**

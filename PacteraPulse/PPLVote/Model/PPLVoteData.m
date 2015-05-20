@@ -9,7 +9,7 @@
 #import "PPLVoteData.h"
 #import "PPLUtils.h"
 #import "PPLNetworkingHelper.h"
-
+#import "PPLAuthenticationSettings.h"
 @implementation PPLVoteData
 /**
  *  Single instance for PPLVode data
@@ -39,8 +39,8 @@
 - (void)sendFeedback:(NSString *)feedBackValue callBack:(void(^)(BOOL status, NSString *serverResponse, NSError *error))callback
 {
     PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
-    NSString *deviceID = [[PPLUtils sharedInstance] getUniqueId];
-    NSString *postURL = [NSString stringWithFormat:@"%@/%@/%@", kVoteUrl, deviceID, feedBackValue];
+    self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
+    NSString *postURL = [NSString stringWithFormat:@"%@/%@/%@", kVoteUrl, self.deviceID, feedBackValue];
     //Call the post function of the network hepler and process callbacks
     [client POST:postURL parameters:nil success:^(NSString*responseString, id responseObject)
      {
@@ -58,5 +58,6 @@
          }
      }];
 }
+
 
 @end

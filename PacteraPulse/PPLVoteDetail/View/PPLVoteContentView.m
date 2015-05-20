@@ -14,7 +14,6 @@
 }
 @property(nonatomic, strong) UILabel *greetingLalel;
 @property(nonatomic, strong) UIImageView *emotionView;
-@property(nonatomic, strong) UIButton *submitButton;
 @property(nonatomic, strong) PPLVoteContentQuestionView *workQuestionView;
 @property(nonatomic, strong)
     PPLVoteContentQuestionView *communicationQuestionView;
