@@ -12,5 +12,7 @@
 @interface PPLVoteContentView : UIView
 @property(nonatomic, strong)NSString *userName;
 @property(nonatomic, assign) FeedBackType feedBack;
-- (instancetype)initViewWithFeedBack:(NSString*)feedback withFrame:(CGRect)frame;
+- (instancetype)initViewWithFrame:(CGRect)frame;
+- (NSArray*)fetchVoteComments;
+
 @end

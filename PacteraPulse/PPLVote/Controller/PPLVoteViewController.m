@@ -17,6 +17,7 @@
 #import "PPLVoteManagerClass.h"
 #import "PPLSummaryBarViewController.h"
 #import "PPLAuthenticationController.h"
+#import "PPLVoteDetailViewController.h"
 static NSString *kViewTitle = @"How Do You Feel Today?";
 
 @interface PPLVoteViewController ()
@@ -33,7 +34,7 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 NSString *const kCellId = @"voteCell";
 NSString *const kNavigationButtonTitle = @"Info";
 NSInteger const kPadding = 10;
-
+FeedBackType currentFeedback = 0;
 enum voteAction
 {
     VOTE_NOT_SUBMITTED,
@@ -148,51 +149,53 @@ enum voteAction
 - (void)handleClick:(id)sender
 {
     UIView *senderView = (UIView *)sender;
-    NSInteger sourceTag = senderView.tag;
+    currentFeedback = (FeedBackType)senderView.tag;
+    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
 
-    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
-
-    if ([voteManager checkIfVoteSubmittedToday])
-    {
-        voteState = VOTE_NOT_SUBMITTED;
-        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
-    }
-    else
-    { // TODO: The successfull login still shows errors
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
-        // Send the feedback via data model, we provide two callbacks one for
-        // success and one for failure
-        [[PPLVoteData shareInstance]
-            sendFeedback:[NSString stringWithFormat:@"%ld", (long)sourceTag]
-                callBack:^(BOOL status, NSString *serverResponse,
-                           NSError *error) {
-                  if (status)
-                  {
-                      voteState = VOTE_SUBMITTED;
-                      [voteManager
-                          recordVoteSubmission:
-                              [NSString
-                                  stringWithFormat:@"%ld", (long)sourceTag]];
-                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                      [self performSegueWithIdentifier:kVoteDetailSegeId
-                                                sender:nil];
-                  }
-                  else
-                  {
-                      UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Error"
-                                    message:
-                                        @"Issue submitting feedback to server"
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-                      [alert show];
-                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                  }
-
-                }];
-    }
+    //TODO: Move this to vote detail
+//    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
+//
+//    if ([voteManager checkIfVoteSubmittedToday])
+//    {
+//        voteState = VOTE_NOT_SUBMITTED;
+//        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
+//    }
+//    else
+//    {
+//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//
+//        // Send the feedback via data model, we provide two callbacks one for
+//        // success and one for failure
+//        [[PPLVoteData shareInstance]
+//            sendFeedback:[NSString stringWithFormat:@"%ld", (long)sourceTag]
+//                callBack:^(BOOL status, NSString *serverResponse,
+//                           NSError *error) {
+//                  if (status)
+//                  {
+//                      voteState = VOTE_SUBMITTED;
+//                      [voteManager
+//                          recordVoteSubmission:
+//                              [NSString
+//                                  stringWithFormat:@"%ld", (long)sourceTag]];
+//                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                      [self performSegueWithIdentifier:kVoteDetailSegeId
+//                                                sender:nil];
+//                  }
+//                  else
+//                  {
+//                      UIAlertView *alert = [[UIAlertView alloc]
+//                              initWithTitle:@"Error"
+//                                    message:
+//                                        @"Issue submitting feedback to server"
+//                                   delegate:nil
+//                          cancelButtonTitle:@"OK"
+//                          otherButtonTitles:nil];
+//                      [alert show];
+//                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                  }
+//
+//                }];
+//    }
 }
 
 #pragma mark -TableViewDelegate
@@ -220,7 +223,7 @@ enum voteAction
 - (void)showResult:(id)sender
 {
     voteState = VOTE_NO_ACTION;
-    [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
+    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
 }
 /**
  *  This function shows the launch screen which has instructions
@@ -274,21 +277,28 @@ enum voteAction
 {
     if ([segue.identifier isEqualToString:kSummarySegueId])
     {
-
-        PPLSummaryBarViewController *destinationController =
-            (PPLSummaryBarViewController *)segue.destinationViewController;
-
-        // Check the current vote state and set the variable for destination
-        switch (voteState)
-        {
-        case VOTE_NOT_SUBMITTED:
-            destinationController.shouldShowAlert = YES;
-            break;
-        case VOTE_NO_ACTION:
-        case VOTE_SUBMITTED:
-            destinationController.shouldShowAlert = NO;
-            break;
-        }
+        //TODO: Move this to the detail screen
+//        PPLSummaryBarViewController *destinationController =
+//            (PPLSummaryBarViewController *)segue.destinationViewController;
+//
+//        // Check the current vote state and set the variable for destination
+//        switch (voteState)
+//        {
+//        case VOTE_NOT_SUBMITTED:
+//            destinationController.shouldShowAlert = YES;
+//            break;
+//        case VOTE_NO_ACTION:
+//        case VOTE_SUBMITTED:
+//            destinationController.shouldShowAlert = NO;
+//            break;
+//        }
+    }
+    else if([segue.identifier isEqualToString:kVoteDetailSegeId])
+    {
+        PPLVoteDetailViewController *destinationController =
+                (PPLVoteDetailViewController*)segue.destinationViewController;
+        
+        destinationController.feedBack = currentFeedback;
     }
 }
 #pragma - mark UIAllertViewDelegate
@@ -298,9 +308,6 @@ enum voteAction
     PPLAuthenticationController *auth =
         [PPLAuthenticationController sharedInstance];
 
-
-    // TODO: Fix this here need to have suyncronised error display as well as
-    // hud
     switch (buttonIndex)
     {
     case 0:
