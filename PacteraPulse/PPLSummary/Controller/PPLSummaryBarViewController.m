@@ -65,7 +65,31 @@
 - (void)LogoutSession
 {
     PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
-    [instance logoutUser];
+    if([instance checkIfLoggedIn:nil])
+    {
+        [instance logoutUser];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Logout operation."
+                              message:sPPLSummaryLogoutAlert
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        //[alert show];
+        alert = nil;
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Logout operation."
+                              message:sPPLSummaryLogoutPrompts
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        alert = nil;
+    }
 }
 
 #pragma Voted Notification View

@@ -12,6 +12,8 @@
 
 //Navigation bar logout button
 static NSString* const sPPLSummaryLogout = @"Logout";
+static NSString* const sPPLSummaryLogoutAlert = @"You have been logouted now.";
+static NSString* const sPPLSummaryLogoutPrompts = @"You are not logined, please log in firstly.";
 //Navigation bar title
 static NSString* const sPPLSummaryTilte = @"Results";
 //Bar chart title
