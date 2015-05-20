@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPLVoteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PPLVoteViewController : UIViewController <UITableViewDelegate,
+                                                     UITableViewDataSource,
+                                                     UIAlertViewDelegate>
 
 @end
