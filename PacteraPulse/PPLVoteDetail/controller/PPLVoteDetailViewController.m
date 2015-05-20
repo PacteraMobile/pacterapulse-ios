@@ -7,7 +7,6 @@
 //
 
 #import "PPLVoteDetailViewController.h"
-#import "PPLVoteContentView.h"
 @interface PPLVoteDetailViewController ()
 
 @end
@@ -21,7 +20,7 @@ NSString *const kSummaryPageSegueId = @"showSummary";
   
   PPLVoteContentView *voteContentView = [[PPLVoteContentView alloc]initViewWithFeedBack:@"1" withFrame:  CGRectMake(0, 0, CGRectGetWidth(self.view.frame), (CGRectGetHeight(self.view.frame)-CGRectGetMaxY(self.navigationController.navigationBar.frame)))];
   [self.view addSubview:voteContentView];
-
+  [voteContentView setFeedBack:self.feedBack];
   self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view.
 }
