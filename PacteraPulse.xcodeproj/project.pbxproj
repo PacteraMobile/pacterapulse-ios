@@ -14,6 +14,7 @@
 		3CDD84C41B0ACCF800F490B1 /* PPLVoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84C31B0ACCF800F490B1 /* PPLVoteDetailViewController.m */; };
 		3CDD84C81B0AD4F600F490B1 /* PPLVoteContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */; };
 		3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */; };
+		3CDD84CF1B0B040B00F490B1 /* PPLVoteContentQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */; };
 		6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8A1AE883C10036447F /* Main.storyboard */; };
 		6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8F1AE883C10036447F /* LaunchScreen.xib */; };
 		6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BEE1AEE05C60036447F /* PPLSummaryBarViewController.m */; };
@@ -63,6 +64,8 @@
 		3CDD84C61B0AD4F600F490B1 /* PPLVoteContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLVoteContentView.h; path = View/PPLVoteContentView.h; sourceTree = "<group>"; };
 		3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLVoteContentView.m; path = View/PPLVoteContentView.m; sourceTree = "<group>"; };
 		3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailTests.m; sourceTree = "<group>"; };
+		3CDD84CD1B0B040B00F490B1 /* PPLVoteContentQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLVoteContentQuestionView.h; path = View/PPLVoteContentQuestionView.h; sourceTree = "<group>"; };
+		3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLVoteContentQuestionView.m; path = View/PPLVoteContentQuestionView.m; sourceTree = "<group>"; };
 		6CC95B7D1AE883C10036447F /* PacteraPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PacteraPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC95B8B1AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CC95B901AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			children = (
 				3CDD84C61B0AD4F600F490B1 /* PPLVoteContentView.h */,
 				3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */,
+				3CDD84CD1B0B040B00F490B1 /* PPLVoteContentQuestionView.h */,
+				3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -618,6 +623,7 @@
 				70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */,
 				3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */,
 				3CDD84C41B0ACCF800F490B1 /* PPLVoteDetailViewController.m in Sources */,
+				3CDD84CF1B0B040B00F490B1 /* PPLVoteContentQuestionView.m in Sources */,
 				3CDD84C81B0AD4F600F490B1 /* PPLVoteContentView.m in Sources */,
 				70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */,
 				70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */,
