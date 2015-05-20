@@ -7,7 +7,6 @@
 //
 
 #import "PPLVoteContentView.h"
-#import "PPLVoteContentQuestionView.h"
 @interface PPLVoteContentView () {
   CGFloat emotionMaxY;
   NSArray *questionList;
@@ -45,11 +44,9 @@ NSString *const kMainTitleContent = @"We would love to hear more";
 *  @return self
 */
 
-- (instancetype)initViewWithFeedBack:(NSString *)feedback
-                           withFrame:(CGRect)frame {
+- (instancetype)initViewWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    self.feedBack = feedback;
     self.frame = frame;
     questionList = [NSArray
         arrayWithObjects:@"Work overload-", @"We would love to hear more",
@@ -169,20 +166,17 @@ NSString *const kMainTitleContent = @"We would love to hear more";
       setText:[NSString stringWithFormat:@"Thank you %@", userName]];
 }
 
-- (void)setFeedBack:(NSString *)feedBack {
+- (void)setFeedBack:(FeedBackType)feedBack{
   NSString *imageName = @"";
-  switch ([feedBack integerValue]) {
-  case 1:
+  switch (feedBack) {
+  case kHappyIcon:
     imageName = @"happyIcon";
     break;
-  case 2:
+  case kSosoIcon:
     imageName = @"sosIcon";
     break;
-  case 3:
+  case kUnHappyIcon:
     imageName = @"unhappyIcon";
-    break;
-  default:
-    imageName = @"happyIcon";
     break;
   }
   [self.emotionView setImage:[UIImage imageNamed:imageName]];
