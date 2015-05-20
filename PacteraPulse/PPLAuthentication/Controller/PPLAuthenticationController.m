@@ -19,6 +19,7 @@
 ADAuthenticationContext *context;
 ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
 
+int count=0;
 /**
  *  Create a singleton instans
  *
@@ -42,17 +43,23 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
  */
 -(BOOL)checkIfLoggedIn:(UIViewController*)viewController;
 {
-    return [self isTokenValid:viewController];
+    PPLAuthenticationSettings* data = [PPLAuthenticationSettings loadSettings];
+    if(data.userItem){
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 /**
  *  Login user will call the authentication method needed to login the user,
  *
  *  @return YES if the user logged in successfully NO if login failed
  */
--(BOOL)loginUser:(UIViewController*)viewController
+-(void)loginUser:(UIViewController*)viewController
 {
     
-    //TODO: Implementation missing
     PPLAuthenticationSettings *settings =
                                     [PPLAuthenticationSettings loadSettings];
     
@@ -102,7 +109,6 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
         
     }
 
-    return YES;
 }
 /**
  *  Helper function for checking if the user is logged in, this will verify the 
@@ -110,11 +116,14 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
  *
  *  @return return YES if the token is still valid NO if it has expired
  */
--(BOOL)isTokenValid:(UIViewController*)viewController
+-(void)getToken:(UIViewController*)viewController completionHandler:(void (^) (NSString*, NSError*))completionblock
 {
+    
+    NSLog(@"Get Token called %d Times",++count);
     PPLAuthenticationSettings* data = [PPLAuthenticationSettings loadSettings];
     if(data.userItem){
-        return YES;
+        completionblock(data.userItem.accessToken, nil);
+        return;
     }
     
     ADAuthenticationError *error;
@@ -140,17 +149,16 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
                               if (result.status != AD_SUCCEEDED)
                               {
                                   NSLog(@"Did not find the token");
-                                  //completionBlock(nil, result.error);
+                                  completionblock(nil, result.error);
                               }
                               else
                               {
                                   NSLog(@"Token found or refreshed");
                                   data.userItem = result.tokenCacheStoreItem;
-                                  //completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                                  completionblock(result.tokenCacheStoreItem.accessToken, nil);
                               }
                           }];
     
-    return YES;
 }
 /**
  *  Helper function to remove the token from the system and device, this will be
@@ -158,7 +166,21 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
  */
 -(void)inValidateToken
 {
-    //TODO: Implementation missing
+    id<ADTokenCacheStoring> cache =
+            [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    [cache removeAllWithError:nil];
+    PPLAuthenticationSettings* settings =
+                                    [PPLAuthenticationSettings loadSettings];
+    settings.userItem = nil;
+    
+    // This clears cookies for new sign-in flow. We shouldn't need to do this. Server should accept PROMPT_ALWAYS
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 /**
  *  Log the current user out of the system
@@ -167,7 +189,16 @@ ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
  */
 -(BOOL)logoutUser
 {
-    //TODO: Implementation missing
+    
+    [context.tokenCacheStore removeAllWithError:nil];
+    
+    NSHTTPCookie *cookie;
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies])
+    {
+        [storage deleteCookie:cookie];
+    }
     return YES;
 }
 @end

@@ -15,9 +15,9 @@
 
 - (BOOL)checkIfLoggedIn:(UIViewController *)viewController;
 
-- (BOOL)loginUser:(UIViewController *)viewController;
+- (void)loginUser:(UIViewController *)viewController;
 
-- (BOOL)checkTokenValid:(UIViewController *)viewController;
+-(void)getToken:(UIViewController*)viewController completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 - (void)inValidateToken;
 
