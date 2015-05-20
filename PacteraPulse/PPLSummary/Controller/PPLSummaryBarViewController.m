@@ -13,6 +13,7 @@
 #import "PPLAuthenticationController.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
+#import "PPLUtils.h"
 
 @interface PPLSummaryBarViewController ()
 
@@ -68,6 +69,7 @@
     if([instance checkIfLoggedIn:nil])
     {
         [instance logoutUser];
+        [[PPLUtils sharedInstance] showLaunch:self];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
         UIAlertView *alert = [[UIAlertView alloc]
