@@ -109,13 +109,16 @@
     if ([paramSender isEqual:self.segmentControlView])
     {
         NSString *period = sResultPeriodDay;
+        NSString *title = sResultPeriodDayTitle;
         switch (paramSender.selectedSegmentIndex)
         {
         case 0:
             period = sResultPeriodDay;
+            title = sResultPeriodDayTitle;
             break;
         case 1:
             period = sResultPeriodWeek;
+                title = ;
             break;
         case 2:
             period = sResultPeriodMonth;
@@ -124,6 +127,7 @@
             break;
         }
         [self fetchRemoteData:period];
+        [self setTitle:[NSString stringWithFormat:@"%@ %@",period,sPPLSummaryTilte]];
     }
 }
 

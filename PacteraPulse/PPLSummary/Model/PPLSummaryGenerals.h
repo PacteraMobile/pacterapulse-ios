@@ -12,7 +12,7 @@
 
 
 //Navigation bar title
-static NSString* const sPPLSummaryTilte = @"24 Hours Results";
+static NSString* const sPPLSummaryTilte = @"Results";
 //Bar chart title
 static NSString* const sBarchartTitle = @"Employees' Satisfaction is everything";
 //Error handling
