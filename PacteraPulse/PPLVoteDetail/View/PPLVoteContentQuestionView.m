@@ -28,6 +28,7 @@ NSString *const badLabelString = @"Bad";
   self = [super initWithFrame:frame];
   if (self) {
     self.labelContent = content;
+    self.feedBack=feedback;
     [self initVoteContentView:frame];
     [self setDefaultValueForSliderbar];
   }

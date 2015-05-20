@@ -177,7 +177,7 @@ NSString *const kMainTitleContent = @"We would love to hear more";
     imageName = @"happyIcon";
     break;
   case kSosoIcon:
-    imageName = @"sosIcon";
+    imageName = @"sosoIcon";
     break;
   case kUnHappyIcon:
     imageName = @"unhappyIcon";
