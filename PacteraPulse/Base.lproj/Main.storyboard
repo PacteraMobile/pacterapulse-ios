@@ -112,11 +112,12 @@
                     <connections>
                         <outlet property="tableView" destination="8bw-3x-hDn" id="LQf-0N-RNa"/>
                         <segue destination="1L2-Xt-O3a" kind="show" identifier="showVoteDetail" id="qiI-I8-RRa"/>
+                        <segue destination="oFr-5i-fGY" kind="show" identifier="toSummary" id="Mru-VK-QPP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npD-6j-61Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="371"/>
+            <point key="canvasLocation" x="2090" y="1531"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dla-6u-BIG">
@@ -182,11 +183,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSs-jO-bAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962" y="398"/>
+            <point key="canvasLocation" x="2058" y="326"/>
         </scene>
     </scenes>
     <resources>
         <image name="Launch" width="640" height="1136"/>
         <image name="happy" width="750" height="291"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mru-VK-QPP"/>
+    </inferredMetricsTieBreakers>
 </document>
