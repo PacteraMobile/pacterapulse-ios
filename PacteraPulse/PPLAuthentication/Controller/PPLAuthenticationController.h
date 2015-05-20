@@ -17,7 +17,8 @@
 
 - (void)loginUser:(UIViewController *)viewController;
 
--(void)getToken:(UIViewController*)viewController completionHandler:(void (^) (NSString*, NSError*))completionBlock;
+-(void)getToken:(UIViewController*)viewController completionHandler:
+                                (void (^) (NSString*, NSError*))completionBlock;
 
 - (void)inValidateToken;
 

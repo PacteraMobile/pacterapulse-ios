@@ -68,29 +68,33 @@ int count=0;
     {
         ADAuthenticationError *error;
      context = [ADAuthenticationContext
-                                            authenticationContextWithAuthority:settings.authority
-                                            error:&error];
+                authenticationContextWithAuthority : settings.authority
+                                            error  : &error];
         
         context.parentController = viewController;
         NSURL *redirectURL =
                     [[NSURL alloc] initWithString:settings.redirectUriString];
         
         if(!settings.correlationId ||
-           [[settings.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+           [[settings.correlationId stringByTrimmingCharactersInSet:
+             [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         {
-            context.correlationId = [[NSUUID alloc] initWithUUIDString:settings.correlationId];
+            context.correlationId = [[NSUUID alloc]
+                                     initWithUUIDString:settings.correlationId];
         }
         
-        [ADAuthenticationSettings sharedInstance].enableFullScreen = settings.fullScreen;
+        [ADAuthenticationSettings sharedInstance].enableFullScreen =
+                                                            settings.fullScreen;
         [context acquireTokenWithResource:settings.resourceId
                                      clientId:settings.clientId
                                   redirectUri:redirectURL
                                promptBehavior:AD_PROMPT_ALWAYS
                                        userId:nil
-         // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+         // if this strikes you as strange it was legacy to display the correct
+         //mobile UX. You most likely won't need it in your code.
          
                          extraQueryParameters: @"nux=1"
-                              completionBlock:^(ADAuthenticationResult *result) {
+                              completionBlock:^(ADAuthenticationResult *result){
                                   
                                   if (result.status != AD_SUCCEEDED)
                                   {
@@ -99,7 +103,8 @@ int count=0;
                                   }
                                   else
                                   {
-                                      settings.userItem = result.tokenCacheStoreItem;
+                                      settings.userItem =
+                                       result.tokenCacheStoreItem;
                                       NSLog(@"Success");
 
                                       //completionBlock(result.tokenCacheStoreItem.userInformation, nil);
@@ -116,8 +121,8 @@ int count=0;
  *
  *  @return return YES if the token is still valid NO if it has expired
  */
--(void)getToken:(UIViewController*)viewController completionHandler:(void (^) (NSString*, NSError*))completionblock
-{
+-(void)getToken:(UIViewController*)viewController completionHandler:
+                              ( void (^) (NSString*, NSError*))completionblock {
     
     NSLog(@"Get Token called %d Times",++count);
     PPLAuthenticationSettings* data = [PPLAuthenticationSettings loadSettings];
@@ -127,14 +132,17 @@ int count=0;
     }
     
     ADAuthenticationError *error;
-    context = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    context = [ADAuthenticationContext
+               authenticationContextWithAuthority:data.authority
+                                            error:&error];
     context.parentController = viewController;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
     
     if(!data.correlationId ||
        [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
     {
-        context.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+        context.correlationId =
+                        [[NSUUID alloc] initWithUUIDString:data.correlationId];
     }
     
     [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
@@ -143,7 +151,7 @@ int count=0;
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
                                    userId:data.userItem.userInformation.userId
-                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+                     extraQueryParameters: @"nux=1"
                           completionBlock:^(ADAuthenticationResult *result) {
                               
                               if (result.status != AD_SUCCEEDED)
@@ -155,7 +163,8 @@ int count=0;
                               {
                                   NSLog(@"Token found or refreshed");
                                   data.userItem = result.tokenCacheStoreItem;
-                                  completionblock(result.tokenCacheStoreItem.accessToken, nil);
+                                  completionblock
+                                  (result.tokenCacheStoreItem.accessToken, nil);
                               }
                           }];
     
@@ -173,7 +182,8 @@ int count=0;
                                     [PPLAuthenticationSettings loadSettings];
     settings.userItem = nil;
     
-    // This clears cookies for new sign-in flow. We shouldn't need to do this. Server should accept PROMPT_ALWAYS
+    // This clears cookies for new sign-in flow. We shouldn't need to do this.
+    // Server should accept PROMPT_ALWAYS
     
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [storage cookies]) {
@@ -190,15 +200,7 @@ int count=0;
 -(BOOL)logoutUser
 {
     
-    [context.tokenCacheStore removeAllWithError:nil];
-    
-    NSHTTPCookie *cookie;
-    
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies])
-    {
-        [storage deleteCookie:cookie];
-    }
+    [self inValidateToken];
     return YES;
 }
 @end
