@@ -10,6 +10,7 @@
 #import "PPLColoredBarChart.h"
 #import "PPLSummaryData.h"
 #import "PPLSummaryGenerals.h"
+#import "PPLAuthenticationController.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
 
@@ -49,9 +50,22 @@
     self.barItem = [[PPLColoredBarChart alloc] init];
     self.alertView = nil;
     [self configureHost];
-    [self setTitle:sPPLSummaryTilte];
+    [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
+    UIBarButtonItem *rightButton =
+    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+                                     style:UIBarButtonItemStyleDone
+                                    target:self
+                                    action:@selector(LogoutSession)];
+    self.navigationItem.rightBarButtonItem = rightButton;
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
+}
+
+#pragma logout page
+- (void)LogoutSession
+{
+    PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
+    [instance logoutUser];
 }
 
 #pragma Voted Notification View
@@ -118,10 +132,11 @@
             break;
         case 1:
             period = sResultPeriodWeek;
-                title = sResultPeriodWeekTitle;
+            title = sResultPeriodWeekTitle;
             break;
         case 2:
             period = sResultPeriodMonth;
+            title = sResultPeriodMonthTitle;
             break;
         default:
             break;

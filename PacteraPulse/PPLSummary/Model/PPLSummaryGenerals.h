@@ -10,7 +10,8 @@
 #define PacteraPulse_PPLSummaryGenerals_h
 
 
-
+//Navigation bar logout button
+static NSString* const sPPLSummaryLogout = @"Logout";
 //Navigation bar title
 static NSString* const sPPLSummaryTilte = @"Results";
 //Bar chart title
