@@ -8,13 +8,13 @@
 
 #import "PPLVoteContentView.h"
 #import "PPLVoteContentQuestionView.h"
-@interface PPLVoteContentView (){
+@interface PPLVoteContentView () {
   CGFloat emotionMaxY;
+  NSArray *questionList;
 }
-@property(nonatomic,strong)NSString *feedback;
-
+@property(nonatomic, strong) UILabel *greetingLalel;
+@property(nonatomic, strong) UIImageView *emotionView;
 @end
-
 
 @implementation PPLVoteContentView
 
@@ -25,6 +25,8 @@ CGFloat const kEmotionWidth = 70.0f;
 CGFloat const kEmotionHeigth = 70.0f;
 CGFloat const kSubmitButtonHeigth = 34.0f;
 CGFloat const kSubmitButtonPaddingButton = 15.0f;
+NSString *const kSubmitButton = @"Submit";
+NSString *const kMainTitleContent = @"We would love to hear more";
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -47,17 +49,19 @@ CGFloat const kSubmitButtonPaddingButton = 15.0f;
                            withFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    self.feedback = feedback;
+    self.feedBack = feedback;
     self.frame = frame;
+    questionList = [NSArray
+        arrayWithObjects:@"Work overload-", @"We would love to hear more",
+                         @"Project feedback and accomplishment-", nil];
     [self initViewContent:frame];
   }
   return self;
 };
 
-
-
 /**
- *  Spereate the whole view into three parts, the head part include emotion image, emotion string
+ *  Spereate the whole view into three parts, the head part include emotion
+ * image, emotion string
  *  The middle part include the vote detail content
  *  The foot part include the submit button
  *  @param frame frame of the mainView
@@ -69,69 +73,119 @@ CGFloat const kSubmitButtonPaddingButton = 15.0f;
   [self contentWithSubmitButton];
 }
 
-- (void)contentWithEmotionGreeting
-{
-  UIImageView *emotionView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"happyIcon"]];
-  emotionView.contentMode = UIViewContentModeScaleAspectFit;
-  emotionView.clipsToBounds = YES;
+- (void)contentWithEmotionGreeting {
+  self.emotionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"happyIcon"]];
+  self.emotionView.contentMode = UIViewContentModeScaleAspectFit;
+  self.emotionView.clipsToBounds = YES;
   CGFloat emotionPaddingTop = kPaddingTen;
   CGFloat emotionPaddingLeft = kPaddingFifteen;
-  emotionView.frame = CGRectMake(emotionPaddingLeft, emotionPaddingTop, kEmotionWidth, kEmotionHeigth);
-  [self addSubview:emotionView];
-  
-  UILabel *greetingLalel = [[UILabel alloc]init];
-  [greetingLalel setText:@"Thank you Dan!"];
+  self.emotionView.frame = CGRectMake(emotionPaddingLeft, emotionPaddingTop,
+                                      kEmotionWidth, kEmotionHeigth);
+  [self addSubview:self.emotionView];
+
+  self.greetingLalel = [[UILabel alloc] init];
+  [self.greetingLalel setText:@"Thank you"];
   CGFloat emotionGreetingGap = kPaddingTen;
   CGFloat emotionGreetingTop = kPaddingTen;
-  CGFloat greetingPaddingLeft = emotionPaddingLeft + kEmotionWidth + emotionGreetingGap;
+  CGFloat greetingPaddingLeft =
+      emotionPaddingLeft + kEmotionWidth + emotionGreetingGap;
   CGFloat greetingPaddingRight = kPaddingFifteen;
-  CGFloat greetingWidth = CGRectGetWidth(self.frame) - greetingPaddingLeft - greetingPaddingRight;
+  CGFloat greetingWidth =
+      CGRectGetWidth(self.frame) - greetingPaddingLeft - greetingPaddingRight;
   CGFloat greetingHeight = kEmotionHeigth;
-  greetingLalel.frame = CGRectMake(greetingPaddingLeft, emotionGreetingTop, greetingWidth, greetingHeight);
-  greetingLalel.textAlignment = NSTextAlignmentRight;
-  [self addSubview:greetingLalel];
-  emotionMaxY = CGRectGetMaxY(emotionView.frame);
+  self.greetingLalel.frame = CGRectMake(greetingPaddingLeft, emotionGreetingTop,
+                                        greetingWidth, greetingHeight);
+  self.greetingLalel.textAlignment = NSTextAlignmentRight;
+  [self addSubview:self.greetingLalel];
+  emotionMaxY = CGRectGetMaxY(self.emotionView.frame);
 }
 
-- (void)contentWithVotingDetail
-{
+- (void)contentWithVotingDetail {
   CGFloat mainTitleY = emotionMaxY + kPaddingTen;
   CGFloat contentpaddingLeftRight = kPaddingTen;
-  CGFloat mainTitleWidth = CGRectGetWidth(self.frame) - contentpaddingLeftRight*2;
-  CGFloat mainTitleHeight =15.0f;
+  CGFloat mainTitleWidth =
+      CGRectGetWidth(self.frame) - contentpaddingLeftRight * 2;
+  CGFloat mainTitleHeight = 15.0f;
 
-  UILabel *mainTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(contentpaddingLeftRight, mainTitleY, mainTitleWidth, mainTitleHeight)];
-  [mainTitleLabel setText:@"We would love to hear more"];
+  UILabel *mainTitleLabel = [[UILabel alloc]
+      initWithFrame:CGRectMake(contentpaddingLeftRight, mainTitleY,
+                               mainTitleWidth, mainTitleHeight)];
+  [mainTitleLabel setText:kMainTitleContent];
+  [mainTitleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
   [self addSubview:mainTitleLabel];
-  
-  CGFloat heightForEachQueation = (CGRectGetHeight(self.frame)-CGRectGetMaxY(mainTitleLabel.frame) - kSubmitButtonHeigth - kSubmitButtonPaddingButton)/3;
+
+  CGFloat heightForEachQueation =
+      (CGRectGetHeight(self.frame) - CGRectGetMaxY(mainTitleLabel.frame) -
+       kSubmitButtonHeigth - kSubmitButtonPaddingButton) /
+      3;
 
   CGFloat mainTitleMaxY = CGRectGetMaxY(mainTitleLabel.frame);
-  PPLVoteContentQuestionView *workQuestionView = [[PPLVoteContentQuestionView alloc]initContentQuestionViewWithFrame:CGRectMake(0, mainTitleMaxY, CGRectGetWidth(self.frame) , heightForEachQueation) withLabelContent:@"Work overload-"];
+  PPLVoteContentQuestionView *workQuestionView = [
+      [PPLVoteContentQuestionView alloc]
+      initContentQuestionViewWithFrame:CGRectMake(0, mainTitleMaxY,
+                                                  CGRectGetWidth(self.frame),
+                                                  heightForEachQueation)
+                      withLabelContent:questionList[0] withFeedBackType:kUnHappyIcon];
   [self addSubview:workQuestionView];
-  
-  CGFloat workQueationViewMaxY = CGRectGetMaxY(workQuestionView.frame);
-  PPLVoteContentQuestionView *communicationQuestionView = [[PPLVoteContentQuestionView alloc]initContentQuestionViewWithFrame:CGRectMake(0, workQueationViewMaxY, CGRectGetWidth(self.frame) , heightForEachQueation) withLabelContent:@"Communication with colleague-"];
-  [self addSubview:communicationQuestionView];
- 
-  CGFloat communicationQueationViewMaxY = CGRectGetMaxY(communicationQuestionView.frame);
-  PPLVoteContentQuestionView *projectQuestionView = [[PPLVoteContentQuestionView alloc]initContentQuestionViewWithFrame:CGRectMake(0, communicationQueationViewMaxY, CGRectGetWidth(self.frame) , heightForEachQueation) withLabelContent:@"Project feedback and accomplishment-"];
-  [self addSubview:projectQuestionView];
 
+  CGFloat workQueationViewMaxY = CGRectGetMaxY(workQuestionView.frame);
+  PPLVoteContentQuestionView *communicationQuestionView = [
+      [PPLVoteContentQuestionView alloc]
+      initContentQuestionViewWithFrame:CGRectMake(0, workQueationViewMaxY,
+                                                  CGRectGetWidth(self.frame),
+                                                  heightForEachQueation)
+                      withLabelContent:questionList[1] withFeedBackType:kUnHappyIcon];
+  [self addSubview:communicationQuestionView];
+
+  CGFloat communicationQueationViewMaxY =
+      CGRectGetMaxY(communicationQuestionView.frame);
+  PPLVoteContentQuestionView *projectQuestionView =
+      [[PPLVoteContentQuestionView alloc]
+          initContentQuestionViewWithFrame:CGRectMake(
+                                               0, communicationQueationViewMaxY,
+                                               CGRectGetWidth(self.frame),
+                                               heightForEachQueation)
+                          withLabelContent:questionList[2] withFeedBackType:kUnHappyIcon];
+  [self addSubview:projectQuestionView];
 }
 
-- (void)contentWithSubmitButton
-{
+- (void)contentWithSubmitButton {
   CGFloat submitButtonPaddingLeftRight = kPaddingFifteen;
-  CGFloat submitButtonWidth = CGRectGetWidth(self.frame) - submitButtonPaddingLeftRight*2;
-  CGFloat submitButtonY = CGRectGetHeight(self.frame) - kSubmitButtonPaddingButton-kSubmitButtonHeigth;
-  CGRect submitButtonFrame = CGRectMake(submitButtonPaddingLeftRight, submitButtonY, submitButtonWidth, kSubmitButtonHeigth);
-  UIButton *submitButton = [[UIButton alloc]initWithFrame:submitButtonFrame];
-  [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+  CGFloat submitButtonWidth =
+      CGRectGetWidth(self.frame) - submitButtonPaddingLeftRight * 2;
+  CGFloat submitButtonY = CGRectGetHeight(self.frame) -
+                          kSubmitButtonPaddingButton - kSubmitButtonHeigth;
+  CGRect submitButtonFrame =
+      CGRectMake(submitButtonPaddingLeftRight, submitButtonY, submitButtonWidth,
+                 kSubmitButtonHeigth);
+  UIButton *submitButton = [[UIButton alloc] initWithFrame:submitButtonFrame];
+  [submitButton setTitle:kSubmitButton forState:UIControlStateNormal];
   submitButton.backgroundColor = [UIColor redColor];
   [self addSubview:submitButton];
-  NSLog(@"%f",CGRectGetMinY(submitButton.frame));
-  NSLog(@"%f",CGRectGetHeight(self.frame));
+}
+
+- (void)setUserName:(NSString *)userName {
+  [self.greetingLalel
+      setText:[NSString stringWithFormat:@"Thank you %@", userName]];
+}
+
+- (void)setFeedBack:(NSString *)feedBack {
+  NSString *imageName = @"";
+  switch ([feedBack integerValue]) {
+  case 1:
+    imageName = @"happyIcon";
+    break;
+  case 2:
+    imageName = @"sosIcon";
+    break;
+  case 3:
+    imageName = @"unhappyIcon";
+    break;
+  default:
+    imageName = @"happyIcon";
+    break;
+  }
+  [self.emotionView setImage:[UIImage imageNamed:imageName]];
 }
 
 @end

@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+  kHappyIcon,
+  kSosoIcon,
+  kUnHappyIcon
+} FeedBackType;
+
 @interface PPLVoteContentQuestionView : UIView
+@property(nonatomic, strong) UISlider *contentSilderView;
 
-
-- (instancetype)initContentQuestionViewWithFrame:(CGRect)frame withLabelContent:(NSString*)content;
+- (instancetype)initContentQuestionViewWithFrame:(CGRect)frame withLabelContent:(NSString*)content withFeedBackType:(FeedBackType)feedback;
 @end
