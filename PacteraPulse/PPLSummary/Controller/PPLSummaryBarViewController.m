@@ -118,7 +118,7 @@
             break;
         case 1:
             period = sResultPeriodWeek;
-                title = ;
+                //title = ;
             break;
         case 2:
             period = sResultPeriodMonth;

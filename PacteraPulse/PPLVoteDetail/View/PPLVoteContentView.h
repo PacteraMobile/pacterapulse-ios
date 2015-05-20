@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PPLVoteContentView : UIView
-
+@property(nonatomic, strong)NSString *userName;
+@property(nonatomic, strong)NSString *feedBack;
 - (instancetype)initViewWithFeedBack:(NSString*)feedback withFrame:(CGRect)frame;
 @end
