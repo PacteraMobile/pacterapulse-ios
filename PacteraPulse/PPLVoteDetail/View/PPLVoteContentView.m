@@ -13,6 +13,10 @@
 }
 @property(nonatomic, strong) UILabel *greetingLalel;
 @property(nonatomic, strong) UIImageView *emotionView;
+@property(nonatomic, strong) PPLVoteContentQuestionView *workQuestionView;
+@property(nonatomic, strong) PPLVoteContentQuestionView *communicationQuestionView;
+@property(nonatomic, strong) PPLVoteContentQuestionView *projectQuestionView;
+
 @end
 
 @implementation PPLVoteContentView
@@ -117,33 +121,33 @@ NSString *const kMainTitleContent = @"We would love to hear more";
       3;
 
   CGFloat mainTitleMaxY = CGRectGetMaxY(mainTitleLabel.frame);
-  PPLVoteContentQuestionView *workQuestionView = [
+  self.workQuestionView = [
       [PPLVoteContentQuestionView alloc]
       initContentQuestionViewWithFrame:CGRectMake(0, mainTitleMaxY,
                                                   CGRectGetWidth(self.frame),
                                                   heightForEachQueation)
                       withLabelContent:questionList[0] withFeedBackType:kUnHappyIcon];
-  [self addSubview:workQuestionView];
+  [self addSubview:self.workQuestionView];
 
-  CGFloat workQueationViewMaxY = CGRectGetMaxY(workQuestionView.frame);
-  PPLVoteContentQuestionView *communicationQuestionView = [
+  CGFloat workQueationViewMaxY = CGRectGetMaxY(self.workQuestionView.frame);
+  self.communicationQuestionView = [
       [PPLVoteContentQuestionView alloc]
       initContentQuestionViewWithFrame:CGRectMake(0, workQueationViewMaxY,
                                                   CGRectGetWidth(self.frame),
                                                   heightForEachQueation)
                       withLabelContent:questionList[1] withFeedBackType:kUnHappyIcon];
-  [self addSubview:communicationQuestionView];
+  [self addSubview:self.communicationQuestionView];
 
   CGFloat communicationQueationViewMaxY =
-      CGRectGetMaxY(communicationQuestionView.frame);
-  PPLVoteContentQuestionView *projectQuestionView =
+      CGRectGetMaxY(self.communicationQuestionView.frame);
+  self.projectQuestionView =
       [[PPLVoteContentQuestionView alloc]
           initContentQuestionViewWithFrame:CGRectMake(
                                                0, communicationQueationViewMaxY,
                                                CGRectGetWidth(self.frame),
                                                heightForEachQueation)
                           withLabelContent:questionList[2] withFeedBackType:kUnHappyIcon];
-  [self addSubview:projectQuestionView];
+  [self addSubview:self.projectQuestionView];
 }
 
 - (void)contentWithSubmitButton {
@@ -180,6 +184,15 @@ NSString *const kMainTitleContent = @"We would love to hear more";
     break;
   }
   [self.emotionView setImage:[UIImage imageNamed:imageName]];
+}
+
+- (NSArray*)fetchVoteComments{
+  NSMutableArray *voteComments = [NSMutableArray array];
+  [voteComments addObject:[NSString stringWithFormat:@"%f", self.workQuestionView.contentSilderView.value]];
+  [voteComments addObject:[NSString stringWithFormat:@"%f", self.communicationQuestionView.contentSilderView.value]];
+  [voteComments addObject:[NSString stringWithFormat:@"%f", self.projectQuestionView.contentSilderView.value]];
+  
+  return voteComments;
 }
 
 @end
