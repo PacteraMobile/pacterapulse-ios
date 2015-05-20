@@ -10,4 +10,5 @@
 
 @interface PPLVoteContentView : UIView
 
+- (instancetype)initViewWithFeedBack:(NSString*)feedback withFrame:(CGRect)frame;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-
+#import "PPLVoteContentView.h"
 @interface PPLVoteDetailTests : XCTestCase
 
 @end
@@ -35,6 +35,11 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void)testVoteDetailView {
+  
+  
 }
 
 @end
