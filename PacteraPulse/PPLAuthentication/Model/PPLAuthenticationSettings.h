@@ -25,4 +25,5 @@
 -(NSString*)getFirstName;
 -(NSString*)getLastName;
 -(NSString*)getEmailAddress;
+-(NSString*)getUserId;
 @end

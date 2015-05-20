@@ -54,5 +54,9 @@ static PPLAuthenticationSettings *shareInstance;
 {
     return self.userItem.userInformation.getEMail;
 }
+-(NSString*)getUserId
+{
+    return self.userItem.userInformation.userId;
+}
 
 @end
