@@ -7,6 +7,7 @@
 //
 
 #import "PPLAuthenticationSettings.h"
+#import "ADUserInformation.h"
 
 @implementation PPLAuthenticationSettings
 
@@ -39,6 +40,19 @@ static PPLAuthenticationSettings *shareInstance;
 -(BOOL)checkIfSettingsLoaded
 {
     return (shareInstance != nil);
+}
+
+-(NSString*)getFirstName
+{
+    return self.userItem.userInformation.getGivenName;
+}
+-(NSString*)getLastName
+{
+    return self.userItem.userInformation.getFamilyName;
+}
+-(NSString*)getEmailAddress
+{
+    return self.userItem.userInformation.getEMail;
 }
 
 @end

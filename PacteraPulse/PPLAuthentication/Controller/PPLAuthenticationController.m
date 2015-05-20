@@ -57,7 +57,8 @@ int count=0;
  *
  *  @return YES if the user logged in successfully NO if login failed
  */
--(void)loginUser:(UIViewController*)viewController
+-(void)loginUser:(UIViewController*)viewController  completionHandler:
+                                ( void (^) (NSString*, NSError*))completionblock
 {
     
     PPLAuthenticationSettings *settings =
@@ -98,7 +99,7 @@ int count=0;
                                   
                                   if (result.status != AD_SUCCEEDED)
                                   {
-                                      //completionBlock(nil, result.error);
+                                      completionblock(nil, result.error);
                                       NSLog(@"Failure");
                                   }
                                   else
@@ -106,8 +107,11 @@ int count=0;
                                       settings.userItem =
                                        result.tokenCacheStoreItem;
                                       NSLog(@"Success");
+                                      settings.userItem = result.tokenCacheStoreItem;
+                                      
 
-                                      //completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+
+                                      completionblock(result.tokenCacheStoreItem.accessToken, nil);
                                   }
                               }];
 
@@ -163,7 +167,7 @@ int count=0;
                               {
                                   NSLog(@"Token found or refreshed");
                                   data.userItem = result.tokenCacheStoreItem;
-                                  completionblock
+                                                                    completionblock
                                   (result.tokenCacheStoreItem.accessToken, nil);
                               }
                           }];

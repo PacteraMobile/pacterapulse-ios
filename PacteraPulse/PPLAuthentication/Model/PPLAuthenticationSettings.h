@@ -22,5 +22,7 @@
 
 + (PPLAuthenticationSettings *)loadSettings;
 -(BOOL)checkIfSettingsLoaded;
-
+-(NSString*)getFirstName;
+-(NSString*)getLastName;
+-(NSString*)getEmailAddress;
 @end
