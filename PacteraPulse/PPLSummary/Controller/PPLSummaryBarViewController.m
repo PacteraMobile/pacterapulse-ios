@@ -14,7 +14,7 @@
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
 
-@interface PPLSummaryBarViewController ()
+@interface PPLSummaryBarViewController ()<UIAlertViewDelegate>
 
 @property(nonatomic, strong) CPTGraphHostingView *hostingView;
 @property(nonatomic, strong) PPLColoredBarChart *barItem;
@@ -68,21 +68,19 @@
     if([instance checkIfLoggedIn:nil])
     {
         [instance logoutUser];
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
         UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Logout operation."
+                              initWithTitle:@"Logout operation"
                               message:sPPLSummaryLogoutAlert
                               delegate:self
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
-        //[alert show];
+        [alert show];
         alert = nil;
     }
     else
     {
         UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Logout operation."
+                              initWithTitle:@"Logout operation"
                               message:sPPLSummaryLogoutPrompts
                               delegate:self
                               cancelButtonTitle:@"OK"
@@ -90,6 +88,12 @@
         [alert show];
         alert = nil;
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //For all operation, go to homepage
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma Voted Notification View
@@ -166,7 +170,7 @@
             break;
         }
         [self fetchRemoteData:period];
-        [self setTitle:[NSString stringWithFormat:@"%@ %@",period,sPPLSummaryTilte]];
+        [self setTitle:[NSString stringWithFormat:@"%@ %@",title,sPPLSummaryTilte]];
     }
 }
 
@@ -236,9 +240,9 @@
                else
                {
                    UIAlertView *alert = [[UIAlertView alloc]
-                           initWithTitle:@"Error"
+                           initWithTitle:@"Network Error"
                                  message:sPPLSummaryFetchDataFailed
-                                delegate:self
+                                delegate:nil
                        cancelButtonTitle:@"OK"
                        otherButtonTitles:nil];
                    [alert show];
