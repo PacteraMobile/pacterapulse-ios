@@ -9,10 +9,9 @@
 #import "PPLUtils.h"
 #import <UIKit/UIKit.h>
 #import "PPLVoteViewController.h"
+#import "AppDelegate.h"
 
 @implementation PPLUtils
-NSString *const kStoryboardId = @"Main";
-NSString *const kLaunchScreen = @"launchController";
 
 /**
  *  Method to get singleton instance for PPUtils class
