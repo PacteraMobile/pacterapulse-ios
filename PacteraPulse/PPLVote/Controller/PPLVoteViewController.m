@@ -18,6 +18,7 @@
 #import "PPLSummaryBarViewController.h"
 #import "PPLAuthenticationController.h"
 #import "PPLVoteDetailViewController.h"
+#import "PPLUtils.h"
 static NSString *kViewTitle = @"How Do You Feel Today?";
 
 @interface PPLVoteViewController ()
@@ -62,6 +63,12 @@ enum voteAction
 
     [self loadToken];
 }
+
+- (void)showLaunch:(id)sender
+{
+    [[PPLUtils sharedInstance] showLaunch:self];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -115,6 +122,64 @@ enum voteAction
 }
 - (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
 
+/**
+ *  Tap gesture to submit the feedback to the server and go to summary screen on
+ *success
+ *
+ *  @param recognizer singleTao gesture
+ */
+- (void)handleClick:(id)sender
+{
+    UIView *senderView = (UIView *)sender;
+    currentFeedback = (FeedBackType)senderView.tag;
+    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
+    
+    //TODO: Move this to vote detail
+    //    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
+    //
+    //    if ([voteManager checkIfVoteSubmittedToday])
+    //    {
+    //        voteState = VOTE_NOT_SUBMITTED;
+    //        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
+    //    }
+    //    else
+    //    {
+    //        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //
+    //        // Send the feedback via data model, we provide two callbacks one for
+    //        // success and one for failure
+    //        [[PPLVoteData shareInstance]
+    //            sendFeedback:[NSString stringWithFormat:@"%ld", (long)sourceTag]
+    //                callBack:^(BOOL status, NSString *serverResponse,
+    //                           NSError *error) {
+    //                  if (status)
+    //                  {
+    //                      voteState = VOTE_SUBMITTED;
+    //                      [voteManager
+    //                          recordVoteSubmission:
+    //                              [NSString
+    //                                  stringWithFormat:@"%ld", (long)sourceTag]];
+    //                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    //                      [self performSegueWithIdentifier:kVoteDetailSegeId
+    //                                                sender:nil];
+    //                  }
+    //                  else
+    //                  {
+    //                      UIAlertView *alert = [[UIAlertView alloc]
+    //                              initWithTitle:@"Error"
+    //                                    message:
+    //                                        @"Issue submitting feedback to server"
+    //                                   delegate:nil
+    //                          cancelButtonTitle:@"OK"
+    //                          otherButtonTitles:nil];
+    //                      [alert show];
+    //                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    //                  }
+    //
+    //                }];
+    //    }
+}
+
 #pragma mark - TableView Datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 1; }
 
@@ -140,63 +205,7 @@ enum voteAction
     return cell;
 }
 
-/**
- *  Tap gesture to submit the feedback to the server and go to summary screen on
- *success
- *
- *  @param recognizer singleTao gesture
- */
-- (void)handleClick:(id)sender
-{
-    UIView *senderView = (UIView *)sender;
-    currentFeedback = (FeedBackType)senderView.tag;
-    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
 
-    //TODO: Move this to vote detail
-//    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
-//
-//    if ([voteManager checkIfVoteSubmittedToday])
-//    {
-//        voteState = VOTE_NOT_SUBMITTED;
-//        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
-//    }
-//    else
-//    {
-//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//
-//        // Send the feedback via data model, we provide two callbacks one for
-//        // success and one for failure
-//        [[PPLVoteData shareInstance]
-//            sendFeedback:[NSString stringWithFormat:@"%ld", (long)sourceTag]
-//                callBack:^(BOOL status, NSString *serverResponse,
-//                           NSError *error) {
-//                  if (status)
-//                  {
-//                      voteState = VOTE_SUBMITTED;
-//                      [voteManager
-//                          recordVoteSubmission:
-//                              [NSString
-//                                  stringWithFormat:@"%ld", (long)sourceTag]];
-//                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//                      [self performSegueWithIdentifier:kVoteDetailSegeId
-//                                                sender:nil];
-//                  }
-//                  else
-//                  {
-//                      UIAlertView *alert = [[UIAlertView alloc]
-//                              initWithTitle:@"Error"
-//                                    message:
-//                                        @"Issue submitting feedback to server"
-//                                   delegate:nil
-//                          cancelButtonTitle:@"OK"
-//                          otherButtonTitles:nil];
-//                      [alert show];
-//                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//                  }
-//
-//                }];
-//    }
-}
 
 #pragma mark -TableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView
@@ -224,45 +233,6 @@ enum voteAction
 {
     voteState = VOTE_NO_ACTION;
     [self performSegueWithIdentifier:kSummarySegueId sender:nil];
-}
-/**
- *  This function shows the launch screen which has instructions
- *
- *  @param sender Initiator for this function
- */
-- (void)showLaunch:(id)sender
-{
-    // Get all the View Controllers from this Navigation Controllers
-    NSArray *navigationViews = self.navigationController.viewControllers;
-    UIStoryboard *storyboard =
-        [UIStoryboard storyboardWithName:kStoryboardId bundle:nil];
-    // First of all check if Voting screen is the first view controller or not
-    // because if Vote controller is the root view controller it means the
-    // application
-    // was not launched for the rist time and at initialization the voting
-    // screen
-    // became the root controller for this view.
-    if (navigationViews[0] == self)
-    {
-        // Initialise the launch view controller, this will be inserted in the
-        // navigation controller
-        UIViewController *initViewController =
-            [storyboard instantiateViewControllerWithIdentifier:kLaunchScreen];
-        // Initialize a temporary array with all view controllers
-        NSMutableArray *tempArray =
-            [[NSMutableArray alloc] initWithArray:navigationViews];
-        // Insert the newly created controller as the first element of array of
-        // view controllers
-        [tempArray insertObject:initViewController atIndex:0];
-        // Set this newly arranged Array of view controllers as the views
-        // managed
-        // by the current navigation controller, which means the newly created
-        // launch controller is at the root now.
-        [self.navigationController setViewControllers:tempArray];
-    }
-
-    // After all the modifications (if done) go to the root controller
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 /**
  *  Before showing the summary graph we need to show the destination controller

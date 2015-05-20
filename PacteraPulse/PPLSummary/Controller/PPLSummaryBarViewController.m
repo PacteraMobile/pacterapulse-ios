@@ -10,8 +10,10 @@
 #import "PPLColoredBarChart.h"
 #import "PPLSummaryData.h"
 #import "PPLSummaryGenerals.h"
+#import "PPLAuthenticationController.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
+#import "PPLUtils.h"
 
 @interface PPLSummaryBarViewController ()
 
@@ -49,9 +51,47 @@
     self.barItem = [[PPLColoredBarChart alloc] init];
     self.alertView = nil;
     [self configureHost];
-    [self setTitle:sPPLSummaryTilte];
+    [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
+    UIBarButtonItem *rightButton =
+    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+                                     style:UIBarButtonItemStyleDone
+                                    target:self
+                                    action:@selector(LogoutSession)];
+    self.navigationItem.rightBarButtonItem = rightButton;
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
+}
+
+#pragma logout page
+- (void)LogoutSession
+{
+    PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
+    if([instance checkIfLoggedIn:nil])
+    {
+        [instance logoutUser];
+        [[PPLUtils sharedInstance] showLaunch:self];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Logout operation."
+                              message:sPPLSummaryLogoutAlert
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        //[alert show];
+        alert = nil;
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Logout operation."
+                              message:sPPLSummaryLogoutPrompts
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        alert = nil;
+    }
 }
 
 #pragma Voted Notification View
@@ -118,10 +158,11 @@
             break;
         case 1:
             period = sResultPeriodWeek;
-                //title = ;
+            title = sResultPeriodWeekTitle;
             break;
         case 2:
             period = sResultPeriodMonth;
+            title = sResultPeriodMonthTitle;
             break;
         default:
             break;

@@ -22,7 +22,6 @@
 		704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */; };
 		705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026431B0AE85100B31919 /* PPLAuthenticationTests.m */; };
 		7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */; };
-		7050264E1B0AF3DE00B31919 /* PPLAuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */; };
 		705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */; };
 		705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 705026581B0B04EB00B31919 /* AuthenticationSettings.plist */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
@@ -85,8 +84,6 @@
 		705026431B0AE85100B31919 /* PPLAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationTests.m; sourceTree = "<group>"; };
 		705026491B0AEB9600B31919 /* PPLAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationController.h; sourceTree = "<group>"; };
 		7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationController.m; sourceTree = "<group>"; };
-		7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationModel.h; sourceTree = "<group>"; };
-		7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationModel.m; sourceTree = "<group>"; };
 		705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationSettings.h; sourceTree = "<group>"; };
 		705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationSettings.m; sourceTree = "<group>"; };
 		705026581B0B04EB00B31919 /* AuthenticationSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthenticationSettings.plist; sourceTree = "<group>"; };
@@ -264,8 +261,6 @@
 		705026481B0AE93300B31919 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7050264C1B0AF3DE00B31919 /* PPLAuthenticationModel.h */,
-				7050264D1B0AF3DE00B31919 /* PPLAuthenticationModel.m */,
 				705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */,
 				705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */,
 			);
@@ -669,7 +664,6 @@
 				3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */,
 				70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */,
 				6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */,
-				7050264E1B0AF3DE00B31919 /* PPLAuthenticationModel.m in Sources */,
 				7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
