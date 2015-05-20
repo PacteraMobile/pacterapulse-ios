@@ -91,7 +91,7 @@
     self.segmentControlView = [[UISegmentedControl alloc]
         initWithItems:[NSArray arrayWithObjects:sResultPeriodDayTitle,
                                                 sResultPeriodWeekTitle,
-                                                sResultPeriodMonth, nil]];
+                                                sResultPeriodMonthTitle, nil]];
     [self.segmentControlView addTarget:self
                                 action:@selector(ShowBarChartInPeriod:)
                       forControlEvents:UIControlEventValueChanged];
