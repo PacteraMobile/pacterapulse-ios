@@ -11,7 +11,6 @@
 #define GOOD_BAD_LABEL_FONT [UIFont systemFontOfSize:11.0f]
 @interface PPLVoteContentQuestionView ()
 @property(nonatomic, strong) NSString *labelContent;
-@property(nonatomic, assign) FeedBackType feedBack;
 @end
 
 @implementation PPLVoteContentQuestionView
@@ -24,13 +23,11 @@ NSString *const goodLabelString = @"Good";
 NSString *const badLabelString = @"Bad";
 
 - (instancetype)initContentQuestionViewWithFrame:(CGRect)frame
-                                withLabelContent:(NSString *)content withFeedBackType:(FeedBackType)feedback;{
+                                withLabelContent:(NSString *)content{
   self = [super initWithFrame:frame];
   if (self) {
     self.labelContent = content;
-    self.feedBack=feedback;
     [self initVoteContentView:frame];
-    [self setDefaultValueForSliderbar];
   }
   return self;
 }
@@ -50,6 +47,9 @@ NSString *const badLabelString = @"Bad";
       initWithFrame:CGRectMake(processPaddingLeft,
                                CGRectGetMaxY(contentLabel.frame) + paddingTop,
                                (frameWidth - processPaddingLeft * 2), 12.0f)];
+  [self.contentSilderView setMaximumTrackTintColor:HAPPY_COLOR];
+  [self.contentSilderView setMinimumTrackTintColor:UNHAPPY_COLOR];
+  [self.contentSilderView setThumbTintColor:SOSO_COLOR];
 
   UILabel *badLabel = [[UILabel alloc]
       initWithFrame:CGRectMake(processPaddingLeft,
@@ -74,21 +74,21 @@ NSString *const badLabelString = @"Bad";
   [self addSubview:goodLabel];
 }
 
-- (void)setDefaultValueForSliderbar {
-  switch (self.feedBack) {
+- (void)setFeedBack:(FeedBackType)feedBack
+{
+  switch (feedBack) {
     case kHappyIcon:
       self.contentSilderView.value = 0.7;
       break;
     case kSosoIcon:
       self.contentSilderView.value = 0.5;
       break;
-      case kUnHappyIcon:
+    case kUnHappyIcon:
       self.contentSilderView.value = 0.2;
-      break;
-    default:
       break;
   }
 }
+
 
 
 @end
