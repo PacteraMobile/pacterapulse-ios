@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PPLVoteContentView.h"
+#import "PPLVoteMainViewController.h"
 
 @interface PPLVoteDetailViewController : UIViewController
 @property(nonatomic, assign) FeedBackType feedBack;
+
+@property (strong, nonatomic)  PPLVoteMainViewController *pageController;
 
 @end

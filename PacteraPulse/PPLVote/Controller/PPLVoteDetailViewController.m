@@ -41,6 +41,12 @@ enum voteAction {
   self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.voteContentView setFeedBack:self.feedBack];
+
+}
+
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.

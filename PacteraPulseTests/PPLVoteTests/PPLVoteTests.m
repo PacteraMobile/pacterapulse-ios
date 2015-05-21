@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "PPLVoteData.h"
 @interface PPLVoteTests : XCTestCase
 
 @end
