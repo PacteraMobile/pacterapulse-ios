@@ -101,18 +101,6 @@ NSUInteger currentIndex = 0;
     return [self.myViewControllers objectAtIndex:currentIndex];
 }
 
--(NSInteger)presentationCountForPageViewController:
-(UIPageViewController *)pageViewController
-{
-    return self.myViewControllers.count;
-}
-
--(NSInteger)presentationIndexForPageViewController:
-(UIPageViewController *)pageViewController
-{
-    return currentIndex;
-}
-
 #pragma -mark Navigation
 - (void)showResult:(id)sender
 {

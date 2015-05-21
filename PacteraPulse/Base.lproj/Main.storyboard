@@ -157,6 +157,7 @@
         <scene sceneID="FSQ-F9-nw7">
             <objects>
                 <pageViewController storyboardIdentifier="mainVoteController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="lkB-HO-AP7" customClass="PPLVoteMainViewController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <segue destination="oFr-5i-fGY" kind="show" identifier="toSummary" id="8sX-sL-mOx"/>
                     </connections>
