@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "PPLVoteContentView.h"
 #import "PPLVoteContentQuestionView.h"
 #import "PPLUtils.h"
+#import "PPLVoteContentView.h"
 @interface PPLVoteDetailTests : XCTestCase
 
 @end

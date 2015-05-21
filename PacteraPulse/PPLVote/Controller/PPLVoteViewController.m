@@ -30,10 +30,8 @@ static NSString *kViewTitle = @"How Do You Feel Today?";
 
 @implementation PPLVoteViewController
 
-NSString *const kSummarySegueId = @"toSummary";
 NSString *const kVoteDetailSegeId = @"showVoteDetail";
 NSString *const kCellId = @"voteCell";
-NSString *const kNavigationButtonTitle = @"Info";
 NSInteger const kPadding = 10;
 FeedBackType currentFeedback = 0;
 
@@ -43,25 +41,11 @@ FeedBackType currentFeedback = 0;
     self.data = [PPLVoteRow initObjects];
     self.tableView.contentInset = UIEdgeInsetsZero;
     self.title = kViewTitle;
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-        initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                             target:self
-                             action:@selector(showResult:)];
-    UIBarButtonItem *leftButton =
-        [[UIBarButtonItem alloc] initWithTitle:kNavigationButtonTitle
-                                         style:UIBarButtonItemStyleDone
-                                        target:self
-                                        action:@selector(showLaunch:)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    self.navigationItem.leftBarButtonItem = leftButton;
-
+    
     [self loadToken];
 }
 
-- (void)showLaunch:(id)sender
-{
-    [[PPLUtils sharedInstance] showLaunch:self];
-}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -126,7 +110,16 @@ FeedBackType currentFeedback = 0;
 {
     UIView *senderView = (UIView *)sender;
     currentFeedback = (FeedBackType)senderView.tag;
-    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
+    //TODO: remove later
+    //[self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
+    
+    PPLVoteDetailViewController *destinationController =self.pageController.myViewControllers.lastObject;
+    
+    destinationController.feedBack = currentFeedback;
+    NSArray *temp = [[NSArray alloc] initWithObjects:destinationController,nil];
+    
+    
+    [self.pageController setViewControllers:temp direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
     //TODO: Move this to vote detail
     //    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
@@ -223,47 +216,8 @@ FeedBackType currentFeedback = 0;
 }
 
 #pragma mark - Navigation
-- (void)showResult:(id)sender
-{
-    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
-}
-/**
- *  Before showing the summary graph we need to show the destination controller
- *  if on this screen the vote was submitted or not, or if its directly
- *  navigating to the summary without voting, so it can show the alert
- *  accordingly
- *
- *  @param segue  segue for finding destination
- *  @param sender initiator of this segue
- */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:kSummarySegueId])
-    {
-        //TODO: Move this to the detail screen
-//        PPLSummaryBarViewController *destinationController =
-//            (PPLSummaryBarViewController *)segue.destinationViewController;
-//
-//        // Check the current vote state and set the variable for destination
-//        switch (voteState)
-//        {
-//        case VOTE_NOT_SUBMITTED:
-//            destinationController.shouldShowAlert = YES;
-//            break;
-//        case VOTE_NO_ACTION:
-//        case VOTE_SUBMITTED:
-//            destinationController.shouldShowAlert = NO;
-//            break;
-//        }
-    }
-    else if([segue.identifier isEqualToString:kVoteDetailSegeId])
-    {
-        PPLVoteDetailViewController *destinationController =
-                (PPLVoteDetailViewController*)segue.destinationViewController;
-        
-        destinationController.feedBack = currentFeedback;
-    }
-}
+
+
 #pragma - mark UIAllertViewDelegate
 - (void)alertView:(UIAlertView *)alertView
     clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -314,7 +268,7 @@ FeedBackType currentFeedback = 0;
     case 1:
     {
         [alertView dismissWithClickedButtonIndex:1 animated:NO];
-        [self showLaunch:nil];
+        [self.pageController showLaunch:nil];
         break;
     }
     default:
