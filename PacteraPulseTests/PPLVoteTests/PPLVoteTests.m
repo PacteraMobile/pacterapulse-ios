@@ -28,6 +28,7 @@
 }
 
 - (void)testFeedbackSubmitted {
+  //  TODO update the test case, or remove it into the votedetail testcase
   //    PPLVoteData *dataModel = [PPLVoteData shareInstance];
   //    XCTestExpectation *completionExpectation = [self
   //    expectationWithDescription:@"Checkin Submitted Fetch"];
