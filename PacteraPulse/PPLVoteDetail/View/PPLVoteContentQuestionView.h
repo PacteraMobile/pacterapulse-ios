@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPLUtils.h"
 #define UNHAPPY_COLOR                                                          \
   [UIColor colorWithRed:199.0f / 255.0f                                        \
                   green:241.0f / 255.0f                                        \
@@ -37,12 +38,19 @@
                   green:108.0f / 255.0f                                        \
                    blue:97.0f / 255.0f                                         \
                   alpha:1.0f]
-typedef enum { kHappyIcon, kSosoIcon, kUnHappyIcon } FeedBackType;
 
 @interface PPLVoteContentQuestionView : UIView
 @property(nonatomic, strong) UISlider *contentSilderView;
 @property(nonatomic, assign) FeedBackType feedBack;
-
+/**
+ *  Initialize each question view,it includes question describe words, slide
+ *  view, bad-good label
+ *
+ *  @param frame   set frame for the view
+ *  @param content set question content
+ *
+ *  @return PPLVoteContentQuestionView object
+ */
 - (instancetype)initContentQuestionViewWithFrame:(CGRect)frame
                                 withLabelContent:(NSString *)content;
 

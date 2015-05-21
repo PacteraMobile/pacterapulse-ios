@@ -21,9 +21,17 @@ CGFloat const badGoodLabelWidth = 45.0f;
 CGFloat const badGoodLabelHeigth = 25.0f;
 NSString *const goodLabelString = @"Good";
 NSString *const badLabelString = @"Bad";
-
+/**
+ *  Initialize each question view,it includes question describe words, slide
+ *  view, bad-good label
+ *
+ *  @param frame   set frame for the view
+ *  @param content set question content
+ *
+ *  @return PPLVoteContentQuestionView object
+ */
 - (instancetype)initContentQuestionViewWithFrame:(CGRect)frame
-                                withLabelContent:(NSString *)content{
+                                withLabelContent:(NSString *)content {
   self = [super initWithFrame:frame];
   if (self) {
     self.labelContent = content;
@@ -31,7 +39,15 @@ NSString *const badLabelString = @"Bad";
   }
   return self;
 }
-
+/**
+ *  Add Question Label, the font is SYSTEM with 14.0f size, font color is
+ *  default black
+ *  Add Slider View, the MinTrackTinkColor is the same as the UnHappy button
+ *  Color, the MaxTrackTinkColor is the same as the Happy button Color
+ *  Add good label ,add bad label, the font is SYSTEM with 11.of size,font color
+ *  is default black
+ *  @param frame
+ */
 - (void)initVoteContentView:(CGRect)frame {
   CGFloat frameHeight = CGRectGetHeight(frame);
   CGFloat frameWidth = CGRectGetWidth(frame);
@@ -49,7 +65,6 @@ NSString *const badLabelString = @"Bad";
                                (frameWidth - processPaddingLeft * 2), 12.0f)];
   [self.contentSilderView setMaximumTrackTintColor:HAPPY_COLOR];
   [self.contentSilderView setMinimumTrackTintColor:UNHAPPY_COLOR];
-  [self.contentSilderView setThumbTintColor:SOSO_COLOR];
 
   UILabel *badLabel = [[UILabel alloc]
       initWithFrame:CGRectMake(processPaddingLeft,
@@ -62,7 +77,8 @@ NSString *const badLabelString = @"Bad";
   UILabel *goodLabel = [[UILabel alloc]
       initWithFrame:CGRectMake(
                         (frameWidth - badGoodLabelWidth - processPaddingLeft),
-                        CGRectGetMaxY(self.contentSilderView.frame) + paddingTop,
+                        CGRectGetMaxY(self.contentSilderView.frame) +
+                            paddingTop,
                         badGoodLabelWidth, badGoodLabelHeigth)];
   [goodLabel setText:goodLabelString];
   [goodLabel setTextAlignment:NSTextAlignmentRight];
@@ -73,22 +89,25 @@ NSString *const badLabelString = @"Bad";
   [self addSubview:badLabel];
   [self addSubview:goodLabel];
 }
-
-- (void)setFeedBack:(FeedBackType)feedBack
-{
+/**
+ *  Set default Slider Value for each feedback status
+ *  0.2 for unHappy status
+ *  0.5 for soso status
+ *  0.7 for happy status
+ *  @param feedBack FeedBackType
+ */
+- (void)setFeedBack:(FeedBackType)feedBack {
   switch (feedBack) {
-    case kHappyIcon:
-      self.contentSilderView.value = 0.7;
-      break;
-    case kSosoIcon:
-      self.contentSilderView.value = 0.5;
-      break;
-    case kUnHappyIcon:
-      self.contentSilderView.value = 0.2;
-      break;
+  case kHappyIcon:
+    self.contentSilderView.value = 0.7;
+    break;
+  case kSosoIcon:
+    self.contentSilderView.value = 0.5;
+    break;
+  case kUnHappyIcon:
+    self.contentSilderView.value = 0.2;
+    break;
   }
 }
-
-
 
 @end

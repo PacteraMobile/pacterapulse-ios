@@ -11,7 +11,7 @@
 #import "PPLUtils.h"
 
 #ifdef DEBUG
-static NSString* kServerBaseURL = @"http://pacterapulse-sit.elasticbeanstalk.com/";
+static NSString* kServerBaseURL = @"http://pacterapulse-dev.elasticbeanstalk.com/";
 #else
 static NSString* kServerBaseURL = @"http://pacterapulse-sit.elasticbeanstalk.com/";
 #endif

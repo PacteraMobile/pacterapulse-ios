@@ -10,11 +10,11 @@
 #import "PPLVoteContentQuestionView.h"
 
 @interface PPLVoteContentView : UIView
-@property(nonatomic, strong)NSString *userName;
+@property(nonatomic, strong) NSString *userName;
 @property(nonatomic, assign) FeedBackType feedBack;
 @property(nonatomic, strong) UIButton *submitButton;
 
 - (instancetype)initViewWithFrame:(CGRect)frame;
-- (NSArray*)fetchVoteComments;
+- (NSArray *)fetchVoteComments;
 
 @end
