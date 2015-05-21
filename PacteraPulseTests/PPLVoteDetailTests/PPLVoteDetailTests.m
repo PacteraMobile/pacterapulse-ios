@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "PPLVoteContentQuestionView.h"
 #import "PPLUtils.h"
+#import "PPLVoteContentView.h"
 @interface PPLVoteDetailTests : XCTestCase
 
 @end
