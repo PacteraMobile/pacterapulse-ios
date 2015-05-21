@@ -7,6 +7,7 @@
 //
 #import "PPLColoredBarChart.h"
 #import "PPLSummaryGenerals.h"
+#import "PPLUtils.h"
 
 @interface PPLColoredBarChart ()
 
@@ -122,19 +123,19 @@
     case 0:
         color = [CPTColor cyanColor];
         break;
-    case 1:
+    case kHappyIcon + 1://0 base to 1 base
         color = [CPTColor colorWithComponentRed:253.0 / 255.0
                                           green:239.0 / 255.0
                                            blue:200.0 / 255.0
                                           alpha:1.0];
         break;
-    case 2:
+    case kSosoIcon + 1:
         color = [CPTColor colorWithComponentRed:220.0 / 255.0
                                           green:215.0 / 255.0
                                            blue:255.0 / 255.0
                                           alpha:1.0];
         break;
-    case 3:
+    case kUnHappyIcon + 1:
         color = [CPTColor colorWithComponentRed:198.0 / 255.0
                                           green:241.0 / 255.0
                                            blue:255.0 / 255.0
@@ -158,13 +159,13 @@
             objectForKey:kEmotion] integerValue];
     switch (indexOfEmotion)
     {
-    case 0:
+    case kHappyIcon:
         titleForEmotions = sBarchartSubtitleHappy;
         break;
-    case 1:
+    case kSosoIcon:
         titleForEmotions = sBarchartSubtileSoso;
         break;
-    case 2:
+    case kUnHappyIcon:
         titleForEmotions = sBarchartSubtitleUnhappy;
         break;
     default:

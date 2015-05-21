@@ -156,15 +156,15 @@
         NSString *title = sResultPeriodDayTitle;
         switch (paramSender.selectedSegmentIndex)
         {
-        case 0:
+        case k24HourReport:
             period = sResultPeriodDay;
             title = sResultPeriodDayTitle;
             break;
-        case 1:
+        case k7DayReport:
             period = sResultPeriodWeek;
             title = sResultPeriodWeekTitle;
             break;
-        case 2:
+        case k30DayReport:
             period = sResultPeriodMonth;
             title = sResultPeriodMonthTitle;
             break;

@@ -45,5 +45,7 @@ static NSString* const kEmotionValue = @"count";
 static NSString* const sResultPeriodDayTitle = @"24 Hours";
 static NSString* const sResultPeriodWeekTitle = @"7 Days";
 static NSString* const sResultPeriodMonthTitle = @"30 Days";
+//Report type, which is the same order of Segment control
+typedef enum { k24HourReport, k7DayReport, k30DayReport } ReportPeriodType;
 
 #endif
