@@ -11,6 +11,7 @@
 #import "PPLVoteManagerClass.h"
 #import "MBProgressHUD.h"
 #import "PPLVoteData.h"
+#import "PPLSummaryBarViewController.h"
 @interface PPLVoteDetailViewController ()
 @property(nonatomic, strong) PPLVoteContentView *voteContentView;
 @property(nonatomic, strong) PPLVoteData *voteData;
@@ -63,7 +64,6 @@ enum voteAction {
 }
 
 - (IBAction)clickSubmitButton:(id)sender {
-  [self performSegueWithIdentifier:kSummaryPageSegueId sender:nil];
   PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
   NSArray *comments = [self.voteContentView fetchVoteComments];
   [self.voteData setComments:comments];
@@ -97,6 +97,24 @@ enum voteAction {
           }
 
         }];
+  }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:kSummaryPageSegueId]) {
+    PPLSummaryBarViewController *destinationController =
+        (PPLSummaryBarViewController *)segue.destinationViewController;
+
+    // Check the current vote state and set the variable for destination
+    switch (voteState) {
+    case VOTE_NOT_SUBMITTED:
+      destinationController.shouldShowAlert = YES;
+      break;
+    case VOTE_NO_ACTION:
+    case VOTE_SUBMITTED:
+      destinationController.shouldShowAlert = NO;
+      break;
+    }
   }
 }
 

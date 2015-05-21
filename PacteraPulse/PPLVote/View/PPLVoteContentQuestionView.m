@@ -98,13 +98,13 @@ NSString *const badLabelString = @"Bad";
  */
 - (void)setFeedBack:(FeedBackType)feedBack {
   switch (feedBack) {
-  case kHappyIcon:
+  case kHappy:
     self.contentSilderView.value = 0.7;
     break;
-  case kSosoIcon:
+  case kSoso:
     self.contentSilderView.value = 0.5;
     break;
-  case kUnHappyIcon:
+  case kUnHappy:
     self.contentSilderView.value = 0.2;
     break;
   }

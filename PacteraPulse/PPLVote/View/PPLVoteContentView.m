@@ -173,32 +173,32 @@ NSString *const kMainTitleContent = @"We would love to hear more";
 - (void)setFeedBack:(FeedBackType)feedBack {
   NSString *imageName = @"";
   switch (feedBack) {
-  case kHappyIcon:
+  case kHappy:
     imageName = @"happyIcon";
     [self.submitButton setBackgroundColor:HAPPY_COLOR];
     [self.submitButton setTitleColor:HAPPY_FONT_COLOR
                             forState:UIControlStateNormal];
-    self.projectQuestionView.feedBack = kHappyIcon;
-    self.communicationQuestionView.feedBack = kHappyIcon;
-    self.workQuestionView.feedBack = kHappyIcon;
+    self.projectQuestionView.feedBack = kHappy;
+    self.communicationQuestionView.feedBack = kHappy;
+    self.workQuestionView.feedBack = kHappy;
     break;
-  case kSosoIcon:
+  case kSoso:
     imageName = @"sosoIcon";
     [self.submitButton setBackgroundColor:SOSO_COLOR];
     [self.submitButton setTitleColor:SOSO_FONT_COLOR
                             forState:UIControlStateNormal];
-    self.projectQuestionView.feedBack = kSosoIcon;
-    self.communicationQuestionView.feedBack = kSosoIcon;
-    self.workQuestionView.feedBack = kSosoIcon;
+    self.projectQuestionView.feedBack = kSoso;
+    self.communicationQuestionView.feedBack = kSoso;
+    self.workQuestionView.feedBack = kSoso;
     break;
-  case kUnHappyIcon:
+  case kUnHappy:
     imageName = @"unhappyIcon";
     [self.submitButton setBackgroundColor:UNHAPPY_COLOR];
     [self.submitButton setTitleColor:UNHAPPY_FONT_COLOR
                             forState:UIControlStateNormal];
-    self.projectQuestionView.feedBack = kUnHappyIcon;
-    self.communicationQuestionView.feedBack = kUnHappyIcon;
-    self.workQuestionView.feedBack = kUnHappyIcon;
+    self.projectQuestionView.feedBack = kUnHappy;
+    self.communicationQuestionView.feedBack = kUnHappy;
+    self.workQuestionView.feedBack = kUnHappy;
     break;
   }
   [self.emotionView setImage:[UIImage imageNamed:imageName]];

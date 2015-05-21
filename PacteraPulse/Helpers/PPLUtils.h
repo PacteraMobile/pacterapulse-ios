@@ -17,16 +17,17 @@
  */
 + (PPLUtils *)sharedInstance;
 /**
- *  Function to get unique ID for this device, this is used for submitting feedback to the server
+ *  Function to get unique ID for this device, this is used for submitting
+ *feedback to the server
  *
  *  @return unique ID for this device
  */
--(NSString*)getUniqueId;
+- (NSString *)getUniqueId;
 
--(NSUserDefaults *)getStandardUserDefaults;
+- (NSUserDefaults *)getStandardUserDefaults;
 
-- (void)showLaunch:(UIViewController*)sender;
+- (void)showLaunch:(UIViewController *)sender;
 
-typedef enum { kHappyIcon, kSosoIcon, kUnHappyIcon } FeedBackType;
+typedef enum { kHappy, kSoso, kUnHappy } FeedBackType;
 
 @end
