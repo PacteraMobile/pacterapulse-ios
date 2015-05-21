@@ -10,11 +10,7 @@
 		3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C28F5491AE8D5B700457923 /* PlotItem.m */; };
 		3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C28F5631AE8DC5C00457923 /* Accelerate.framework */; };
 		3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7AF0111AE9EBC600106662 /* PPLSummaryData.m */; };
-		3CC726611B0D5D9F00B793A6 /* PPLVoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC726601B0D5D9F00B793A6 /* PPLVoteData.m */; };
-		3CDD84C41B0ACCF800F490B1 /* PPLVoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84C31B0ACCF800F490B1 /* PPLVoteDetailViewController.m */; };
-		3CDD84C81B0AD4F600F490B1 /* PPLVoteContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */; };
 		3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */; };
-		3CDD84CF1B0B040B00F490B1 /* PPLVoteContentQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */; };
 		6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8A1AE883C10036447F /* Main.storyboard */; };
 		6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8F1AE883C10036447F /* LaunchScreen.xib */; };
 		6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BEE1AEE05C60036447F /* PPLSummaryBarViewController.m */; };
@@ -26,6 +22,11 @@
 		705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 705026581B0B04EB00B31919 /* AuthenticationSettings.plist */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
 		709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 709441751AF04C6E006C30EB /* PPLVoteRow.m */; };
+		709F7FD41B0D889200B6CB6E /* PPLVoteMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FD31B0D889200B6CB6E /* PPLVoteMainViewController.m */; };
+		709F7FDF1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */; };
+		709F7FE01B0D8BF900B6CB6E /* PPLVoteContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */; };
+		709F7FE91B0D8C8B00B6CB6E /* PPLVoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */; };
+		70A6D11B1B0D9A2A00720272 /* PPLVoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */; };
 		70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB01AE8B3C0003C006C /* AppDelegate.m */; };
 		70C5FDB81AE8B3C0003C006C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB21AE8B3C0003C006C /* main.m */; };
 		70C5FDBC1AE8B42F003C006C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FDBB1AE8B42F003C006C /* Images.xcassets */; };
@@ -57,18 +58,10 @@
 		3C28F5631AE8DC5C00457923 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3C7AF0101AE9EBC600106662 /* PPLSummaryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLSummaryData.h; sourceTree = "<group>"; };
 		3C7AF0111AE9EBC600106662 /* PPLSummaryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLSummaryData.m; sourceTree = "<group>"; };
-		3CC7265F1B0D5D9F00B793A6 /* PPLVoteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteData.h; sourceTree = "<group>"; };
-		3CC726601B0D5D9F00B793A6 /* PPLVoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteData.m; sourceTree = "<group>"; };
 		3CD1A45D1AEDF772006A8875 /* libPods-PacteraPulse-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-AFNetworking.a"; sourceTree = "<group>"; };
 		3CD1A45F1AEDF776006A8875 /* libPods-PacteraPulse-CorePlot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-CorePlot.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-CorePlot.a"; sourceTree = "<group>"; };
 		3CD1A4611AEDF77D006A8875 /* libPods-PacteraPulse-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-MBProgressHUD.a"; sourceTree = "<group>"; };
-		3CDD84C21B0ACCF800F490B1 /* PPLVoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteDetailViewController.h; sourceTree = "<group>"; };
-		3CDD84C31B0ACCF800F490B1 /* PPLVoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailViewController.m; sourceTree = "<group>"; };
-		3CDD84C61B0AD4F600F490B1 /* PPLVoteContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLVoteContentView.h; path = View/PPLVoteContentView.h; sourceTree = "<group>"; };
-		3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLVoteContentView.m; path = View/PPLVoteContentView.m; sourceTree = "<group>"; };
 		3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailTests.m; sourceTree = "<group>"; };
-		3CDD84CD1B0B040B00F490B1 /* PPLVoteContentQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPLVoteContentQuestionView.h; path = View/PPLVoteContentQuestionView.h; sourceTree = "<group>"; };
-		3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPLVoteContentQuestionView.m; path = View/PPLVoteContentQuestionView.m; sourceTree = "<group>"; };
 		6CC95B7D1AE883C10036447F /* PacteraPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PacteraPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC95B8B1AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CC95B901AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -90,6 +83,16 @@
 		70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerTests.m; sourceTree = "<group>"; };
 		709441741AF04C6E006C30EB /* PPLVoteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteRow.h; sourceTree = "<group>"; };
 		709441751AF04C6E006C30EB /* PPLVoteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteRow.m; sourceTree = "<group>"; };
+		709F7FD21B0D889200B6CB6E /* PPLVoteMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteMainViewController.h; sourceTree = "<group>"; };
+		709F7FD31B0D889200B6CB6E /* PPLVoteMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteMainViewController.m; sourceTree = "<group>"; };
+		709F7FDB1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteContentQuestionView.h; sourceTree = "<group>"; };
+		709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteContentQuestionView.m; sourceTree = "<group>"; };
+		709F7FDD1B0D8BF900B6CB6E /* PPLVoteContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteContentView.h; sourceTree = "<group>"; };
+		709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteContentView.m; sourceTree = "<group>"; };
+		709F7FE51B0D8C8B00B6CB6E /* PPLVoteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteData.h; sourceTree = "<group>"; };
+		709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteData.m; sourceTree = "<group>"; };
+		70A6D1191B0D9A2A00720272 /* PPLVoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteDetailViewController.h; sourceTree = "<group>"; };
+		70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailViewController.m; sourceTree = "<group>"; };
 		70C5FDAF1AE8B3C0003C006C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70C5FDB01AE8B3C0003C006C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		70C5FDB11AE8B3C0003C006C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,46 +140,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CC7265E1B0D5D9F00B793A6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3CC7265F1B0D5D9F00B793A6 /* PPLVoteData.h */,
-				3CC726601B0D5D9F00B793A6 /* PPLVoteData.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3CDD84C01B0ACCDF00F490B1 /* PPLVoteDetail */ = {
-			isa = PBXGroup;
-			children = (
-				3CDD84C51B0AD4BE00F490B1 /* View */,
-				3CDD84C11B0ACCDF00F490B1 /* Controller */,
-				3CC7265E1B0D5D9F00B793A6 /* Model */,
-			);
-			path = PPLVoteDetail;
-			sourceTree = "<group>";
-		};
-		3CDD84C11B0ACCDF00F490B1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3CDD84C21B0ACCF800F490B1 /* PPLVoteDetailViewController.h */,
-				3CDD84C31B0ACCF800F490B1 /* PPLVoteDetailViewController.m */,
-			);
-			name = Controller;
-			path = controller;
-			sourceTree = "<group>";
-		};
-		3CDD84C51B0AD4BE00F490B1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3CDD84C61B0AD4F600F490B1 /* PPLVoteContentView.h */,
-				3CDD84C71B0AD4F600F490B1 /* PPLVoteContentView.m */,
-				3CDD84CD1B0B040B00F490B1 /* PPLVoteContentQuestionView.h */,
-				3CDD84CE1B0B040B00F490B1 /* PPLVoteContentQuestionView.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		3CDD84CA1B0AD59500F490B1 /* PPLVoteDetailTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +178,6 @@
 				70C5FDB41AE8B3C0003C006C /* PPLSummary */,
 				705026461B0AE8E000B31919 /* PPLAuthentication */,
 				70C5FDB51AE8B3C0003C006C /* PPLVote */,
-				3CDD84C01B0ACCDF00F490B1 /* PPLVoteDetail */,
 			);
 			path = PacteraPulse;
 			sourceTree = "<group>";
@@ -409,10 +371,14 @@
 		70C5FDD21AE8B6F9003C006C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				70A6D1191B0D9A2A00720272 /* PPLVoteDetailViewController.h */,
+				70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */,
 				704B97BA1B057C6400422C4B /* PPLVoteManagerClass.h */,
 				704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */,
 				70C5FDDB1AE8B8BE003C006C /* PPLVoteViewController.h */,
 				70C5FDDC1AE8B8BE003C006C /* PPLVoteViewController.m */,
+				709F7FD21B0D889200B6CB6E /* PPLVoteMainViewController.h */,
+				709F7FD31B0D889200B6CB6E /* PPLVoteMainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,6 +386,8 @@
 		70C5FDD31AE8B6F9003C006C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				709F7FE51B0D8C8B00B6CB6E /* PPLVoteData.h */,
+				709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */,
 				709441741AF04C6E006C30EB /* PPLVoteRow.h */,
 				709441751AF04C6E006C30EB /* PPLVoteRow.m */,
 			);
@@ -429,6 +397,10 @@
 		70C5FDD41AE8B6F9003C006C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				709F7FDB1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.h */,
+				709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */,
+				709F7FDD1B0D8BF900B6CB6E /* PPLVoteContentView.h */,
+				709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */,
 				70C5FDDE1AE8BA87003C006C /* PPLVoteTableViewCell.h */,
 				70C5FDDF1AE8BA87003C006C /* PPLVoteTableViewCell.m */,
 			);
@@ -657,22 +629,23 @@
 				6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */,
 				70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */,
 				705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */,
-				3CC726611B0D5D9F00B793A6 /* PPLVoteData.m in Sources */,
+				709F7FE91B0D8C8B00B6CB6E /* PPLVoteData.m in Sources */,
 				3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */,
-				3CDD84C41B0ACCF800F490B1 /* PPLVoteDetailViewController.m in Sources */,
-				3CDD84CF1B0B040B00F490B1 /* PPLVoteContentQuestionView.m in Sources */,
-				3CDD84C81B0AD4F600F490B1 /* PPLVoteContentView.m in Sources */,
+				709F7FD41B0D889200B6CB6E /* PPLVoteMainViewController.m in Sources */,
 				70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */,
 				70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */,
 				70C5FDB81AE8B3C0003C006C /* main.m in Sources */,
 				704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */,
 				70C5FDD71AE8B892003C006C /* PPLLaunchViewController.m in Sources */,
 				70C5FDDD1AE8B8BE003C006C /* PPLVoteViewController.m in Sources */,
+				70A6D11B1B0D9A2A00720272 /* PPLVoteDetailViewController.m in Sources */,
 				709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */,
 				3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */,
 				70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */,
 				6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */,
 				7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */,
+				709F7FDF1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m in Sources */,
+				709F7FE01B0D8BF900B6CB6E /* PPLVoteContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

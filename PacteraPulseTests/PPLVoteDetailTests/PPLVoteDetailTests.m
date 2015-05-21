@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "PPLVoteContentView.h"
 #import "PPLVoteContentQuestionView.h"
 #import "PPLVoteDetailViewController.h"
 #import "PPLVoteData.h"
 #import "PPLUtils.h"
 #import <OCMock/OCMock.h>
+#import "PPLVoteContentView.h"
 @interface PPLVoteDetailTests : XCTestCase
 @property(nonatomic, strong) PPLVoteContentView *testVoteContentView;
 @property(nonatomic, strong) PPLVoteDetailViewController *pplVoteViewController;

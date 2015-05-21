@@ -17,6 +17,8 @@
 NSString *const kLauchFirstTime = @"LauchFirstTime";
 NSString *const kLaunchScreen = @"launchController";
 NSString *const kVoteScreen = @"voteController";
+NSString *const kMainScreen = @"mainVoteController";
+
 NSString *const kStoryboardId = @"Main";
 
 
@@ -64,7 +66,7 @@ NSString *const kStoryboardId = @"Main";
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kStoryboardId bundle:nil];
 
-    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:[self checkFirstLaunch]?kLaunchScreen:kVoteScreen];
+    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:[self checkFirstLaunch]?kLaunchScreen:kMainScreen];
     
     return initViewController;
 }
