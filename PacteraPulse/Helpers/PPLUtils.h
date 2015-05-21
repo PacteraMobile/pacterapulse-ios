@@ -27,4 +27,6 @@
 
 - (void)showLaunch:(UIViewController*)sender;
 
+typedef enum { kHappyIcon, kSosoIcon, kUnHappyIcon } FeedBackType;
+
 @end
