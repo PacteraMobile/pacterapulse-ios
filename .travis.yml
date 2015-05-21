@@ -6,3 +6,8 @@ before_install:
 script: 
    - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
    - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
+
+notifications:
+  email:
+    - mobile@pactera.com.au
+    - randy.sun@pactera.com.au
