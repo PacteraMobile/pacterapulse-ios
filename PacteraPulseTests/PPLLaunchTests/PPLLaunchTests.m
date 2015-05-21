@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "AppDelegate.h"
 #import "PPLLaunchViewController.h"
-#import "PPLVoteViewController.h"
+#import "PPLVoteMainViewController.h"
 @interface PPLLaunchTests : XCTestCase
 
 @end
@@ -48,7 +48,7 @@
     }
     else
     {
-        XCTAssertTrue([[delegate selectRootViewController] isKindOfClass:[PPLVoteViewController class]]);
+        XCTAssertTrue([[delegate selectRootViewController] isKindOfClass:[PPLVoteMainViewController class]]);
     }
 }
 
