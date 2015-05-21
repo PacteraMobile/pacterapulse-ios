@@ -55,8 +55,7 @@ NSUInteger currentIndex = 0;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     NSArray *temp = [[NSArray alloc] initWithObjects:self.myViewControllers.firstObject, nil];
     [self setViewControllers:temp direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
