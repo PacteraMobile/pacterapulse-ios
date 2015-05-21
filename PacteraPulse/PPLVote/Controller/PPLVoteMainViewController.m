@@ -79,37 +79,49 @@ NSUInteger currentIndex = 0;
     return self.myViewControllers[index];
 }
 
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-     viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    currentIndex = [self.myViewControllers indexOfObject:viewController];
-    
-    --currentIndex;
-    currentIndex = currentIndex % (self.myViewControllers.count);
-    return [self.myViewControllers objectAtIndex:currentIndex];
-}
-
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-      viewControllerAfterViewController:(UIViewController *)viewController
-{
-    currentIndex = [self.myViewControllers indexOfObject:viewController];
-    
-    ++currentIndex;
-    
-    
-    currentIndex = currentIndex % (self.myViewControllers.count);
-    return [self.myViewControllers objectAtIndex:currentIndex];
-}
-
-#pragma -mark Navigation
-- (void)showResult:(id)sender
-{
-    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
-}
-
-- (void)showLaunch:(id)sender
-{
-    [[PPLUtils sharedInstance] showLaunch:self];
-}
+//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+//     viewControllerBeforeViewController:(UIViewController *)viewController
+//{
+//    currentIndex = [self.myViewControllers indexOfObject:viewController];
+//    
+//    --currentIndex;
+//    currentIndex = currentIndex % (self.myViewControllers.count);
+//    return [self.myViewControllers objectAtIndex:currentIndex];
+//}
+//
+//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+//      viewControllerAfterViewController:(UIViewController *)viewController
+//{
+//    currentIndex = [self.myViewControllers indexOfObject:viewController];
+//    
+//    ++currentIndex;
+//    
+//    
+//    currentIndex = currentIndex % (self.myViewControllers.count);
+//    return [self.myViewControllers objectAtIndex:currentIndex];
+//}
+//
+//-(NSInteger)presentationCountForPageViewController:
+//(UIPageViewController *)pageViewController
+//{
+//    return self.myViewControllers.count;
+//}
+//
+//-(NSInteger)presentationIndexForPageViewController:
+//(UIPageViewController *)pageViewController
+//{
+//    return currentIndex;
+//}
+//
+//#pragma -mark Navigation
+//- (void)showResult:(id)sender
+//{
+//    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+//}
+//
+//- (void)showLaunch:(id)sender
+//{
+//    [[PPLUtils sharedInstance] showLaunch:self];
+//}
 
 @end
