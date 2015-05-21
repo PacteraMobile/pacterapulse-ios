@@ -112,15 +112,16 @@ NSUInteger currentIndex = 0;
 //    return currentIndex;
 //}
 //
-//#pragma -mark Navigation
-//- (void)showResult:(id)sender
-//{
-//    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
-//}
-//
-//- (void)showLaunch:(id)sender
-//{
-//    [[PPLUtils sharedInstance] showLaunch:self];
-//}
+
+#pragma -mark Navigation
+- (void)showResult:(id)sender
+{
+    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+}
+
+- (void)showLaunch:(id)sender
+{
+    [[PPLUtils sharedInstance] showLaunch:self];
+}
 
 @end
