@@ -1,6 +1,7 @@
 language: objective-c
 cache: cocoapods
 before_install:   
+   - gem install cocoapods slather -N
    - pod install
    - brew update
    - brew outdated xctool || brew upgrade xctool
