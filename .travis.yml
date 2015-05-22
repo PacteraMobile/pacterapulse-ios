@@ -10,8 +10,8 @@ script:
    - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
    - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
 after_success:
-	- require 'coveralls'
-	- Coveralls.wear!
+   - require 'coveralls'
+   - Coveralls.wear!
 notifications:
   email:
     - mobile@pactera.com.au
