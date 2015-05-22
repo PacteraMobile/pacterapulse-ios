@@ -1,7 +1,8 @@
 language: objective-c
 cache: cocoapods
+gem 'coveralls', require: false
 before_install:
-   - gem 'coveralls', require: false
+   
    - pod install
    - brew update
    - brew outdated xctool || brew upgrade xctool
