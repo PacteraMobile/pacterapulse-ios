@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "PPLAuthenticationSettings.h"
-
+#import "PPLAuthenticationController.h"
 @interface PPLAuthenticationTests : XCTestCase
 
 @end
@@ -33,7 +33,11 @@
 
 - (void)testLogout{
     //TODO: add proper implementation
-    XCTAssert(YES, @"Pass");
+    PPLAuthenticationController *controller = [PPLAuthenticationController sharedInstance];
+    
+    [controller logoutUser];
+    
+    XCTAssertFalse([controller checkIfLoggedIn:nil]);
 }
 
 - (void)testIfLoggedIn{
