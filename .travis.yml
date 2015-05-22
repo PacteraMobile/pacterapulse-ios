@@ -1,5 +1,7 @@
 language: objective-c
+cache: cocoapods
 before_install:
+   - gem 'coveralls', require: false
    - pod install
    - brew update
    - brew outdated xctool || brew upgrade xctool
@@ -7,7 +9,7 @@ script:
    - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
    - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
 after_success:
-  - coveralls
+   - coveralls
 notifications:
   email:
     - mobile@pactera.com.au
