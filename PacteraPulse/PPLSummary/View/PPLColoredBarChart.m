@@ -18,7 +18,7 @@
 - (id)init {
   if ((self = [super init])) {
     self.section = kBarPlots;
-    self.title = sBarchartTitle;
+    //self.title = sBarchartTitle;
   }
   return self;
 }

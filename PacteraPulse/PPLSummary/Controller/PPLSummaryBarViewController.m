@@ -68,13 +68,13 @@
     PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
     if([instance checkIfLoggedIn:nil])
     {
-        [instance logoutUser];
+        
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Logout operation"
                               message:sPPLSummaryLogoutAlert
                               delegate:self
                               cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
+                              otherButtonTitles:@"Cancel",nil];
         [alert show];
         alert = nil;
     }
@@ -94,8 +94,12 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //For all operation, go to homepage
-    [[PPLUtils sharedInstance] showLaunch:self];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if(buttonIndex == 0) {
+        PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
+        [instance logoutUser];
+        [[PPLUtils sharedInstance] showLaunch:self];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma Voted Notification View
