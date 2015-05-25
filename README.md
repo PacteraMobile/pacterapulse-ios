@@ -35,3 +35,6 @@ We have used following frameworks for developing this app
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking): For all networking related calls and operations.
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD): For showing progress spinners while doing API calls or network calls.
 - [CorePlot](https://github.com/core-plot/core-plot.git): For drawing graphs on summary page.
+
+##Code Coverage
+[![Coverage Status](https://coveralls.io/repos/PacteraMobile/pacterapulse-ios/badge.svg?branch=develop)](https://coveralls.io/r/PacteraMobile/pacterapulse-ios?branch=develop)
