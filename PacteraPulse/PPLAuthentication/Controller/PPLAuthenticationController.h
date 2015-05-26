@@ -15,11 +15,11 @@
 
 - (BOOL)checkIfLoggedIn:(UIViewController *)viewController;
 
--(void)loginUser:(UIViewController*)viewController  completionHandler:
-( void (^) (NSString*, NSError*))completionblock;
+- (void)loginUser:(UIViewController *)viewController
+completionHandler:(void (^)(NSString *, NSError *))completionblock;
 
--(void)getToken:(UIViewController*)viewController completionHandler:
-                                (void (^) (NSString*, NSError*))completionBlock;
+- (void)getToken:(UIViewController *)viewController
+    completionHandler:(void (^)(NSString *, NSError *))completionBlock;
 
 - (void)inValidateToken;
 

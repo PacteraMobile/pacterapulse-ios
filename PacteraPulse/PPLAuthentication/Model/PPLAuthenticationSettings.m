@@ -17,46 +17,44 @@ static PPLAuthenticationSettings *shareInstance;
 {
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        shareInstance = [[self alloc] init];
-        
-        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"AuthenticationSettings" ofType:@"plist"]];
-        
-        NSLog(@"%@",[[NSBundle mainBundle] pathForResource:@"AuthenticationSettings" ofType:@"plist"]);
-        
-        NSString* va = [dictionary objectForKey:@"fullScreen"];
+      shareInstance = [[self alloc] init];
 
-        shareInstance.clientId = [dictionary objectForKey:@"clientId"];
-        shareInstance.authority = [dictionary objectForKey:@"authority"];
-        shareInstance.resourceId = [dictionary objectForKey:@"resourceString"];
-        shareInstance.redirectUriString = [dictionary objectForKey:@"redirectUri"];
-        shareInstance.taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
-        shareInstance.fullScreen = [va boolValue];
-        
+      NSDictionary *dictionary = [NSDictionary
+          dictionaryWithContentsOfFile:
+              [[NSBundle mainBundle] pathForResource:@"AuthenticationSettings"
+                                              ofType:@"plist"]];
+
+      NSLog(@"%@",
+            [[NSBundle mainBundle] pathForResource:@"AuthenticationSettings"
+                                            ofType:@"plist"]);
+
+      NSString *va = [dictionary objectForKey:@"fullScreen"];
+
+      shareInstance.clientId = [dictionary objectForKey:@"clientId"];
+      shareInstance.authority = [dictionary objectForKey:@"authority"];
+      shareInstance.resourceId = [dictionary objectForKey:@"resourceString"];
+      shareInstance.redirectUriString =
+          [dictionary objectForKey:@"redirectUri"];
+      shareInstance.taskWebApiUrlString =
+          [dictionary objectForKey:@"taskWebAPI"];
+      shareInstance.fullScreen = [va boolValue];
+
 
     });
     return shareInstance;
 }
 
--(BOOL)checkIfSettingsLoaded
-{
-    return (shareInstance != nil);
-}
+- (BOOL)checkIfSettingsLoaded { return (shareInstance != nil); }
 
--(NSString*)getFirstName
+- (NSString *)getFirstName
 {
     return self.userItem.userInformation.getGivenName;
 }
--(NSString*)getLastName
+- (NSString *)getLastName
 {
     return self.userItem.userInformation.getFamilyName;
 }
--(NSString*)getEmailAddress
-{
-    return self.userItem.userInformation.getEMail;
-}
--(NSString*)getUserId
-{
-    return self.userItem.userInformation.userId;
-}
+- (NSString *)getEmailAddress { return self.userItem.userInformation.getEMail; }
+- (NSString *)getUserId { return self.userItem.userInformation.userId; }
 
 @end

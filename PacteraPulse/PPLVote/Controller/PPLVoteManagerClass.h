@@ -15,9 +15,9 @@
 
 + (PPLVoteManagerClass *)sharedInstance;
 
--(void)recordVoteSubmission:(NSString*)value;
+- (void)recordVoteSubmission:(NSString *)value;
 
--(BOOL)checkIfVoteSubmittedToday;
+- (BOOL)checkIfVoteSubmittedToday;
 
 
 @end

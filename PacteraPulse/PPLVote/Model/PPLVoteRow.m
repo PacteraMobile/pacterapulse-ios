@@ -10,10 +10,12 @@
 
 @implementation PPLVoteRow
 /**
- *  Initilization for this object with Image and tag(which would be the value sent to server)
+ *  Initilization for this object with Image and tag(which would be the value
+ *sent to server)
  *
  *  @param image Image to display on the row
- *  @param tag   Tag or value related to this image which would be sent to server
+ *  @param tag   Tag or value related to this image which would be sent to
+ *server
  *
  */
 - (id)initWithImage:(UIImage *)image Tag:(NSInteger)tag
@@ -28,20 +30,22 @@
 }
 
 /**
- *  Class level function which initializes all the objects and return in an Array
+ *  Class level function which initializes all the objects and return in an
+ *Array
  *
  *  @return return the created array with images and values
  */
 + (NSArray *)initObjects
 {
-    NSArray *imageNames = [[NSArray alloc] initWithObjects:@"unhappy",
-                           @"neutral", @"happy", nil];
+    NSArray *imageNames =
+        [[NSArray alloc] initWithObjects:@"unhappy", @"neutral", @"happy", nil];
     NSMutableArray *returnArray = [[NSMutableArray alloc] init];
     NSInteger tagCounter = imageNames.count - 1;
-    for (NSString *item in imageNames) {
+    for (NSString *item in imageNames)
+    {
         [returnArray addObject:[[PPLVoteRow alloc]
-                                initWithImage:[UIImage imageNamed:item]
-                                Tag:tagCounter--]];
+                                   initWithImage:[UIImage imageNamed:item]
+                                             Tag:tagCounter--]];
     }
     return returnArray;
 }

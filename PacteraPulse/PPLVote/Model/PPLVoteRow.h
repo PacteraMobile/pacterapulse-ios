@@ -10,8 +10,8 @@
 #import <UIKit/UIKit.h>
 @interface PPLVoteRow : NSObject
 
-@property (nonatomic) NSInteger imageTag;
-@property (nonatomic, strong) UIImage *rowImage;
+@property(nonatomic) NSInteger imageTag;
+@property(nonatomic, strong) UIImage *rowImage;
 
 + (NSArray *)initObjects;
 

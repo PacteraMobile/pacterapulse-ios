@@ -16,14 +16,15 @@
  *
  *  @return will return the singleton for this class
  */
-+ (PPLVoteData *)shareInstance {
-  static PPLVoteData *shareInstance;
-  static dispatch_once_t once;
-  dispatch_once(&once, ^{
-    shareInstance = [[self alloc] init];
-  });
++ (PPLVoteData *)shareInstance
+{
+    static PPLVoteData *shareInstance;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+      shareInstance = [[self alloc] init];
+    });
 
-  return shareInstance;
+    return shareInstance;
 }
 
 /**
@@ -38,29 +39,32 @@
  *Controller to perform UI Actions on return
  */
 - (void)sendFeedback:(void (^)(BOOL status, NSString *serverResponse,
-                               NSError *error))callback {
-  PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
-  self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
-  NSString *postURL =
-      [NSString stringWithFormat:@"%@/%@/%@/%d", kVoteUrl, self.userID,
-                                 self.deviceID, self.feedBackType];
-  // Call the post function of the network hepler and process callbacks
-  [client POST:postURL
-      parameters:nil
-      success:^(NSString *responseString, id responseObject) {
-        if (callback) {
-            self.feedbackSubmitted = YES;
+                               NSError *error))callback
+{
+    PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
+    self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
+    NSString *postURL =
+        [NSString stringWithFormat:@"%@/%@/%@/%d", kVoteUrl, self.userID,
+                                   self.deviceID, self.feedBackType];
+    // Call the post function of the network hepler and process callbacks
+    [client POST:postURL
+        parameters:nil
+        success:^(NSString *responseString, id responseObject) {
+          if (callback)
+          {
+              self.feedbackSubmitted = YES;
 
-          callback(YES, responseString, nil);
-        }
+              callback(YES, responseString, nil);
+          }
 
-      }
-      failure:^(NSString *responseString, NSError *error) {
-        if (callback) {
-            self.feedbackSubmitted = NO;
-          callback(NO, responseString, error);
         }
-      }];
+        failure:^(NSString *responseString, NSError *error) {
+          if (callback)
+          {
+              self.feedbackSubmitted = NO;
+              callback(NO, responseString, error);
+          }
+        }];
 }
 
 @end
