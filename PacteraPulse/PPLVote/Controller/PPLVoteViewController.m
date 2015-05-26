@@ -38,7 +38,6 @@ enum voteAction {
 
 @implementation PPLVoteViewController
 
-NSString *const kVoteDetailSegeId = @"showVoteDetail";
 NSString *const kCellId = @"voteCell";
 NSInteger const kPadding = 10;
 FeedBackType currentFeedback = 0;

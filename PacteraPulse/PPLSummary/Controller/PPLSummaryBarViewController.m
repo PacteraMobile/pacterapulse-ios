@@ -15,6 +15,8 @@
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
 
+NSString *const kVoteDetailSegeId = @"showVoteDetail";
+
 @interface PPLSummaryBarViewController ()<UIAlertViewDelegate>
 
 @property(nonatomic, strong) CPTGraphHostingView *hostingView;
@@ -53,15 +55,19 @@
     [self configureHost];
     [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
     UIBarButtonItem *rightButton =
-    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
                                      style:UIBarButtonItemStyleDone
                                     target:self
-                                    action:@selector(LogoutSession)];
+                                    action:@selector(getMoreDetails)];
     self.navigationItem.rightBarButtonItem = rightButton;
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
 }
-
+#pragma voteDetail page
+- (void)getMoreDetails
+{
+    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
+}
 #pragma logout page
 - (void)LogoutSession
 {

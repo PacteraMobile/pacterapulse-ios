@@ -111,7 +111,6 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="tableView" destination="8bw-3x-hDn" id="LQf-0N-RNa"/>
-                        <segue destination="1L2-Xt-O3a" kind="show" identifier="showVoteDetail" id="qiI-I8-RRa"/>
                         <segue destination="oFr-5i-fGY" kind="show" identifier="toSummary" id="Mru-VK-QPP"/>
                     </connections>
                 </viewController>
@@ -148,10 +147,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="1L2-Xt-O3a" kind="show" identifier="showVoteDetail" id="L8s-hf-5v4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgZ-U2-yVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3824" y="278"/>
+            <point key="canvasLocation" x="3504" y="267"/>
         </scene>
         <!--Vote Detail View Controller-->
         <scene sceneID="jRu-9m-pKE">
@@ -177,9 +179,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="oFr-5i-fGY" kind="show" identifier="showSummary" id="dcZ-Gx-rE5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSs-jO-bAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,7 +189,4 @@
         <image name="Launch" width="640" height="1136"/>
         <image name="happy" width="750" height="291"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Mru-VK-QPP"/>
-    </inferredMetricsTieBreakers>
 </document>
