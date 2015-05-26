@@ -128,7 +128,6 @@ int count=0;
 -(void)getToken:(UIViewController*)viewController completionHandler:
                               ( void (^) (NSString*, NSError*))completionblock {
     
-    NSLog(@"Get Token called %d Times",++count);
     PPLAuthenticationSettings* data = [PPLAuthenticationSettings loadSettings];
     if(data.userItem){
         completionblock(data.userItem.accessToken, nil);
