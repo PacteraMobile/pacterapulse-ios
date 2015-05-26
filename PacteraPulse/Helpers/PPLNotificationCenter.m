@@ -73,8 +73,9 @@
     // Currently we have only one notification, so clear all
     [self clearAllNofitications];
     // At this stage, we don't need to record, reserve for future usage
-    //[self recordVoteSubmissionTimeForNotificationSetup];
+    [self recordVoteSubmissionTimeForNotificationSetup];
     [self addNewNoficationForTomorrow];
+    [self ifDateIsNextDay:[NSDate date]];
 }
 
 #pragma Notification
