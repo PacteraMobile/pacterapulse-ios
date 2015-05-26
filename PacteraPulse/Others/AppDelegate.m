@@ -7,6 +7,7 @@
 //  
 
 #import "AppDelegate.h"
+#import "PPLNotificationCenter.h"
 
 @interface AppDelegate ()
 
@@ -28,10 +29,11 @@ NSString *const kStoryboardId = @"Main";
     
     self.window.rootViewController = rootViewControoler;
     [self.window makeKeyAndVisible];
+    
+    PPLNotificationCenter* notficationCenter = [PPLNotificationCenter sharedClient];
+    [notficationCenter registerNotificationPermission];
     return YES;
 }
-
-
 
 #pragma -mark CustomFunctions
 /**
