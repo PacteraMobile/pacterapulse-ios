@@ -13,8 +13,6 @@
 @interface PPLVoteMainViewController ()
 
 @end
-NSString *const kNavigationButtonTitle = @"Info";
-NSString *const kSummarySegueId = @"toSummary";
 NSUInteger currentIndex = 0;
 @implementation PPLVoteMainViewController
 {
@@ -36,18 +34,7 @@ NSUInteger currentIndex = 0;
     
     _myViewControllers = [[NSArray alloc] initWithObjects:p1,p2, nil];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                    target:self
-                                    action:@selector(showResult:)];
-    UIBarButtonItem *leftButton =
-    [[UIBarButtonItem alloc] initWithTitle:kNavigationButtonTitle
-                                     style:UIBarButtonItemStyleDone
-                                    target:self
-                                    action:@selector(showLaunch:)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    self.navigationItem.leftBarButtonItem = leftButton;
-
+   
 
 }
 
@@ -113,15 +100,6 @@ NSUInteger currentIndex = 0;
 //}
 //
 
-#pragma -mark Navigation
-- (void)showResult:(id)sender
-{
-    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
-}
 
-- (void)showLaunch:(id)sender
-{
-    [[PPLUtils sharedInstance] showLaunch:self];
-}
 
 @end

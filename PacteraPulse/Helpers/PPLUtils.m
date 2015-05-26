@@ -67,7 +67,7 @@
     // was not launched for the rist time and at initialization the voting
     // screen
     // became the root controller for this view.
-    if ([navigationViews[0] isKindOfClass:[PPLVoteMainViewController class]])
+    if ([navigationViews[0] isKindOfClass:[PPLVoteViewController class]])
     {
         // Initialise the launch view controller, this will be inserted in the
         // navigation controller
