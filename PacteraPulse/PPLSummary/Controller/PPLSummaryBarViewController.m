@@ -14,6 +14,7 @@
 #import "PPLUtils.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
+#import "PPLVoteData.h"
 
 NSString *const kVoteDetailSegeId = @"showVoteDetail";
 
@@ -24,7 +25,7 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 @property(nonatomic, strong) NSArray *summaryData;
 @property(nonatomic, strong) CSNotificationView *alertView;
 @property(nonatomic, strong) UISegmentedControl *segmentControlView;
-
+@property(nonatomic, strong) PPLVoteData *voteData;
 @end
 
 @implementation PPLSummaryBarViewController
@@ -33,10 +34,17 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _voteData = [PPLVoteData shareInstance];
     [self InitViewSetting];
     [self fetchRemoteData:sResultPeriodDay];
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setupNavigationBarButton];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self hideVotedNotification];
@@ -47,6 +55,31 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
     [super didReceiveMemoryWarning];
 }
 
+#pragma setupNavigationButton
+-(void)setupNavigationBarButton
+{
+    UIBarButtonItem *rightButton;
+    if (self.voteData.feedbackSubmitted) {
+        
+        
+        
+        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self
+                                                      action:@selector(getMoreDetails)];
+        
+    }
+    else
+    {
+        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self
+                                                      action:@selector(LogoutSession)];
+        
+    }
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+}
 #pragma View init setting
 - (void)InitViewSetting
 {
@@ -54,12 +87,8 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
     self.alertView = nil;
     [self configureHost];
     [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
-    UIBarButtonItem *rightButton =
-    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
-                                     style:UIBarButtonItemStyleDone
-                                    target:self
-                                    action:@selector(getMoreDetails)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    
+ 
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
 }
@@ -68,6 +97,8 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 {
     [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
 }
+
+
 #pragma logout page
 - (void)LogoutSession
 {

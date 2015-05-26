@@ -74,6 +74,7 @@ FeedBackType currentFeedback = 0;
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
     voteState = VOTE_NO_ACTION;
+    [self.voteData setFeedbackSubmitted:NO];
 }
 /**
  *  This function checks for a valid token and shows a login page if it can not
@@ -130,6 +131,7 @@ FeedBackType currentFeedback = 0;
     [self.voteData setFirstName:authentication.getFirstName];
     [self.voteData setLastName:authentication.getLastName];
     [self.voteData setEmail:authentication.getEmailAddress];
+    
 }
 - (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
 
@@ -295,7 +297,7 @@ FeedBackType currentFeedback = 0;
     if ([segue.identifier isEqualToString:kSummarySegueId]) {
         PPLSummaryBarViewController *destinationController =
         (PPLSummaryBarViewController *)segue.destinationViewController;
-        
+                
         // Check the current vote state and set the variable for destination
         switch (voteState) {
             case VOTE_NOT_SUBMITTED:
