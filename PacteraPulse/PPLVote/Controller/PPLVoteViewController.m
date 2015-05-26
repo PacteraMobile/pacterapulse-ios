@@ -21,6 +21,8 @@
 #import "PPLUtils.h"
 #import "PPLAuthenticationSettings.h"
 static NSString *kViewTitle = @"How Do You Feel Today?";
+static NSString *kLoginError = @"Could not authenticate you";
+
 NSString *const kSummarySegueId = @"toSummary";
 NSString *const kNavigationButtonTitle = @"Info";
 enum voteAction {
@@ -49,7 +51,6 @@ FeedBackType currentFeedback = 0;
     self.tableView.contentInset = UIEdgeInsetsZero;
     self.title = kViewTitle;
     
-    [self loadToken];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -64,6 +65,8 @@ FeedBackType currentFeedback = 0;
     self.navigationItem.leftBarButtonItem = leftButton;
     
     [self initPPLVoteData];
+    [self loadToken];
+
 
 }
 
@@ -94,20 +97,16 @@ FeedBackType currentFeedback = 0;
           {
               UIAlertView *alert = [[UIAlertView alloc]
                       initWithTitle:nil
-                            message:[[NSString alloc]
-                                        initWithFormat:
-                                            @"%@", error.localizedDescription]
+                            message:kLoginError
                            delegate:nil
-                  cancelButtonTitle:@"Retry"
-                  otherButtonTitles:@"Cancel", nil];
+                  cancelButtonTitle:@"OK"
+                  otherButtonTitles:nil];
 
               [alert setDelegate:self];
 
               dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
-                NSLog(@"Alert Show From Vote Controller error %@",
-                      error.localizedDescription);
 
                 [alert show];
 
@@ -239,58 +238,10 @@ FeedBackType currentFeedback = 0;
 - (void)alertView:(UIAlertView *)alertView
     clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    PPLAuthenticationController *auth =
-        [PPLAuthenticationController sharedInstance];
-
-    switch (buttonIndex)
-    {
-    case 0:
-    {
-
+    
         [alertView dismissWithClickedButtonIndex:0 animated:NO];
-        [auth getToken:self
-            completionHandler:^(NSString *accessToken, NSError *error) {
-
-              if (accessToken == nil)
-              {
-                  UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:nil
-                                message:[[NSString alloc]
-                                            initWithFormat:
-                                                @"%@",
-                                                error.localizedDescription]
-                               delegate:nil
-                      cancelButtonTitle:@"Retry"
-                      otherButtonTitles:@"Cancel", nil];
-
-                  [alert setDelegate:self];
-
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Alert Show From Vote Controller error %@",
-                          error.localizedDescription);
-                    [alert show];
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                  });
-              }
-              else
-              {
-                  dispatch_async(dispatch_get_main_queue(), ^{
-
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                  });
-              }
-            }];
-        break;
-    }
-    case 1:
-    {
-        [alertView dismissWithClickedButtonIndex:1 animated:NO];
         [[PPLUtils sharedInstance] showLaunch:self];
-        break;
-    }
-    default:
-        break;
-    }
+
 }
 #pragma -mark Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
