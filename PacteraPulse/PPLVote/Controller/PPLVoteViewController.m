@@ -19,12 +19,20 @@
 #import "PPLAuthenticationController.h"
 #import "PPLVoteDetailViewController.h"
 #import "PPLUtils.h"
+#import "PPLAuthenticationSettings.h"
 static NSString *kViewTitle = @"How Do You Feel Today?";
-
+NSString *const kSummarySegueId = @"toSummary";
+NSString *const kNavigationButtonTitle = @"Info";
+enum voteAction {
+    VOTE_NOT_SUBMITTED,
+    VOTE_SUBMITTED,
+    VOTE_NO_ACTION
+} voteState;
 @interface PPLVoteViewController ()
 
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) NSArray *data;
+@property(nonatomic, strong) PPLVoteData *voteData;
 
 @end
 
@@ -43,6 +51,21 @@ FeedBackType currentFeedback = 0;
     self.title = kViewTitle;
     
     [self loadToken];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                    target:self
+                                    action:@selector(showResult:)];
+    UIBarButtonItem *leftButton =
+    [[UIBarButtonItem alloc] initWithTitle:kNavigationButtonTitle
+                                     style:UIBarButtonItemStyleDone
+                                    target:self
+                                    action:@selector(showLaunch:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
+    [self initPPLVoteData];
+
 }
 
 
@@ -51,6 +74,7 @@ FeedBackType currentFeedback = 0;
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    voteState = VOTE_NO_ACTION;
 }
 /**
  *  This function checks for a valid token and shows a login page if it can not
@@ -98,6 +122,16 @@ FeedBackType currentFeedback = 0;
           }
         }];
 }
+
+- (void)initPPLVoteData {
+    self.voteData = [PPLVoteData shareInstance];
+    PPLAuthenticationSettings *authentication =
+    [PPLAuthenticationSettings loadSettings];
+    [self.voteData setUserID:authentication.getUserId];
+    [self.voteData setFirstName:authentication.getFirstName];
+    [self.voteData setLastName:authentication.getLastName];
+    [self.voteData setEmail:authentication.getEmailAddress];
+}
 - (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
 
 /**
@@ -109,62 +143,44 @@ FeedBackType currentFeedback = 0;
 - (void)handleClick:(id)sender
 {
     UIView *senderView = (UIView *)sender;
-    currentFeedback = (FeedBackType)senderView.tag;
-    //TODO: remove later
-    //[self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
     
-    PPLVoteDetailViewController *destinationController =self.pageController.myViewControllers.lastObject;
+    __block FeedBackType currentFeedback = (FeedBackType)senderView.tag;
+
+    [self.voteData setFeedBackType:currentFeedback];
+
+    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
+
     
-    destinationController.feedBack = currentFeedback;
-    NSArray *temp = [[NSArray alloc] initWithObjects:destinationController,nil];
-    
-    
-    [self.pageController setViewControllers:temp direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    
-    //TODO: Move this to vote detail
-    //    PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
-    //
-    //    if ([voteManager checkIfVoteSubmittedToday])
-    //    {
-    //        voteState = VOTE_NOT_SUBMITTED;
-    //        [self performSegueWithIdentifier:kVoteDetailSegeId sender:nil];
-    //    }
-    //    else
-    //    {
-    //        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //
-    //        // Send the feedback via data model, we provide two callbacks one for
-    //        // success and one for failure
-    //        [[PPLVoteData shareInstance]
-    //            sendFeedback:[NSString stringWithFormat:@"%ld", (long)sourceTag]
-    //                callBack:^(BOOL status, NSString *serverResponse,
-    //                           NSError *error) {
-    //                  if (status)
-    //                  {
-    //                      voteState = VOTE_SUBMITTED;
-    //                      [voteManager
-    //                          recordVoteSubmission:
-    //                              [NSString
-    //                                  stringWithFormat:@"%ld", (long)sourceTag]];
-    //                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    //                      [self performSegueWithIdentifier:kVoteDetailSegeId
-    //                                                sender:nil];
-    //                  }
-    //                  else
-    //                  {
-    //                      UIAlertView *alert = [[UIAlertView alloc]
-    //                              initWithTitle:@"Error"
-    //                                    message:
-    //                                        @"Issue submitting feedback to server"
-    //                                   delegate:nil
-    //                          cancelButtonTitle:@"OK"
-    //                          otherButtonTitles:nil];
-    //                      [alert show];
-    //                      [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    //                  }
-    //
-    //                }];
-    //    }
+    if ([voteManager checkIfVoteSubmittedToday]) {
+        voteState = VOTE_NOT_SUBMITTED;
+        [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+    } else {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        // Send the feedback via data model, we provide two callbacks one for
+        // success and one for failure
+        [self.voteData
+         sendFeedback:^(BOOL status, NSString *serverResponse, NSError *error) {
+             if (status) {
+                 voteState = VOTE_SUBMITTED;
+                 [voteManager
+                  recordVoteSubmission:
+                  [NSString stringWithFormat:@"%ld", (long)currentFeedback]];
+                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                 [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+             } else {
+                 UIAlertView *alert = [[UIAlertView alloc]
+                                       initWithTitle:@"Error"
+                                       message:@"Issue submitting feedback to server"
+                                       delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil];
+                 [alert show];
+                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+             }
+             
+         }];
+    }
 }
 
 #pragma mark - TableView Datasource
@@ -268,12 +284,38 @@ FeedBackType currentFeedback = 0;
     case 1:
     {
         [alertView dismissWithClickedButtonIndex:1 animated:NO];
-        [self.pageController showLaunch:nil];
+        [[PPLUtils sharedInstance] showLaunch:self];
         break;
     }
     default:
         break;
     }
 }
+#pragma -mark Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kSummarySegueId]) {
+        PPLSummaryBarViewController *destinationController =
+        (PPLSummaryBarViewController *)segue.destinationViewController;
+        
+        // Check the current vote state and set the variable for destination
+        switch (voteState) {
+            case VOTE_NOT_SUBMITTED:
+                destinationController.shouldShowAlert = YES;
+                break;
+            case VOTE_NO_ACTION:
+            case VOTE_SUBMITTED:
+                destinationController.shouldShowAlert = NO;
+                break;
+        }
+    }
+}
+- (void)showResult:(id)sender
+{
+    [self performSegueWithIdentifier:kSummarySegueId sender:nil];
+}
 
+- (void)showLaunch:(id)sender
+{
+    [[PPLUtils sharedInstance] showLaunch:self];
+}
 @end
