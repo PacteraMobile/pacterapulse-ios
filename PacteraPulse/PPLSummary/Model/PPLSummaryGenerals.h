@@ -11,6 +11,7 @@
 
 
 //Navigation bar logout button
+static NSString* const sPPLSummaryVoteDetail = @"More Info";
 static NSString* const sPPLSummaryLogout = @"Logout";
 static NSString* const sPPLSummaryLogoutAlert = @"You will be logouted and redirected to homepage.";
 static NSString* const sPPLSummaryLogoutPrompts = @"You are not logined, please log in firstly.";

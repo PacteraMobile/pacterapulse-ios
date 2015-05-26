@@ -16,6 +16,7 @@
 @property(nonatomic, copy) NSString *deviceID;
 @property(nonatomic, assign) FeedBackType feedBackType;
 @property(nonatomic, copy) NSArray *comments;
+@property(nonatomic, assign) BOOL feedbackSubmitted;
 + (PPLVoteData *)shareInstance;
 - (void)sendFeedback:(void (^)(BOOL status, NSString *serverResponse,
                                NSError *error))callback;

@@ -14,6 +14,9 @@
 #import "PPLUtils.h"
 #import "MBProgressHUD.h"
 #import "CSNotificationView.h"
+#import "PPLVoteData.h"
+
+NSString *const kVoteDetailSegeId = @"showVoteDetail";
 
 @interface PPLSummaryBarViewController ()<UIAlertViewDelegate>
 
@@ -22,7 +25,7 @@
 @property(nonatomic, strong) NSArray *summaryData;
 @property(nonatomic, strong) CSNotificationView *alertView;
 @property(nonatomic, strong) UISegmentedControl *segmentControlView;
-
+@property(nonatomic, strong) PPLVoteData *voteData;
 @end
 
 @implementation PPLSummaryBarViewController
@@ -31,10 +34,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _voteData = [PPLVoteData shareInstance];
     [self InitViewSetting];
     [self fetchRemoteData:sResultPeriodDay];
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setupNavigationBarButton];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self hideVotedNotification];
@@ -45,6 +55,31 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma setupNavigationButton
+-(void)setupNavigationBarButton
+{
+    UIBarButtonItem *rightButton;
+    if (self.voteData.feedbackSubmitted) {
+        
+        
+        
+        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self
+                                                      action:@selector(getMoreDetails)];
+        
+    }
+    else
+    {
+        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self
+                                                      action:@selector(LogoutSession)];
+        
+    }
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+}
 #pragma View init setting
 - (void)InitViewSetting
 {
@@ -52,15 +87,17 @@
     self.alertView = nil;
     [self configureHost];
     [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
-    UIBarButtonItem *rightButton =
-    [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
-                                     style:UIBarButtonItemStyleDone
-                                    target:self
-                                    action:@selector(LogoutSession)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    
+ 
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
 }
+#pragma voteDetail page
+- (void)getMoreDetails
+{
+    [self performSegueWithIdentifier:kVoteDetailSegeId sender:self];
+}
+
 
 #pragma logout page
 - (void)LogoutSession

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PPLVoteContentView.h"
 
-@interface PPLVoteDetailViewController : UIViewController
+@interface PPLVoteDetailViewController : UIViewController <UIAlertViewDelegate>
 @property(nonatomic, assign) FeedBackType feedBack;
 
 

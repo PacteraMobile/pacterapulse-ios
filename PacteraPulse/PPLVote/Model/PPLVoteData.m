@@ -22,6 +22,7 @@
   dispatch_once(&once, ^{
     shareInstance = [[self alloc] init];
   });
+
   return shareInstance;
 }
 
@@ -48,12 +49,15 @@
       parameters:nil
       success:^(NSString *responseString, id responseObject) {
         if (callback) {
+            self.feedbackSubmitted = YES;
+
           callback(YES, responseString, nil);
         }
 
       }
       failure:^(NSString *responseString, NSError *error) {
         if (callback) {
+            self.feedbackSubmitted = NO;
           callback(NO, responseString, error);
         }
       }];
