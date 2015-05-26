@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "PPLVoteViewController.h"
 #import "AppDelegate.h"
-#import "PPLVoteMainViewController.h"
 @implementation PPLUtils
 
 /**

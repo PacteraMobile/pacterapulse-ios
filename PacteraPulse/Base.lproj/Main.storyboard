@@ -153,16 +153,6 @@
             </objects>
             <point key="canvasLocation" x="3824" y="278"/>
         </scene>
-        <!--Vote Main View Controller-->
-        <scene sceneID="FSQ-F9-nw7">
-            <objects>
-                <pageViewController storyboardIdentifier="mainVoteController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="lkB-HO-AP7" customClass="PPLVoteMainViewController" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wAL-f3-zYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2857" y="-495"/>
-        </scene>
         <!--Vote Detail View Controller-->
         <scene sceneID="jRu-9m-pKE">
             <objects>
