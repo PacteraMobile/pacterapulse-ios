@@ -15,6 +15,7 @@
 		6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8F1AE883C10036447F /* LaunchScreen.xib */; };
 		6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BEE1AEE05C60036447F /* PPLSummaryBarViewController.m */; };
 		6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BF21AEE05E80036447F /* PPLColoredBarChart.m */; };
+		6CDC93231B140C1A00E1F7D1 /* PPLNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */; };
 		704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */; };
 		705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026431B0AE85100B31919 /* PPLAuthenticationTests.m */; };
 		7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */; };
@@ -72,6 +73,8 @@
 		6CC95BF01AEE05DA0036447F /* PPLSummaryGenerals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLSummaryGenerals.h; sourceTree = "<group>"; };
 		6CC95BF11AEE05E80036447F /* PPLColoredBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLColoredBarChart.h; sourceTree = "<group>"; };
 		6CC95BF21AEE05E80036447F /* PPLColoredBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLColoredBarChart.m; sourceTree = "<group>"; };
+		6CDC93211B140C1A00E1F7D1 /* PPLNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLNotificationCenter.h; sourceTree = "<group>"; };
+		6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLNotificationCenter.m; sourceTree = "<group>"; };
 		704B97BA1B057C6400422C4B /* PPLVoteManagerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteManagerClass.h; sourceTree = "<group>"; };
 		704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerClass.m; sourceTree = "<group>"; };
 		705026431B0AE85100B31919 /* PPLAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationTests.m; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				70F49CB01AE9D49600815ED9 /* PPLNetworkingHelper.m */,
 				70F49CB21AE9D8D000815ED9 /* PPLUtils.h */,
 				70F49CB31AE9D8D000815ED9 /* PPLUtils.m */,
+				6CDC93211B140C1A00E1F7D1 /* PPLNotificationCenter.h */,
+				6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				709F7FE91B0D8C8B00B6CB6E /* PPLVoteData.m in Sources */,
 				3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */,
 				709F7FD41B0D889200B6CB6E /* PPLVoteMainViewController.m in Sources */,
+				6CDC93231B140C1A00E1F7D1 /* PPLNotificationCenter.m in Sources */,
 				70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */,
 				70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */,
 				70C5FDB81AE8B3C0003C006C /* main.m in Sources */,
