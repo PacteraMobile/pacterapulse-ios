@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteManagerTests.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteManagerTests</TokenIdentifier>
+			<Abstract type="html">Tests for the Vote manager functions</Abstract>
+			<DeclaredIn>PPLVoteManagerTests.m</DeclaredIn>
+            
+			
+			<NodeRef refid="12"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerTests/setUp</TokenIdentifier>
+			<Abstract type="html">In setup we get the default values of the userDefaults and save it for
+restoration</Abstract>
+			<DeclaredIn>PPLVoteManagerTests.m</DeclaredIn>
+			
+			<Declaration>- (void)setUp</Declaration>
+			
+			
+			<Anchor>//api/name/setUp</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerTests/tearDown</TokenIdentifier>
+			<Abstract type="html">In teardown we restore the original values</Abstract>
+			<DeclaredIn>PPLVoteManagerTests.m</DeclaredIn>
+			
+			<Declaration>- (void)tearDown</Declaration>
+			
+			
+			<Anchor>//api/name/tearDown</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerTests/testSubmissionVoteNoted</TokenIdentifier>
+			<Abstract type="html">This function checks if the submission is noted by voteManager in
+userDefaults</Abstract>
+			<DeclaredIn>PPLVoteManagerTests.m</DeclaredIn>
+			
+			<Declaration>- (void)testSubmissionVoteNoted</Declaration>
+			
+			
+			<Anchor>//api/name/testSubmissionVoteNoted</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerTests/testCheckIfVoteSubmitted</TokenIdentifier>
+			<Abstract type="html">This function checks if the check for vote today function works properly</Abstract>
+			<DeclaredIn>PPLVoteManagerTests.m</DeclaredIn>
+			
+			<Declaration>- (void)testCheckIfVoteSubmitted</Declaration>
+			
+			
+			<Anchor>//api/name/testCheckIfVoteSubmitted</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AppDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AppDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AppDelegate.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AppDelegate/checkFirstLaunch</TokenIdentifier>
+			<Abstract type="html">Function to check the first launch of the screen</Abstract>
+			<DeclaredIn>AppDelegate.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)checkFirstLaunch</Declaration>
+			
+			<ReturnValue><Abstract type="html">returns true if this is the first launch</Abstract></ReturnValue>
+			<Anchor>//api/name/checkFirstLaunch</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AppDelegate/markFirstLaunch</TokenIdentifier>
+			<Abstract type="html">This function marks the first launch of app in user defaults</Abstract>
+			<DeclaredIn>AppDelegate.h</DeclaredIn>
+			
+			<Declaration>- (void)markFirstLaunch</Declaration>
+			
+			
+			<Anchor>//api/name/markFirstLaunch</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AppDelegate/selectRootViewController</TokenIdentifier>
+			<Abstract type="html">Function to decide which Viewcontroller to take on launch, this basically
+switches
+the start view based on the fact if user has launched the app before or not.
+On
+first launch it will show launch screen with instructions, on every next
+launch it
+will directly take the user to voting screen</Abstract>
+			<DeclaredIn>AppDelegate.h</DeclaredIn>
+			
+			<Declaration>- (UIViewController *)selectRootViewController</Declaration>
+			
+			<ReturnValue><Abstract type="html">return the appropriate viewcontroller</Abstract></ReturnValue>
+			<Anchor>//api/name/selectRootViewController</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

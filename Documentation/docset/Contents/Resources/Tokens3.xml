@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLAuthenticationSettings.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLAuthenticationSettings</TokenIdentifier>
+			<Abstract type="html">This class is data part of Authentication, it saves all information related
+to user login from saving the authentication token for re-use to loading
+settings information from the Plist</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLAuthenticationSettings/loadSettings</TokenIdentifier>
+			<Abstract type="html">Singleton function to get the settings</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+			
+			<Declaration>+ (PPLAuthenticationSettings *)loadSettings</Declaration>
+			
+			<ReturnValue><Abstract type="html">return the singleton instance for settings</Abstract></ReturnValue>
+			<Anchor>//api/name/loadSettings</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationSettings/checkIfSettingsLoaded</TokenIdentifier>
+			<Abstract type="html">Check if the settings are already loaded or not</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)checkIfSettingsLoaded</Declaration>
+			
+			<ReturnValue><Abstract type="html">true if settings are loaded false otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/checkIfSettingsLoaded</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationSettings/getFirstName</TokenIdentifier>
+			<Abstract type="html">Getter function for the first name of logged in user</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)getFirstName</Declaration>
+			
+			<ReturnValue><Abstract type="html">First name of the user returned from Active Directory</Abstract></ReturnValue>
+			<Anchor>//api/name/getFirstName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationSettings/getLastName</TokenIdentifier>
+			<Abstract type="html">Getter function for last name of the user, returns the last name returned by
+Active directory</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)getLastName</Declaration>
+			
+			<ReturnValue><Abstract type="html">&lt;#return value description#&gt;</Abstract></ReturnValue>
+			<Anchor>//api/name/getLastName</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationSettings/setCache:</TokenIdentifier>
+			<Abstract type="html">Setter function to save the token retreived during login, the token is
+saved to the instance variable as well as the keychain access.</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.h</DeclaredIn>
+			
+			<Declaration>- (void)setCache:(ADTokenCacheStoreItem *)userItem</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userItem</Name>
+					<Abstract type="html">token cache to save in keyChain access</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setCache:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationSettings/init</TokenIdentifier>
+			<Abstract type="html">Initializaiton function for the class, this loads values from the plist
+for the project like client id etc needed for connection to Microsoft Active
+Directory services and authenticating</Abstract>
+			<DeclaredIn>PPLAuthenticationSettings.m</DeclaredIn>
+			
+			<Declaration>- (id)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">intiated instance of the class</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLVoteViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="15"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteViewController/loadToken</TokenIdentifier>
+			<Abstract type="html">This function checks for a valid token and shows a login page if it can not
+find the token</Abstract>
+			<DeclaredIn>PPLVoteViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)loadToken</Declaration>
+			
+			
+			<Anchor>//api/name/loadToken</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteViewController/handleClick:</TokenIdentifier>
+			<Abstract type="html">Tap gesture to submit the feedback to the server and go to summary screen on
+success</Abstract>
+			<DeclaredIn>PPLVoteViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)handleClick:(id)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>recognizer</Name>
+					<Abstract type="html">singleTao gesture</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/handleClick:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteViewController/tableView:heightForRowAtIndexPath:</TokenIdentifier>
+			<Abstract type="html">We need to create the row sizes so we only show the required options on the
+screens
+we calculate dynamically the size based on total images we have</Abstract>
+			<DeclaredIn>PPLVoteViewController.m</DeclaredIn>
+			
+			<Declaration>- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</Declaration>
+			
+			
+			<Anchor>//api/name/tableView:heightForRowAtIndexPath:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
