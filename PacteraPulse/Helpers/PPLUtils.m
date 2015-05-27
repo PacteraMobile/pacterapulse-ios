@@ -1,9 +1,18 @@
-//
-//  PPLUtils.m
-//  PacteraPulse
-//
-//  Created by Qazi.
 //  Copyright (c) 2015 Pactera. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+// OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+// ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A
+// PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+//
+// See the Apache License, Version 2.0 for the specific language
+// governing permissions and limitations under the License.
 //
 
 #import "PPLUtils.h"
@@ -21,30 +30,27 @@
 {
     static PPLUtils *_sharedClient = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-        _sharedClient = [[PPLUtils alloc] init];
+    dispatch_once(&onceToken, ^{
+      _sharedClient = [[PPLUtils alloc] init];
     });
-    
+
     return _sharedClient;
 }
 
 /**
- *  Function to get unique ID for this device, this is used for submitting feedback to the server
+ *  Function to get unique ID for this device, this is used for submitting
+ *feedback to the server
  *
  *  @return unique ID for this device
  */
-- (NSString*)getUniqueId
+- (NSString *)getUniqueId
 {
     return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 }
 
--(PPLUtils *)sharedInstance
-{
-    return [PPLUtils sharedInstance];
-}
+- (PPLUtils *)sharedInstance { return [PPLUtils sharedInstance]; }
 
--(NSUserDefaults *)getStandardUserDefaults
+- (NSUserDefaults *)getStandardUserDefaults
 {
     return [NSUserDefaults standardUserDefaults];
 }
@@ -54,12 +60,12 @@
  *
  *  @param sender Initiator for this function
  */
-- (void)showLaunch:(UIViewController*)sender
+- (void)showLaunch:(UIViewController *)sender
 {
     // Get all the View Controllers from this Navigation Controllers
     NSArray *navigationViews = sender.navigationController.viewControllers;
     UIStoryboard *storyboard =
-    [UIStoryboard storyboardWithName:kStoryboardId bundle:nil];
+        [UIStoryboard storyboardWithName:kStoryboardId bundle:nil];
     // First of all check if Voting screen is the first view controller or not
     // because if Vote controller is the root view controller it means the
     // application
@@ -71,10 +77,10 @@
         // Initialise the launch view controller, this will be inserted in the
         // navigation controller
         UIViewController *initViewController =
-        [storyboard instantiateViewControllerWithIdentifier:kLaunchScreen];
+            [storyboard instantiateViewControllerWithIdentifier:kLaunchScreen];
         // Initialize a temporary array with all view controllers
         NSMutableArray *tempArray =
-        [[NSMutableArray alloc] initWithArray:navigationViews];
+            [[NSMutableArray alloc] initWithArray:navigationViews];
         // Insert the newly created controller as the first element of array of
         // view controllers
         [tempArray insertObject:initViewController atIndex:0];
@@ -84,7 +90,7 @@
         // launch controller is at the root now.
         [sender.navigationController setViewControllers:tempArray];
     }
-    
+
     // After all the modifications (if done) go to the root controller
     [sender.navigationController popToRootViewControllerAnimated:YES];
 }
