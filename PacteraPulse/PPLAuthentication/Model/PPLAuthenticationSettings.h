@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ADTokenCacheStoreItem.h"
 
+
+extern NSString *const kAuthCasheKey;
+extern NSString *const kServiceName;
 @interface PPLAuthenticationSettings : NSObject
 
 @property(strong) ADTokenCacheStoreItem *userItem;
@@ -26,4 +29,5 @@
 - (NSString *)getLastName;
 - (NSString *)getEmailAddress;
 - (NSString *)getUserId;
+- (void)setCache:(ADTokenCacheStoreItem *)userItem;
 @end
