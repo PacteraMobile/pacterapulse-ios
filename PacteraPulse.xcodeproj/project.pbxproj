@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7006E75A1B15AD1900D5B138 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7006E75D1B15AD1900D5B138 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				7006E75E1B15AD2200D5B138 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C28F5491AE8D5B700457923 /* PlotItem.m */; };
 		3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C28F5631AE8DC5C00457923 /* Accelerate.framework */; };
@@ -505,6 +519,9 @@
 						DevelopmentTeam = 328F5U833R;
 						TestTargetID = 6CC95B7C1AE883C10036447F;
 					};
+					7006E75A1B15AD1900D5B138 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 6CC95B781AE883C10036447F /* Build configuration list for PBXProject "PacteraPulse" */;
@@ -522,6 +539,7 @@
 			targets = (
 				6CC95B7C1AE883C10036447F /* PacteraPulse */,
 				6CC95B951AE883C10036447F /* PacteraPulseTests */,
+				7006E75A1B15AD1900D5B138 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -575,6 +593,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/Pods/XcodeCoverage/exportenv.sh";
+		};
+		7006E75E1B15AD2200D5B138 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Pactera\";\ncompanyID=\"com.pactera\";\ncompanyURL=\"http://pactera.com.au\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n--ignore \"${PROJECT_DIR}/Pods\" \\\n\"${PROJECT_DIR}\"";
 		};
 		B8115503B18D7B4B9D281A91 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -883,6 +914,20 @@
 			};
 			name = Release;
 		};
+		7006E75B1B15AD1900D5B138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7006E75C1B15AD1900D5B138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -912,6 +957,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7006E75D1B15AD1900D5B138 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7006E75B1B15AD1900D5B138 /* Debug */,
+				7006E75C1B15AD1900D5B138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

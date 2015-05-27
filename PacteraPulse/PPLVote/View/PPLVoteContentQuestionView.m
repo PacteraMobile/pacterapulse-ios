@@ -1,9 +1,18 @@
-//
-//  PPLVoteContentQuestionView.m
-//  PacteraPulse
-//
-//  Created by jin on 19/05/2015.
 //  Copyright (c) 2015 Pactera. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+// OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+// ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A
+// PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+//
+// See the Apache License, Version 2.0 for the specific language
+// governing permissions and limitations under the License.
 //
 
 #import "PPLVoteContentQuestionView.h"
@@ -31,13 +40,15 @@ NSString *const badLabelString = @"Bad";
  *  @return PPLVoteContentQuestionView object
  */
 - (instancetype)initContentQuestionViewWithFrame:(CGRect)frame
-                                withLabelContent:(NSString *)content {
-  self = [super initWithFrame:frame];
-  if (self) {
-    self.labelContent = content;
-    [self initVoteContentView:frame];
-  }
-  return self;
+                                withLabelContent:(NSString *)content
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.labelContent = content;
+        [self initVoteContentView:frame];
+    }
+    return self;
 }
 /**
  *  Add Question Label, the font is SYSTEM with 14.0f size, font color is
@@ -48,46 +59,47 @@ NSString *const badLabelString = @"Bad";
  *  is default black
  *  @param frame
  */
-- (void)initVoteContentView:(CGRect)frame {
-  CGFloat frameHeight = CGRectGetHeight(frame);
-  CGFloat frameWidth = CGRectGetWidth(frame);
+- (void)initVoteContentView:(CGRect)frame
+{
+    CGFloat frameHeight = CGRectGetHeight(frame);
+    CGFloat frameWidth = CGRectGetWidth(frame);
 
-  CGFloat itemHeight = frameHeight / 3;
-  CGFloat labelWidth = frameWidth - paddingLeft * 2;
-  UILabel *contentLabel = [[UILabel alloc]
-      initWithFrame:CGRectMake(paddingLeft, 0, labelWidth, itemHeight)];
-  [contentLabel setText:self.labelContent];
-  [contentLabel setFont:CONTENT_LABEL_FONT];
+    CGFloat itemHeight = frameHeight / 3;
+    CGFloat labelWidth = frameWidth - paddingLeft * 2;
+    UILabel *contentLabel = [[UILabel alloc]
+        initWithFrame:CGRectMake(paddingLeft, 0, labelWidth, itemHeight)];
+    [contentLabel setText:self.labelContent];
+    [contentLabel setFont:CONTENT_LABEL_FONT];
 
-  self.contentSilderView = [[UISlider alloc]
-      initWithFrame:CGRectMake(processPaddingLeft,
-                               CGRectGetMaxY(contentLabel.frame) + paddingTop,
-                               (frameWidth - processPaddingLeft * 2), 12.0f)];
-  [self.contentSilderView setMaximumTrackTintColor:HAPPY_COLOR];
-  [self.contentSilderView setMinimumTrackTintColor:UNHAPPY_COLOR];
+    self.contentSilderView = [[UISlider alloc]
+        initWithFrame:CGRectMake(processPaddingLeft,
+                                 CGRectGetMaxY(contentLabel.frame) + paddingTop,
+                                 (frameWidth - processPaddingLeft * 2), 12.0f)];
+    [self.contentSilderView setMaximumTrackTintColor:HAPPY_COLOR];
+    [self.contentSilderView setMinimumTrackTintColor:UNHAPPY_COLOR];
 
-  UILabel *badLabel = [[UILabel alloc]
-      initWithFrame:CGRectMake(processPaddingLeft,
-                               CGRectGetMaxY(self.contentSilderView.frame) +
-                                   paddingTop,
-                               badGoodLabelWidth, badGoodLabelHeigth)];
-  [badLabel setText:badLabelString];
-  [badLabel setFont:GOOD_BAD_LABEL_FONT];
+    UILabel *badLabel = [[UILabel alloc]
+        initWithFrame:CGRectMake(processPaddingLeft,
+                                 CGRectGetMaxY(self.contentSilderView.frame) +
+                                     paddingTop,
+                                 badGoodLabelWidth, badGoodLabelHeigth)];
+    [badLabel setText:badLabelString];
+    [badLabel setFont:GOOD_BAD_LABEL_FONT];
 
-  UILabel *goodLabel = [[UILabel alloc]
-      initWithFrame:CGRectMake(
-                        (frameWidth - badGoodLabelWidth - processPaddingLeft),
-                        CGRectGetMaxY(self.contentSilderView.frame) +
-                            paddingTop,
-                        badGoodLabelWidth, badGoodLabelHeigth)];
-  [goodLabel setText:goodLabelString];
-  [goodLabel setTextAlignment:NSTextAlignmentRight];
-  [goodLabel setFont:GOOD_BAD_LABEL_FONT];
+    UILabel *goodLabel = [[UILabel alloc]
+        initWithFrame:CGRectMake(
+                          (frameWidth - badGoodLabelWidth - processPaddingLeft),
+                          CGRectGetMaxY(self.contentSilderView.frame) +
+                              paddingTop,
+                          badGoodLabelWidth, badGoodLabelHeigth)];
+    [goodLabel setText:goodLabelString];
+    [goodLabel setTextAlignment:NSTextAlignmentRight];
+    [goodLabel setFont:GOOD_BAD_LABEL_FONT];
 
-  [self addSubview:contentLabel];
-  [self addSubview:self.contentSilderView];
-  [self addSubview:badLabel];
-  [self addSubview:goodLabel];
+    [self addSubview:contentLabel];
+    [self addSubview:self.contentSilderView];
+    [self addSubview:badLabel];
+    [self addSubview:goodLabel];
 }
 /**
  *  Set default Slider Value for each feedback status
@@ -96,18 +108,20 @@ NSString *const badLabelString = @"Bad";
  *  0.7 for happy status
  *  @param feedBack FeedBackType
  */
-- (void)setFeedBack:(FeedBackType)feedBack {
-  switch (feedBack) {
-  case kHappy:
-    self.contentSilderView.value = 0.7;
-    break;
-  case kSoso:
-    self.contentSilderView.value = 0.5;
-    break;
-  case kUnHappy:
-    self.contentSilderView.value = 0.2;
-    break;
-  }
+- (void)setFeedBack:(FeedBackType)feedBack
+{
+    switch (feedBack)
+    {
+    case kHappy:
+        self.contentSilderView.value = 0.7;
+        break;
+    case kSoso:
+        self.contentSilderView.value = 0.5;
+        break;
+    case kUnHappy:
+        self.contentSilderView.value = 0.2;
+        break;
+    }
 }
 
 @end

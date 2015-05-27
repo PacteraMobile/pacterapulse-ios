@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteData.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteData</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLVoteData.h</DeclaredIn>
+            
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLVoteData/shareInstance</TokenIdentifier>
+			<Abstract type="html">Single instance for PPLVode data</Abstract>
+			<DeclaredIn>PPLVoteData.h</DeclaredIn>
+			
+			<Declaration>+ (PPLVoteData *)shareInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">will return the singleton for this class</Abstract></ReturnValue>
+			<Anchor>//api/name/shareInstance</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteData/sendFeedback:</TokenIdentifier>
+			<Abstract type="html">This method is called from the Viewcontroller to send the selected
+emotion to the server, it also gets the unique id of the device
+and submits with the emotion</Abstract>
+			<DeclaredIn>PPLVoteData.h</DeclaredIn>
+			
+			<Declaration>- (void)sendFeedback:(void ( ^ ) ( BOOL status , NSString *serverResponse , NSError *error ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedBackValue</Name>
+					<Abstract type="html">Feedback value can be 1,2,3 which is Happy,
+Neutral and Sad, it is converted to string to
+send as parameter</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">This is the call back function which would allow
+Controller to perform UI Actions on return</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sendFeedback:</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

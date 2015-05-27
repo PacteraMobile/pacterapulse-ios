@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/qazi/Library/Developer/Shared/Documentation/DocSets/com.pactera.PacteraPulse.docset
+Time: 2015-05-27 07:57:18 +0000

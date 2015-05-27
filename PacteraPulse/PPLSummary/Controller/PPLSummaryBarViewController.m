@@ -1,9 +1,18 @@
-//
-//  PPLSummaryBarViewController.m
-//  PacPulse
-//
-//  Created by Randy.
 //  Copyright (c) 2015 Pactera. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+// OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+// ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A
+// PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+//
+// See the Apache License, Version 2.0 for the specific language
+// governing permissions and limitations under the License.
 //
 
 #import "PPLSummaryBarViewController.h"
@@ -18,7 +27,7 @@
 
 NSString *const kVoteDetailSegeId = @"showVoteDetail";
 
-@interface PPLSummaryBarViewController ()<UIAlertViewDelegate>
+@interface PPLSummaryBarViewController () <UIAlertViewDelegate>
 
 @property(nonatomic, strong) CPTGraphHostingView *hostingView;
 @property(nonatomic, strong) PPLColoredBarChart *barItem;
@@ -34,51 +43,40 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _voteData = [PPLVoteData shareInstance];
     [self InitViewSetting];
     [self fetchRemoteData:sResultPeriodDay];
-    
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [self setupNavigationBarButton];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self hideVotedNotification];
-}
+- (void)viewWillAppear:(BOOL)animated { [self setupNavigationBarButton]; }
+- (void)viewWillDisappear:(BOOL)animated { [self hideVotedNotification]; }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
+- (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
 
 #pragma setupNavigationButton
--(void)setupNavigationBarButton
+- (void)setupNavigationBarButton
 {
     UIBarButtonItem *rightButton;
-    if (self.voteData.feedbackSubmitted) {
-        
-        
-        
-        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
-                                                       style:UIBarButtonItemStyleDone
-                                                      target:self
-                                                      action:@selector(getMoreDetails)];
-        
+    if (self.voteData.feedbackSubmitted)
+    {
+
+
+        rightButton =
+            [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryVoteDetail
+                                             style:UIBarButtonItemStyleDone
+                                            target:self
+                                            action:@selector(getMoreDetails)];
     }
     else
     {
-        rightButton = [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
-                                                       style:UIBarButtonItemStyleDone
-                                                      target:self
-                                                      action:@selector(LogoutSession)];
-        
+        rightButton =
+            [[UIBarButtonItem alloc] initWithTitle:sPPLSummaryLogout
+                                             style:UIBarButtonItemStyleDone
+                                            target:self
+                                            action:@selector(LogoutSession)];
     }
     self.navigationItem.rightBarButtonItem = rightButton;
-    
 }
 #pragma View init setting
 - (void)InitViewSetting
@@ -86,9 +84,10 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
     self.barItem = [[PPLColoredBarChart alloc] init];
     self.alertView = nil;
     [self configureHost];
-    [self setTitle:[NSString stringWithFormat:@"%@ %@",sResultPeriodDayTitle,sPPLSummaryTilte]];
-    
- 
+    [self setTitle:[NSString stringWithFormat:@"%@ %@", sResultPeriodDayTitle,
+                                              sPPLSummaryTilte]];
+
+
     [self addSegmentControlOfPeriod];
     [self showVotedNotification];
 }
@@ -102,37 +101,41 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
 #pragma logout page
 - (void)LogoutSession
 {
-    PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
-    if([instance checkIfLoggedIn:nil])
+    PPLAuthenticationController *instance =
+        [PPLAuthenticationController sharedInstance];
+    if ([instance checkIfLoggedIn:nil])
     {
-        
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Logout operation"
-                              message:sPPLSummaryLogoutAlert
-                              delegate:self
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:@"Cancel",nil];
+
+        UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle:@"Logout operation"
+                                       message:sPPLSummaryLogoutAlert
+                                      delegate:self
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles:@"Cancel", nil];
         [alert show];
         alert = nil;
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Logout operation"
-                              message:sPPLSummaryLogoutPrompts
-                              delegate:self
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
+        UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle:@"Logout operation"
+                                       message:sPPLSummaryLogoutPrompts
+                                      delegate:self
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles:nil];
         [alert show];
         alert = nil;
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView
+    clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    //For all operation, go to homepage
-    if(buttonIndex == 0) {
-        PPLAuthenticationController* instance = [PPLAuthenticationController sharedInstance];
+    // For all operation, go to homepage
+    if (buttonIndex == 0)
+    {
+        PPLAuthenticationController *instance =
+            [PPLAuthenticationController sharedInstance];
         [instance logoutUser];
         [[PPLUtils sharedInstance] showLaunch:self];
         [self.navigationController popToRootViewControllerAnimated:YES];
@@ -182,7 +185,7 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
                       forControlEvents:UIControlEventValueChanged];
     self.segmentControlView.frame =
         CGRectMake(0, parentRect.size.height - iTitleSpace,
-                   parentRect.size.width, iTitleSpace);//bottom position
+                   parentRect.size.width, iTitleSpace); // bottom position
     self.segmentControlView.momentary = NO;
     [self.segmentControlView setTintColor:[UIColor blackColor]];
     self.segmentControlView.selectedSegmentIndex = 0;
@@ -213,7 +216,8 @@ NSString *const kVoteDetailSegeId = @"showVoteDetail";
             break;
         }
         [self fetchRemoteData:period];
-        [self setTitle:[NSString stringWithFormat:@"%@ %@",title,sPPLSummaryTilte]];
+        [self setTitle:[NSString
+                           stringWithFormat:@"%@ %@", title, sPPLSummaryTilte]];
     }
 }
 

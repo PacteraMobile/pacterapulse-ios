@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteContentView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteContentView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLVoteContentView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentView/initViewWithFrame:</TokenIdentifier>
+			<Abstract type="html">Initilize the view</Abstract>
+			<DeclaredIn>PPLVoteContentView.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initViewWithFrame:(CGRect)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedback</Name>
+					<Abstract type="html">1,2,3 represent the happy soso unhappy</Abstract>
+				</Parameter><Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">the frame of the parentViewController</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">self</Abstract></ReturnValue>
+			<Anchor>//api/name/initViewWithFrame:</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentView/initViewContent:</TokenIdentifier>
+			<Abstract type="html">Spereate the whole view into three parts, the head part include emotion
+image, emotion string
+The middle part include the vote detail content
+The foot part include the submit button</Abstract>
+			<DeclaredIn>PPLVoteContentView.m</DeclaredIn>
+			
+			<Declaration>- (void)initViewContent:(CGRect)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">frame of the mainView</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initViewContent:</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

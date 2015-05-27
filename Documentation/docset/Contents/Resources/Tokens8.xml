@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteContentQuestionView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteContentQuestionView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="8"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentQuestionView/setFeedBack:</TokenIdentifier>
+			<Abstract type="html">Set default Slider Value for each feedback status
+0.2 for unHappy status
+0.5 for soso status
+0.7 for happy status</Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) FeedBackType feedBack</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedBack</Name>
+					<Abstract type="html">FeedBackType</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/feedBack</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentQuestionView/feedBack</TokenIdentifier>
+			<Abstract type="html">Set default Slider Value for each feedback status
+0.2 for unHappy status
+0.5 for soso status
+0.7 for happy status</Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) FeedBackType feedBack</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedBack</Name>
+					<Abstract type="html">FeedBackType</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/feedBack</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PPLVoteContentQuestionView/feedBack</TokenIdentifier>
+			<Abstract type="html">Set default Slider Value for each feedback status
+0.2 for unHappy status
+0.5 for soso status
+0.7 for happy status</Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) FeedBackType feedBack</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedBack</Name>
+					<Abstract type="html">FeedBackType</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/feedBack</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentQuestionView/initContentQuestionViewWithFrame:withLabelContent:</TokenIdentifier>
+			<Abstract type="html">Initialize each question view,it includes question describe words, slide
+view, bad-good label</Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initContentQuestionViewWithFrame:(CGRect)frame withLabelContent:(NSString *)content</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">set frame for the view</Abstract>
+				</Parameter><Parameter>
+					<Name>content</Name>
+					<Abstract type="html">set question content</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">PPLVoteContentQuestionView object</Abstract></ReturnValue>
+			<Anchor>//api/name/initContentQuestionViewWithFrame:withLabelContent:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteContentQuestionView/initVoteContentView:</TokenIdentifier>
+			<Abstract type="html">Add Question Label, the font is SYSTEM with 14.0f size, font color is
+default black
+Add Slider View, the MinTrackTinkColor is the same as the UnHappy button
+Color, the MaxTrackTinkColor is the same as the Happy button Color
+Add good label ,add bad label, the font is SYSTEM with 11.of size,font color
+is default black
+@param frame</Abstract>
+			<DeclaredIn>PPLVoteContentQuestionView.m</DeclaredIn>
+			
+			<Declaration>- (void)initVoteContentView:(CGRect)frame</Declaration>
+			
+			
+			<Anchor>//api/name/initVoteContentView:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLUtils.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLUtils</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLUtils.h</DeclaredIn>
+            
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLUtils/sharedInstance</TokenIdentifier>
+			<Abstract type="html">Method to get singleton instance for PPUtils class</Abstract>
+			<DeclaredIn>PPLUtils.h</DeclaredIn>
+			
+			<Declaration>+ (PPLUtils *)sharedInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new created instance or an existing one</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedInstance</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLUtils/getUniqueId</TokenIdentifier>
+			<Abstract type="html">Function to get unique ID for this device, this is used for submitting
+feedback to the server</Abstract>
+			<DeclaredIn>PPLUtils.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)getUniqueId</Declaration>
+			
+			<ReturnValue><Abstract type="html">unique ID for this device</Abstract></ReturnValue>
+			<Anchor>//api/name/getUniqueId</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLUtils/showLaunch:</TokenIdentifier>
+			<Abstract type="html">This function shows the launch screen which has instructions</Abstract>
+			<DeclaredIn>PPLUtils.h</DeclaredIn>
+			
+			<Declaration>- (void)showLaunch:(UIViewController *)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sender</Name>
+					<Abstract type="html">Initiator for this function</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/showLaunch:</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

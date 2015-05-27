@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLSummaryData.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLSummaryData</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLSummaryData.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLSummaryData/emotionValues:callBack:</TokenIdentifier>
+			<Abstract type="html">Return the emotions summary data from remote Service</Abstract>
+			<DeclaredIn>PPLSummaryData.h</DeclaredIn>
+			
+			<Declaration>- (void)emotionValues:(NSString *)period callBack:(void ( ^ ) ( BOOL status , NSArray *graphValues , NSError *error ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>period</Name>
+					<Abstract type="html">Choose the data from which period : &apos;24hours&apos; &apos;7days&apos; &apos;30days&apos;</Abstract>
+				</Parameter><Parameter>
+					<Name>callBack</Name>
+					<Abstract type="html">The block is called when the server return the data back to
+the client side</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/emotionValues:callBack:</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

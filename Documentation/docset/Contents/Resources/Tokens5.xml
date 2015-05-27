@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLNotificationCenter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLNotificationCenter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLNotificationCenter.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLNotificationCenter/sharedClient</TokenIdentifier>
+			<Abstract type="html">Returns the signletone instance of this class</Abstract>
+			<DeclaredIn>PPLNotificationCenter.h</DeclaredIn>
+			
+			<Declaration>+ (PPLNotificationCenter *)sharedClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">creates and returns the instance or returns the already created
+instance</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedClient</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLNotificationCenter/registerNotificationPermission</TokenIdentifier>
+			<Abstract type="html">Regist for notification permission
+Called in app delegate</Abstract>
+			<DeclaredIn>PPLNotificationCenter.h</DeclaredIn>
+			
+			<Declaration>- (void)registerNotificationPermission</Declaration>
+			
+			
+			<Anchor>//api/name/registerNotificationPermission</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLNotificationCenter/addNewNotificationAfterVote</TokenIdentifier>
+			<Abstract type="html">Clear existed notifications and add a new one after vote
+Called in PPLVoteViewController</Abstract>
+			<DeclaredIn>PPLNotificationCenter.h</DeclaredIn>
+			
+			<Declaration>- (void)addNewNotificationAfterVote</Declaration>
+			
+			
+			<Anchor>//api/name/addNewNotificationAfterVote</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLNotificationCenter/addNewNotificationForTomorrow</TokenIdentifier>
+			<Abstract type="html">Add one notification on the next day, time:NOTIFICATIONTIMEON_HOUR
+Will make this configurale on web server later</Abstract>
+			<DeclaredIn>PPLNotificationCenter.m</DeclaredIn>
+			
+			<Declaration>- (void)addNewNotificationForTomorrow</Declaration>
+			
+			
+			<Anchor>//api/name/addNewNotificationForTomorrow</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLNotificationCenter/ifDateIsNextDay:</TokenIdentifier>
+			<Abstract type="html">Check if today is the next day of inputted date</Abstract>
+			<DeclaredIn>PPLNotificationCenter.m</DeclaredIn>
+			
+			<Declaration>- (BOOL)ifDateIsNextDay:(NSDate *)date</Declaration>
+			
+			
+			<Anchor>//api/name/ifDateIsNextDay:</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://pactera.com.au/Pactera/Pactera.atom/20150527175718</id>
+    <title type="text">PacteraPulse Documentation</title>
+    <rights>Copyright © 2015 Pactera. All rights reserved.</rights>
+    <link rel="self" href="http://pactera.com.au/Pactera/Pactera.atom"></link>
+    <docset:publisherName>Pactera</docset:publisherName>
+    <docset:publisherID>com.pactera.documentation</docset:publisherID>
+    <updated>2015-05-27T17:57:18+10:00</updated>
+    <entry>
+        <id>tag:pactera.com.au,2015-05-27:com.pactera.PacteraPulse/1.0.0</id>
+        <title type="text">PacteraPulse Documentation</title>
+        <updated>2015-05-27T17:57:18+10:00</updated>
+        <content type="text">PacteraPulse Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http:/pactera.com.au/Pactera/com.pactera.PacteraPulse-1.0.xar" length="175009"></link>
+        <docset:identifier>com.pactera.PacteraPulse</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>
