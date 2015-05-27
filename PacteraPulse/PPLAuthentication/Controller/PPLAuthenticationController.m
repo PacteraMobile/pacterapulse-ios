@@ -11,6 +11,8 @@
 #import "ADAuthenticationError.h"
 #import "ADAuthenticationContext.h"
 #import "ADAuthenticationSettings.h"
+#import "PPLUtils.h"
+#import "FDKeychain.h"
 /**
  *  Class to manage authentication related functionality
  */
@@ -18,6 +20,7 @@
 @implementation PPLAuthenticationController
 ADAuthenticationContext *context;
 ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
+
 
 int count = 0;
 /**
@@ -108,9 +111,9 @@ completionHandler:(void (^)(NSString *, NSError *))completionblock
                             }
                             else
                             {
-                                settings.userItem = result.tokenCacheStoreItem;
+                                [settings setCache:result.tokenCacheStoreItem];
+
                                 NSLog(@"Success");
-                                settings.userItem = result.tokenCacheStoreItem;
 
 
                                 completionblock(
@@ -129,18 +132,19 @@ completionHandler:(void (^)(NSString *, NSError *))completionblock
 - (void)getToken:(UIViewController *)viewController
     completionHandler:(void (^)(NSString *, NSError *))completionblock
 {
+    ADAuthenticationError *error;
 
     PPLAuthenticationSettings *data = [PPLAuthenticationSettings loadSettings];
-    if (data.userItem)
+    if (data.userItem != nil && data.userItem.isExpired == NO)
     {
         completionblock(data.userItem.accessToken, nil);
         return;
     }
 
-    ADAuthenticationError *error;
     context = [ADAuthenticationContext
         authenticationContextWithAuthority:data.authority
                                      error:&error];
+
     context.parentController = viewController;
     NSURL *redirectUri = [[NSURL alloc] initWithString:data.redirectUriString];
 
@@ -155,6 +159,7 @@ completionHandler:(void (^)(NSString *, NSError *))completionblock
 
     [ADAuthenticationSettings sharedInstance].enableFullScreen =
         data.fullScreen;
+
     [context acquireTokenWithResource:data.resourceId
                              clientId:data.clientId
                           redirectUri:redirectUri
@@ -171,7 +176,7 @@ completionHandler:(void (^)(NSString *, NSError *))completionblock
                         else
                         {
                             NSLog(@"Token found or refreshed");
-                            data.userItem = result.tokenCacheStoreItem;
+                            [data setCache:result.tokenCacheStoreItem];
                             completionblock(
                                 result.tokenCacheStoreItem.accessToken, nil);
                         }
@@ -200,6 +205,11 @@ completionHandler:(void (^)(NSString *, NSError *))completionblock
         [storage deleteCookie:cookie];
     }
 
+    NSError *error = nil;
+    
+    [FDKeychain deleteItemForKey: kAuthCasheKey
+                      forService: kServiceName
+                           error: &error];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 /**
