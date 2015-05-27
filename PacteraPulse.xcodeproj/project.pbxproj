@@ -11,6 +11,7 @@
 		3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C28F5631AE8DC5C00457923 /* Accelerate.framework */; };
 		3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7AF0111AE9EBC600106662 /* PPLSummaryData.m */; };
 		3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */; };
+		6C914B861B168BB500A74865 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C914B851B168BB500A74865 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8A1AE883C10036447F /* Main.storyboard */; };
 		6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8F1AE883C10036447F /* LaunchScreen.xib */; };
 		6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BEE1AEE05C60036447F /* PPLSummaryBarViewController.m */; };
@@ -38,7 +39,6 @@
 		70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDDF1AE8BA87003C006C /* PPLVoteTableViewCell.m */; };
 		70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB01AE9D49600815ED9 /* PPLNetworkingHelper.m */; };
 		70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB31AE9D8D000815ED9 /* PPLUtils.m */; };
-		9764110E91ACF6BDB1E8A114 /* libPods-PacteraPulse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F371AA3DE3BA2C20878160A4 /* libPods-PacteraPulse.a */; };
 		BE7261BD9E123DC64DD33AE3 /* libPods-PacteraPulseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7BF6DC339C1A27DD4DB57B /* libPods-PacteraPulseTests.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +62,7 @@
 		3CD1A45F1AEDF776006A8875 /* libPods-PacteraPulse-CorePlot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-CorePlot.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-CorePlot.a"; sourceTree = "<group>"; };
 		3CD1A4611AEDF77D006A8875 /* libPods-PacteraPulse-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-MBProgressHUD.a"; sourceTree = "<group>"; };
 		3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailTests.m; sourceTree = "<group>"; };
+		6C914B851B168BB500A74865 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CC95B7D1AE883C10036447F /* PacteraPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PacteraPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC95B8B1AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CC95B901AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C914B861B168BB500A74865 /* UIKit.framework in Frameworks */,
 				3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */,
 				9764110E91ACF6BDB1E8A114 /* libPods-PacteraPulse.a in Frameworks */,
 			);
@@ -421,6 +423,7 @@
 		90EEEA7B195BF10F37665F50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C914B851B168BB500A74865 /* UIKit.framework */,
 				3CD1A4611AEDF77D006A8875 /* libPods-PacteraPulse-MBProgressHUD.a */,
 				3CD1A45F1AEDF776006A8875 /* libPods-PacteraPulse-CorePlot.a */,
 				3CD1A45D1AEDF772006A8875 /* libPods-PacteraPulse-AFNetworking.a */,
@@ -496,7 +499,6 @@
 				TargetAttributes = {
 					6CC95B7C1AE883C10036447F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 328F5U833R;
 					};
 					6CC95B951AE883C10036447F = {
 						CreatedOnToolsVersion = 6.3;
@@ -711,7 +713,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -761,7 +762,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -796,7 +796,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -824,7 +823,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -873,7 +871,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
