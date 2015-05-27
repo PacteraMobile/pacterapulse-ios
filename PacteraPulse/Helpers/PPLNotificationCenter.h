@@ -15,7 +15,9 @@
 
 + (PPLNotificationCenter *)sharedClient;
 - (void)registerNotificationPermission;
-- (void)clearAllNofitications;
+- (BOOL)checkIfRegistionSuccessful;
+
+- (void)clearAllNotifications;
 - (void)addNewNotificationAfterVote;
 
 @end

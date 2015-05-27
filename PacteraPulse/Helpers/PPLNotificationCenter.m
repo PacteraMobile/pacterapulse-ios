@@ -56,10 +56,18 @@
                                      UIUserNotificationTypeBadge |
                                      UIUserNotificationTypeSound
                           categories:nil]];
+        [self recordVoteSubmissionTimeForNotificationSetup];
     }
 }
 
-- (void)clearAllNofitications
+- (BOOL)checkIfRegistionSuccessful
+{
+    NSUserDefaults *prefs = [[PPLUtils sharedInstance] getStandardUserDefaults];
+    NSDate *voteDate = [prefs objectForKey:NOTIFICATION_KEY_IN_USERDEFAULTS];
+    return (voteDate != nil);
+}
+
+- (void)clearAllNotifications
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
@@ -71,10 +79,10 @@
 - (void)addNewNotificationAfterVote
 {
     // Currently we have only one notification, so clear all
-    [self clearAllNofitications];
+    [self clearAllNotifications];
     // At this stage, we don't need to record, reserve for future usage
     //[self recordVoteSubmissionTimeForNotificationSetup];
-    [self addNewNoficationForTomorrow];
+    [self addNewNotificationForTomorrow];
 }
 
 #pragma Notification
@@ -82,7 +90,7 @@
  *  Add one notification on the next day, time:NOTIFICATION_TIME_ON_HOUR
  *  Will make this configurale on web server later
  */
-- (void)addNewNoficationForTomorrow
+- (void)addNewNotificationForTomorrow
 {
     NSCalendar *calendar = [self getCalendarWithGMT];
     NSDateComponents *deltaComps = [[NSDateComponents alloc] init];
