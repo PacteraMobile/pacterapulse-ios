@@ -25,15 +25,14 @@
  *
  *  @return will return the singleton for this class
  */
-+ (PPLVoteData *)shareInstance
-{
-    static PPLVoteData *shareInstance;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-      shareInstance = [[self alloc] init];
-    });
++ (PPLVoteData *)shareInstance {
+  static PPLVoteData *shareInstance;
+  static dispatch_once_t once;
+  dispatch_once(&once, ^{
+    shareInstance = [[self alloc] init];
+  });
 
-    return shareInstance;
+  return shareInstance;
 }
 
 /**
@@ -48,32 +47,61 @@
  *Controller to perform UI Actions on return
  */
 - (void)sendFeedback:(void (^)(BOOL status, NSString *serverResponse,
-                               NSError *error))callback
-{
-    PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
-    self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
-    NSString *postURL =
-        [NSString stringWithFormat:@"%@/%@/%@/%d", kVoteUrl, self.userID,
-                                   self.deviceID, self.feedBackType];
-    // Call the post function of the network hepler and process callbacks
-    [client POST:postURL
-        parameters:nil
-        success:^(NSString *responseString, id responseObject) {
-          if (callback)
-          {
-              self.feedbackSubmitted = YES;
-
-              callback(YES, responseString, nil);
-          }
-
+                               NSError *error))callback {
+  PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
+  self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
+  NSString *postURL =
+      [NSString stringWithFormat:@"%@/%@/%@/%d", kVoteUrl, self.userID,
+                                 self.deviceID, self.feedBackType];
+  // Call the post function of the network hepler and process callbacks
+  [client POST:postURL
+      parameters:nil
+      success:^(NSString *responseString, id responseObject) {
+        if (callback) {
+          self.feedbackSubmitted = YES;
+          callback(YES, responseString, nil);
         }
-        failure:^(NSString *responseString, NSError *error) {
-          if (callback)
-          {
-              self.feedbackSubmitted = NO;
-              callback(NO, responseString, error);
-          }
-        }];
+
+      }
+      failure:^(NSString *responseString, NSError *error) {
+        if (callback) {
+          self.feedbackSubmitted = NO;
+          callback(NO, responseString, error);
+        }
+      }];
+}
+
+/**
+ *  This method is called from the MoreInfo Viewcontroller to send the feedback
+ *  to the server, it also gets the voteId from previous submission
+ *  and submits with the more detail inforamtion
+ *
+ *  @param voteID        voteID is from previous vote
+ *  @param callback      This is the call back function which would allow
+ *Controller to perform UI Actions on return
+ */
+- (void)sendDetailFeedback:(NSString *)voteID
+          feedBackComments:(NSArray *)comments
+                  callBack:(void (^)(BOOL status, NSString *serverResponse,
+                                     NSError *error))callback {
+  PPLNetworkingHelper *client = [PPLNetworkingHelper sharedClient];
+  self.deviceID = [[PPLUtils sharedInstance] getUniqueId];
+  NSString *postURL = [NSString stringWithFormat:@"%@/%@", kVoteUrl, voteID];
+  [client PUT:postURL
+      parameters:comments
+      success:^(NSString *responseString, id responseObject) {
+        if (callback) {
+          self.feedbackSubmitted = YES;
+          callback(YES, responseString, nil);
+        }
+
+      }
+      failure:^(NSString *responseString, NSError *error) {
+        if (callback) {
+          self.feedbackSubmitted = NO;
+          callback(NO, responseString, error);
+        }
+      }];
 }
 
 @end

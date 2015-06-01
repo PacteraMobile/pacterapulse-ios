@@ -44,24 +44,22 @@ static NSString *kServerBaseURL =
  *  @return creates and returns the instance or returns the already created
  * instance
  */
-+ (PPLNetworkingHelper *)sharedClient
-{
-    static PPLNetworkingHelper *_sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-      _sharedClient = [[PPLNetworkingHelper alloc] init];
-    });
++ (PPLNetworkingHelper *)sharedClient {
+  static PPLNetworkingHelper *_sharedClient = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    _sharedClient = [[PPLNetworkingHelper alloc] init];
+  });
 
-    return _sharedClient;
+  return _sharedClient;
 }
 
 /**
  *  Clas level initialized function
  */
-+ (void)initialize
-{
-    __unused PPLNetworkingHelper *sharedClient =
-        [PPLNetworkingHelper sharedClient];
++ (void)initialize {
+  __unused PPLNetworkingHelper *sharedClient =
+      [PPLNetworkingHelper sharedClient];
 }
 
 /**
@@ -70,23 +68,20 @@ static NSString *kServerBaseURL =
  *
  *  @return returns the class instance
  */
-- (id)init
-{
-    if (self = [super init])
-    {
-        NSURL *baseURL = [NSURL URLWithString:kServerBaseURL];
-        self.httpManager =
-            [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
-        self.httpManager.operationQueue.maxConcurrentOperationCount = 2;
-        self.httpManager.requestSerializer =
-            [AFHTTPRequestSerializer serializer];
-        [self.httpManager.reachabilityManager startMonitoring];
-        self.httpManager.requestSerializer.timeoutInterval = DEFAULT_TIMEOUT;
-        [self.httpManager.requestSerializer
-            setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    }
-    return self;
+- (id)init {
+  if (self = [super init]) {
+    NSURL *baseURL = [NSURL URLWithString:kServerBaseURL];
+    self.httpManager =
+        [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    self.httpManager.operationQueue.maxConcurrentOperationCount = 2;
+    self.httpManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.httpManager.reachabilityManager startMonitoring];
+    self.httpManager.requestSerializer.timeoutInterval = DEFAULT_TIMEOUT;
+    [self.httpManager.requestSerializer
+        setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+  }
+  return self;
 }
 
 /**
@@ -105,17 +100,16 @@ static NSString *kServerBaseURL =
        GET:(NSString *)relativeURL
 parameters:(NSDictionary *)parameters
    success:(void (^)(NSString *responseString, id responseObject))success
-   failure:(void (^)(NSString *responseString, NSError *error))failure
-{
-    AFHTTPRequestOperation *op = [self.httpManager GET:relativeURL
-        parameters:parameters
-        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          success(operation.responseString, responseObject);
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          failure(operation.responseString, error);
-        }];
-    return op;
+   failure:(void (^)(NSString *responseString, NSError *error))failure {
+  AFHTTPRequestOperation *op = [self.httpManager GET:relativeURL
+      parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation.responseString, responseObject);
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation.responseString, error);
+      }];
+  return op;
 }
 /**
  *  Function to do Post HTTP request
@@ -132,19 +126,44 @@ parameters:(NSDictionary *)parameters
       POST:(NSString *)relativeURL
 parameters:(NSDictionary *)parameters
    success:(void (^)(NSString *responseString, id responseObject))success
-   failure:(void (^)(NSString *responseString, NSError *error))failure
-{
-    AFHTTPRequestOperation *op = [self.httpManager POST:relativeURL
-        parameters:parameters
-        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          success(operation.responseString, responseObject);
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          failure(operation.responseString, error);
-        }];
+   failure:(void (^)(NSString *responseString, NSError *error))failure {
+  AFHTTPRequestOperation *op = [self.httpManager POST:relativeURL
+      parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation.responseString, responseObject);
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation.responseString, error);
+      }];
 
-
-    return op;
+  return op;
 }
 
+/**
+ *  Function to do Put HTTP request
+ *
+ *  @param relativeURL URL relative to the base URL
+ *  @param parameters  Parameters to pass to the PUT request
+ *  @param success     callback function to be called is the HTTP Request is
+ *successful
+ *  @param failure     callback function to be called if the HTTP Request fails
+ *
+ *  @return returns the created HTTP Request operation
+ */
+- (AFHTTPRequestOperation *)
+       PUT:(NSString *)relativeURL
+parameters:(id)parameters
+   success:(void (^)(NSString *responseString, id responseObject))success
+   failure:(void (^)(NSString *responseString, NSError *error))failure {
+  AFHTTPRequestOperation *op = [self.httpManager PUT:relativeURL
+      parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation.responseString, responseObject);
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation.responseString, error);
+      }];
+
+  return op;
+}
 @end

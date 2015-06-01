@@ -29,4 +29,9 @@
 + (PPLVoteData *)shareInstance;
 - (void)sendFeedback:(void (^)(BOOL status, NSString *serverResponse,
                                NSError *error))callback;
+
+- (void)sendDetailFeedback:(NSString *)voteID
+          feedBackComments:(NSArray *)comments
+                  callBack:(void (^)(BOOL status, NSString *serverResponse,
+                                     NSError *error))callback;
 @end

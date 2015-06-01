@@ -19,7 +19,7 @@
 
 #define FEEDBACK_VALUE_KEY @"LastVoteValue"
 #define FEEDBACK_DATE_KEY @"VoteDate"
-
+#define VOTEID @"votedID"
 @interface PPLVoteManagerClass : NSObject
 
 + (PPLVoteManagerClass *)sharedInstance;
@@ -28,5 +28,8 @@
 
 - (BOOL)checkIfVoteSubmittedToday;
 
+- (void)recordVoteIDIntoCache:(NSString *)voteID;
+
+- (NSString *)getVoteIDFromCache;
 
 @end

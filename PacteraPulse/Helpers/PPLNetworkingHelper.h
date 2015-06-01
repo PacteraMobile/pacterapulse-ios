@@ -20,7 +20,6 @@
 
 #define kVoteUrl @"emotions"
 
-
 #define FEEDBACK_EMOTION_PARAM_KEY @"emotionId"
 #define FEEDBACK_DEVICE_PARAM_KEY @"deviceId"
 
@@ -54,6 +53,7 @@
 parameters:(NSDictionary *)parameters
    success:(void (^)(NSString *responseString, id responseObject))success
    failure:(void (^)(NSString *responseString, NSError *error))failure;
+
 /**
  *  Function to do Post HTTP request
  *
@@ -71,5 +71,21 @@ parameters:(NSDictionary *)parameters
    success:(void (^)(NSString *responseString, id responseObject))success
    failure:(void (^)(NSString *responseString, NSError *error))failure;
 
+/**
+ *  Function to do Put HTTP request
+ *
+ *  @param relativeURL URL relative to the base URL
+ *  @param parameters  Parameters to pass to the PUT request
+ *  @param success     callback function to be called is the HTTP Request is
+ *successful
+ *  @param failure     callback function to be called if the HTTP Request fails
+ *
+ *  @return returns the created HTTP Request operation
+ */
+- (AFHTTPRequestOperation *)
+       PUT:(NSString *)relativeURL
+parameters:(id)parameters
+   success:(void (^)(NSString *responseString, id responseObject))success
+   failure:(void (^)(NSString *responseString, NSError *error))failure;
 
 @end

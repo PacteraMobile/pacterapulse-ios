@@ -53,6 +53,7 @@
 		70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDDF1AE8BA87003C006C /* PPLVoteTableViewCell.m */; };
 		70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB01AE9D49600815ED9 /* PPLNetworkingHelper.m */; };
 		70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB31AE9D8D000815ED9 /* PPLUtils.m */; };
+		9A7D9592D3A863CC9C1A7A11 /* libPods-PacteraPulse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F371AA3DE3BA2C20878160A4 /* libPods-PacteraPulse.a */; };
 		BE7261BD9E123DC64DD33AE3 /* libPods-PacteraPulseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7BF6DC339C1A27DD4DB57B /* libPods-PacteraPulseTests.a */; };
 /* End PBXBuildFile section */
 
@@ -141,7 +142,7 @@
 			files = (
 				6C914B861B168BB500A74865 /* UIKit.framework in Frameworks */,
 				3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */,
-				9764110E91ACF6BDB1E8A114 /* libPods-PacteraPulse.a in Frameworks */,
+				9A7D9592D3A863CC9C1A7A11 /* libPods-PacteraPulse.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +966,7 @@
 				7006E75C1B15AD1900D5B138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
