@@ -80,24 +80,24 @@
 
     UIButton *temp = [UIButton new];
 
-    temp.tag = 1;
-    PPLVoteData *voteData = self.voteViewController.voteData;
-
-    [voteData setDeviceID:[[PPLUtils sharedInstance] getUniqueId]];
-    [voteData setUserID:@"myName"];
-    id voteDataMock = [OCMockObject partialMockForObject:voteData];
-    [[[voteDataMock stub] andDo:^(NSInvocation *invocation) {
-      void (^sendFeedBackResponse)(BOOL status, NSString *serverResponse,
-                                   NSError *error);
-      [invocation getArgument:&sendFeedBackResponse atIndex:2];
-      BOOL status = YES;
-      NSString *serverResponse = @"";
-      NSError *error = nil;
-      sendFeedBackResponse(status, serverResponse, error);
-      XCTAssert(YES, @"Pass");
-    }] sendFeedback:[OCMArg any]];
-
-    [self.voteViewController handleClick:temp];
+    //    temp.tag = 1;
+    //    PPLVoteData *voteData = self.voteViewController.voteData;
+    //
+    //    [voteData setDeviceID:[[PPLUtils sharedInstance] getUniqueId]];
+    //    [voteData setUserID:@"myName"];
+    //    id voteDataMock = [OCMockObject partialMockForObject:voteData];
+    //    [[[voteDataMock stub] andDo:^(NSInvocation *invocation) {
+    //      void (^sendFeedBackResponse)(BOOL status, NSString *serverResponse,
+    //                                   NSError *error);
+    //      [invocation getArgument:&sendFeedBackResponse atIndex:2];
+    //      BOOL status = YES;
+    //      NSString *serverResponse = @"";
+    //      NSError *error = nil;
+    //      sendFeedBackResponse(status, serverResponse, error);
+    //      XCTAssert(YES, @"Pass");
+    //    }] sendFeedback:[OCMArg any]];
+    //
+    //    [self.voteViewController handleClick:temp];
 
 
     //  TODO update the test case, or remove it into the votedetail testcase
