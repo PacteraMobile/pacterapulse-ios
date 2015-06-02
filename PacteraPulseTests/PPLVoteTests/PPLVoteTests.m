@@ -24,10 +24,12 @@
 #import "OCMockObject.h"
 #import "OCMArg.h"
 #import "OCMStubRecorder.h"
-@interface PPLVoteTests : XCTestCase
+#import "PPLSummaryBarViewController.h"
+@interface PPLVoteTests : XCTestCase <UINavigationControllerDelegate>
 
 @property(nonatomic, strong) PPLVoteViewController *voteViewController;
 @property(nonatomic, strong) UINavigationController *navigationController;
+@property(nonatomic, strong) XCTestExpectation *navigationComplete;
 
 @end
 
@@ -41,6 +43,7 @@
         (UINavigationController *)appDelegate.window.rootViewController;
     ;
 
+    _navigationController.delegate = self;
     UIViewController *visibleView =
         self.navigationController.viewControllers[0];
 
@@ -52,8 +55,18 @@
     else
     {
 
+        self.navigationComplete =
+            [self expectationWithDescription:@"Thankyou navigation complete"];
         [visibleView performSegueWithIdentifier:kVoteSegueId sender:nil];
-        _voteViewController = self.navigationController.viewControllers[1];
+
+        [self waitForExpectationsWithTimeout:
+                  10.0 handler:^(NSError *error) {
+          XCTAssertTrue([self.navigationController.topViewController
+                            isKindOfClass:[PPLVoteViewController class]],
+                        @"Error in navigation");
+
+          _voteViewController = self.navigationController.viewControllers[1];
+        }];
     }
 }
 
@@ -66,12 +79,12 @@
 }
 - (void)testUIElementsVoteScreen
 {
-    // XCTAssertEqual(_voteViewController.data.count, 3);
+    XCTAssertEqual(_voteViewController.data.count, 3);
 
     for (id cell in self.voteViewController.tableView.visibleCells)
     {
 
-        //  XCTAssertTrue([cell isKindOfClass:[PPLVoteTableViewCell class]]);
+        XCTAssertTrue([cell isKindOfClass:[PPLVoteTableViewCell class]]);
     }
 }
 
@@ -80,24 +93,24 @@
 
     UIButton *temp = [UIButton new];
 
-    //    temp.tag = 1;
-    //    PPLVoteData *voteData = self.voteViewController.voteData;
-    //
-    //    [voteData setDeviceID:[[PPLUtils sharedInstance] getUniqueId]];
-    //    [voteData setUserID:@"myName"];
-    //    id voteDataMock = [OCMockObject partialMockForObject:voteData];
-    //    [[[voteDataMock stub] andDo:^(NSInvocation *invocation) {
-    //      void (^sendFeedBackResponse)(BOOL status, NSString *serverResponse,
-    //                                   NSError *error);
-    //      [invocation getArgument:&sendFeedBackResponse atIndex:2];
-    //      BOOL status = YES;
-    //      NSString *serverResponse = @"";
-    //      NSError *error = nil;
-    //      sendFeedBackResponse(status, serverResponse, error);
-    //      XCTAssert(YES, @"Pass");
-    //    }] sendFeedback:[OCMArg any]];
-    //
-    //    [self.voteViewController handleClick:temp];
+    temp.tag = 1;
+    PPLVoteData *voteData = self.voteViewController.voteData;
+
+    [voteData setDeviceID:[[PPLUtils sharedInstance] getUniqueId]];
+    [voteData setUserID:@"myName"];
+    id voteDataMock = [OCMockObject partialMockForObject:voteData];
+    [[[voteDataMock stub] andDo:^(NSInvocation *invocation) {
+      void (^sendFeedBackResponse)(BOOL status, NSString *serverResponse,
+                                   NSError *error);
+      [invocation getArgument:&sendFeedBackResponse atIndex:2];
+      BOOL status = YES;
+      NSString *serverResponse = @"";
+      NSError *error = nil;
+      sendFeedBackResponse(status, serverResponse, error);
+      XCTAssert(YES, @"Pass");
+    }] sendFeedback:[OCMArg any]];
+
+    [self.voteViewController handleClick:temp];
 
 
     //  TODO update the test case, or remove it into the votedetail testcase
@@ -117,4 +130,16 @@
     //    [self waitForExpectationsWithTimeout:5.0 handler:nil];
 }
 
+- (void)navigationController:(UINavigationController *)navigationController
+       didShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated
+{
+
+    if ([viewController isKindOfClass:[PPLVoteViewController class]])
+    {
+        NSLog(@"===Expectation fulfilled====");
+
+        [self.navigationComplete fulfill];
+    }
+}
 @end
