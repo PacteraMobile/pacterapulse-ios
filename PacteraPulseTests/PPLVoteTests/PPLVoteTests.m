@@ -37,6 +37,7 @@
 
 - (void)setUp
 {
+    NSLog(@"Setup in voteTest");
     [super setUp];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     _navigationController =
@@ -44,8 +45,7 @@
     ;
 
     _navigationController.delegate = self;
-    UIViewController *visibleView =
-        self.navigationController.viewControllers[0];
+    UIViewController *visibleView = self.navigationController.topViewController;
 
     if ([visibleView isKindOfClass:[PPLVoteViewController class]])
     {
@@ -55,9 +55,20 @@
     else
     {
 
-        self.navigationComplete =
+
+        UIStoryboard *storyboard =
+            [UIStoryboard storyboardWithName:kStoryboardId bundle:nil];
+
+        _voteViewController =
+            [storyboard instantiateViewControllerWithIdentifier:kVoteScreen];
+
+
+        _navigationComplete =
             [self expectationWithDescription:@"Thankyou navigation complete"];
-        [visibleView performSegueWithIdentifier:kVoteSegueId sender:nil];
+
+        [_navigationController pushViewController:_voteViewController
+                                         animated:NO];
+
 
         [self waitForExpectationsWithTimeout:
                   10.0 handler:^(NSError *error) {
@@ -65,7 +76,6 @@
                             isKindOfClass:[PPLVoteViewController class]],
                         @"Error in navigation");
 
-          _voteViewController = self.navigationController.viewControllers[1];
         }];
     }
 }
@@ -79,7 +89,13 @@
 }
 - (void)testUIElementsVoteScreen
 {
-    XCTAssertEqual(_voteViewController.data.count, 3);
+
+    NSArray *temp = self.navigationController.viewControllers;
+
+    NSLog(@"%@", temp);
+    XCTAssertTrue([self.navigationController.topViewController
+        isKindOfClass:[PPLVoteViewController class]]);
+    XCTAssertEqual(self.voteViewController.data.count, 3);
 
     for (id cell in self.voteViewController.tableView.visibleCells)
     {
@@ -118,7 +134,7 @@
     //    XCTestExpectation *completionExpectation = [self
     //    expectationWithDescription:@"Checkin Submitted Fetch"];
     //
-    //    [dataModel sendFeedback:[NSString stringWithFormat:@"%d", (rand()%3 +1
+    //    [dataModel sendFeedback:[NSString stringWithFormat:@"%d", (rand()%3+1
     //    )]
     //                   callBack:^(BOOL status, NSString* serverResponse,
     //                   NSError
@@ -137,9 +153,9 @@
 
     if ([viewController isKindOfClass:[PPLVoteViewController class]])
     {
-        NSLog(@"===Expectation fulfilled====");
-
         [self.navigationComplete fulfill];
     }
 }
+
+
 @end

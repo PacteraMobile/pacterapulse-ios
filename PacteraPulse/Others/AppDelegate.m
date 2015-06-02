@@ -52,6 +52,7 @@ NSString *const kStoryboardId = @"Main";
  */
 - (BOOL)checkFirstLaunch
 {
+    NSLog(@"Check Launch");
     return ![[NSUserDefaults standardUserDefaults] boolForKey:kLauchFirstTime];
 }
 
