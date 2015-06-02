@@ -1,15 +1,37 @@
-//
-//  PPLVoteData.h
-//  PacteraPulse
-//
-//  Created by Qazi.
 //  Copyright (c) 2015 Pactera. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+// OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+// ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A
+// PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+//
+// See the Apache License, Version 2.0 for the specific language
+// governing permissions and limitations under the License.
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PPLUtils.h"
 @interface PPLVoteData : NSObject
+@property(nonatomic, copy) NSString *userID;
+@property(nonatomic, copy) NSString *firstName;
+@property(nonatomic, copy) NSString *lastName;
+@property(nonatomic, copy) NSString *email;
+@property(nonatomic, copy) NSString *deviceID;
+@property(nonatomic, assign) FeedBackType feedBackType;
+@property(nonatomic, copy) NSArray *comments;
+@property(nonatomic, assign) BOOL feedbackSubmitted;
 + (PPLVoteData *)shareInstance;
-- (void)sendFeedback:(NSString*)feedBackValue callBack:
-    (void(^)(BOOL status, NSString* serverResponse, NSError *error)) callback;
+- (void)sendFeedback:(void (^)(BOOL status, NSString *serverResponse,
+                               NSError *error))callback;
+
+- (void)sendDetailFeedback:(NSString *)voteID
+          feedBackComments:(NSArray *)comments
+                  callBack:(void (^)(BOOL status, NSString *serverResponse,
+                                     NSError *error))callback;
 @end

@@ -1,8 +1,16 @@
 language: objective-c
-before_install:
+cache: cocoapods
+before_install:   
+   - gem install cocoapods slather -N
    - pod install
    - brew update
    - brew outdated xctool || brew upgrade xctool
 script: 
    - xctool -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
    - xctool test -workspace PacteraPulse.xcworkspace -scheme PacteraPulse -sdk iphonesimulator
+after_success: 
+   - slather
+notifications:
+  email:
+    - mobile@pactera.com.au
+    - randy.sun@pactera.com.au

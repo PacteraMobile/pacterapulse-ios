@@ -6,18 +6,43 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7006E75A1B15AD1900D5B138 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7006E75D1B15AD1900D5B138 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				7006E75E1B15AD2200D5B138 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C28F5491AE8D5B700457923 /* PlotItem.m */; };
 		3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C28F5631AE8DC5C00457923 /* Accelerate.framework */; };
 		3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7AF0111AE9EBC600106662 /* PPLSummaryData.m */; };
+		3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */; };
+		6C914B861B168BB500A74865 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C914B851B168BB500A74865 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8A1AE883C10036447F /* Main.storyboard */; };
 		6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC95B8F1AE883C10036447F /* LaunchScreen.xib */; };
 		6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BEE1AEE05C60036447F /* PPLSummaryBarViewController.m */; };
 		6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC95BF21AEE05E80036447F /* PPLColoredBarChart.m */; };
-		700DE18B1AEDC1AE00CBF19F /* PPLVoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 700DE18A1AEDC1AE00CBF19F /* PPLVoteData.m */; };
+		6CDC93231B140C1A00E1F7D1 /* PPLNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */; };
 		704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */; };
+		705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026431B0AE85100B31919 /* PPLAuthenticationTests.m */; };
+		7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */; };
+		705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */; };
+		705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 705026581B0B04EB00B31919 /* AuthenticationSettings.plist */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
+		7087CC0F1B1D8B6A00D62260 /* PPLNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */; };
 		709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 709441751AF04C6E006C30EB /* PPLVoteRow.m */; };
+		709F7FDF1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */; };
+		709F7FE01B0D8BF900B6CB6E /* PPLVoteContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */; };
+		709F7FE91B0D8C8B00B6CB6E /* PPLVoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */; };
+		70A6D11B1B0D9A2A00720272 /* PPLVoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */; };
 		70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB01AE8B3C0003C006C /* AppDelegate.m */; };
 		70C5FDB81AE8B3C0003C006C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDB21AE8B3C0003C006C /* main.m */; };
 		70C5FDBC1AE8B42F003C006C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C5FDBB1AE8B42F003C006C /* Images.xcassets */; };
@@ -29,7 +54,7 @@
 		70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C5FDDF1AE8BA87003C006C /* PPLVoteTableViewCell.m */; };
 		70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB01AE9D49600815ED9 /* PPLNetworkingHelper.m */; };
 		70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F49CB31AE9D8D000815ED9 /* PPLUtils.m */; };
-		9764110E91ACF6BDB1E8A114 /* libPods-PacteraPulse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F371AA3DE3BA2C20878160A4 /* libPods-PacteraPulse.a */; };
+		9A7D9592D3A863CC9C1A7A11 /* libPods-PacteraPulse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F371AA3DE3BA2C20878160A4 /* libPods-PacteraPulse.a */; };
 		BE7261BD9E123DC64DD33AE3 /* libPods-PacteraPulseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7BF6DC339C1A27DD4DB57B /* libPods-PacteraPulseTests.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +77,8 @@
 		3CD1A45D1AEDF772006A8875 /* libPods-PacteraPulse-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-AFNetworking.a"; sourceTree = "<group>"; };
 		3CD1A45F1AEDF776006A8875 /* libPods-PacteraPulse-CorePlot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-CorePlot.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-CorePlot.a"; sourceTree = "<group>"; };
 		3CD1A4611AEDF77D006A8875 /* libPods-PacteraPulse-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PacteraPulse-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-PacteraPulse-MBProgressHUD.a"; sourceTree = "<group>"; };
+		3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailTests.m; sourceTree = "<group>"; };
+		6C914B851B168BB500A74865 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CC95B7D1AE883C10036447F /* PacteraPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PacteraPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC95B8B1AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CC95B901AE883C10036447F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -62,13 +89,28 @@
 		6CC95BF01AEE05DA0036447F /* PPLSummaryGenerals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLSummaryGenerals.h; sourceTree = "<group>"; };
 		6CC95BF11AEE05E80036447F /* PPLColoredBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLColoredBarChart.h; sourceTree = "<group>"; };
 		6CC95BF21AEE05E80036447F /* PPLColoredBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLColoredBarChart.m; sourceTree = "<group>"; };
-		700DE1891AEDC1AE00CBF19F /* PPLVoteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteData.h; sourceTree = "<group>"; };
-		700DE18A1AEDC1AE00CBF19F /* PPLVoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteData.m; sourceTree = "<group>"; };
+		6CDC93211B140C1A00E1F7D1 /* PPLNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLNotificationCenter.h; sourceTree = "<group>"; };
+		6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLNotificationCenter.m; sourceTree = "<group>"; };
 		704B97BA1B057C6400422C4B /* PPLVoteManagerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteManagerClass.h; sourceTree = "<group>"; };
 		704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerClass.m; sourceTree = "<group>"; };
+		705026431B0AE85100B31919 /* PPLAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationTests.m; sourceTree = "<group>"; };
+		705026491B0AEB9600B31919 /* PPLAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationController.h; sourceTree = "<group>"; };
+		7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationController.m; sourceTree = "<group>"; };
+		705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLAuthenticationSettings.h; sourceTree = "<group>"; };
+		705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationSettings.m; sourceTree = "<group>"; };
+		705026581B0B04EB00B31919 /* AuthenticationSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthenticationSettings.plist; sourceTree = "<group>"; };
 		70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerTests.m; sourceTree = "<group>"; };
+		7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLNetworkTests.m; sourceTree = "<group>"; };
 		709441741AF04C6E006C30EB /* PPLVoteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteRow.h; sourceTree = "<group>"; };
 		709441751AF04C6E006C30EB /* PPLVoteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteRow.m; sourceTree = "<group>"; };
+		709F7FDB1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteContentQuestionView.h; sourceTree = "<group>"; };
+		709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteContentQuestionView.m; sourceTree = "<group>"; };
+		709F7FDD1B0D8BF900B6CB6E /* PPLVoteContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteContentView.h; sourceTree = "<group>"; };
+		709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteContentView.m; sourceTree = "<group>"; };
+		709F7FE51B0D8C8B00B6CB6E /* PPLVoteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteData.h; sourceTree = "<group>"; };
+		709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteData.m; sourceTree = "<group>"; };
+		70A6D1191B0D9A2A00720272 /* PPLVoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteDetailViewController.h; sourceTree = "<group>"; };
+		70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteDetailViewController.m; sourceTree = "<group>"; };
 		70C5FDAF1AE8B3C0003C006C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70C5FDB01AE8B3C0003C006C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		70C5FDB11AE8B3C0003C006C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,8 +142,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C914B861B168BB500A74865 /* UIKit.framework in Frameworks */,
 				3C28F5641AE8DC5C00457923 /* Accelerate.framework in Frameworks */,
-				9764110E91ACF6BDB1E8A114 /* libPods-PacteraPulse.a in Frameworks */,
+				9A7D9592D3A863CC9C1A7A11 /* libPods-PacteraPulse.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CDD84CA1B0AD59500F490B1 /* PPLVoteDetailTests */ = {
+			isa = PBXGroup;
+			children = (
+				3CDD84CB1B0AD5B000F490B1 /* PPLVoteDetailTests.m */,
+			);
+			path = PPLVoteDetailTests;
+			sourceTree = "<group>";
+		};
 		6CC95B741AE883C10036447F = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +195,7 @@
 				70C5FDAE1AE8B3C0003C006C /* Others */,
 				70C5FDB31AE8B3C0003C006C /* PPLLaunch */,
 				70C5FDB41AE8B3C0003C006C /* PPLSummary */,
+				705026461B0AE8E000B31919 /* PPLAuthentication */,
 				70C5FDB51AE8B3C0003C006C /* PPLVote */,
 			);
 			path = PacteraPulse;
@@ -152,6 +204,9 @@
 		6CC95B991AE883C10036447F /* PacteraPulseTests */ = {
 			isa = PBXGroup;
 			children = (
+				7087CC0D1B1D8B2800D62260 /* PPLNetworkTests */,
+				705026421B0AE83700B31919 /* PPLAuthenticationTests */,
+				3CDD84CA1B0AD59500F490B1 /* PPLVoteDetailTests */,
 				70668F701B045D4E0080E8B2 /* PPLVoteManagerTests */,
 				70C5FDBE1AE8B59B003C006C /* PPLLaunchTests */,
 				70C5FDC01AE8B59B003C006C /* PPLSummaryTests */,
@@ -169,6 +224,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		705026421B0AE83700B31919 /* PPLAuthenticationTests */ = {
+			isa = PBXGroup;
+			children = (
+				705026431B0AE85100B31919 /* PPLAuthenticationTests.m */,
+			);
+			path = PPLAuthenticationTests;
+			sourceTree = "<group>";
+		};
+		705026461B0AE8E000B31919 /* PPLAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				705026471B0AE93300B31919 /* Controller */,
+				705026481B0AE93300B31919 /* Model */,
+			);
+			path = PPLAuthentication;
+			sourceTree = "<group>";
+		};
+		705026471B0AE93300B31919 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				705026491B0AEB9600B31919 /* PPLAuthenticationController.h */,
+				7050264A1B0AEB9600B31919 /* PPLAuthenticationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		705026481B0AE93300B31919 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				705026511B0AFA3B00B31919 /* PPLAuthenticationSettings.h */,
+				705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		70668F701B045D4E0080E8B2 /* PPLVoteManagerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,9 +267,18 @@
 			path = PPLVoteManagerTests;
 			sourceTree = "<group>";
 		};
+		7087CC0D1B1D8B2800D62260 /* PPLNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */,
+			);
+			path = PPLNetworkTests;
+			sourceTree = "<group>";
+		};
 		70C5FDAE1AE8B3C0003C006C /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				705026581B0B04EB00B31919 /* AuthenticationSettings.plist */,
 				6CC95B8F1AE883C10036447F /* LaunchScreen.xib */,
 				6CC95B8A1AE883C10036447F /* Main.storyboard */,
 				70C5FDAF1AE8B3C0003C006C /* AppDelegate.h */,
@@ -300,6 +399,8 @@
 		70C5FDD21AE8B6F9003C006C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				70A6D1191B0D9A2A00720272 /* PPLVoteDetailViewController.h */,
+				70A6D11A1B0D9A2A00720272 /* PPLVoteDetailViewController.m */,
 				704B97BA1B057C6400422C4B /* PPLVoteManagerClass.h */,
 				704B97BB1B057C6400422C4B /* PPLVoteManagerClass.m */,
 				70C5FDDB1AE8B8BE003C006C /* PPLVoteViewController.h */,
@@ -311,8 +412,8 @@
 		70C5FDD31AE8B6F9003C006C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				700DE1891AEDC1AE00CBF19F /* PPLVoteData.h */,
-				700DE18A1AEDC1AE00CBF19F /* PPLVoteData.m */,
+				709F7FE51B0D8C8B00B6CB6E /* PPLVoteData.h */,
+				709F7FE61B0D8C8B00B6CB6E /* PPLVoteData.m */,
 				709441741AF04C6E006C30EB /* PPLVoteRow.h */,
 				709441751AF04C6E006C30EB /* PPLVoteRow.m */,
 			);
@@ -322,6 +423,10 @@
 		70C5FDD41AE8B6F9003C006C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				709F7FDB1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.h */,
+				709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */,
+				709F7FDD1B0D8BF900B6CB6E /* PPLVoteContentView.h */,
+				709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */,
 				70C5FDDE1AE8BA87003C006C /* PPLVoteTableViewCell.h */,
 				70C5FDDF1AE8BA87003C006C /* PPLVoteTableViewCell.m */,
 			);
@@ -335,6 +440,8 @@
 				70F49CB01AE9D49600815ED9 /* PPLNetworkingHelper.m */,
 				70F49CB21AE9D8D000815ED9 /* PPLUtils.h */,
 				70F49CB31AE9D8D000815ED9 /* PPLUtils.m */,
+				6CDC93211B140C1A00E1F7D1 /* PPLNotificationCenter.h */,
+				6CDC93221B140C1A00E1F7D1 /* PPLNotificationCenter.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -342,6 +449,7 @@
 		90EEEA7B195BF10F37665F50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C914B851B168BB500A74865 /* UIKit.framework */,
 				3CD1A4611AEDF77D006A8875 /* libPods-PacteraPulse-MBProgressHUD.a */,
 				3CD1A45F1AEDF776006A8875 /* libPods-PacteraPulse-CorePlot.a */,
 				3CD1A45D1AEDF772006A8875 /* libPods-PacteraPulse-AFNetworking.a */,
@@ -375,6 +483,7 @@
 				6CC95B7A1AE883C10036447F /* Frameworks */,
 				6CC95B7B1AE883C10036447F /* Resources */,
 				BFCA356B762A451432E49417 /* Copy Pods Resources */,
+				6CA0D8F61B09A00E008DD4DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -416,12 +525,14 @@
 				TargetAttributes = {
 					6CC95B7C1AE883C10036447F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 328F5U833R;
 					};
 					6CC95B951AE883C10036447F = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = 328F5U833R;
 						TestTargetID = 6CC95B7C1AE883C10036447F;
+					};
+					7006E75A1B15AD1900D5B138 = {
+						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
@@ -440,6 +551,7 @@
 			targets = (
 				6CC95B7C1AE883C10036447F /* PacteraPulse */,
 				6CC95B951AE883C10036447F /* PacteraPulseTests */,
+				7006E75A1B15AD1900D5B138 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +564,7 @@
 				70C5FDBC1AE8B42F003C006C /* Images.xcassets in Resources */,
 				6CC95B8C1AE883C10036447F /* Main.storyboard in Resources */,
 				6CC95B911AE883C10036447F /* LaunchScreen.xib in Resources */,
+				705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +592,32 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		6CA0D8F61B09A00E008DD4DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Pods/XcodeCoverage/exportenv.sh";
+		};
+		7006E75E1B15AD2200D5B138 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Pactera\";\ncompanyID=\"com.pactera\";\ncompanyURL=\"http://pactera.com.au\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n--ignore \"${PROJECT_DIR}/Pods\" \\\n\"${PROJECT_DIR}\"";
 		};
 		B8115503B18D7B4B9D281A91 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -533,19 +672,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CC95BEF1AEE05C60036447F /* PPLSummaryBarViewController.m in Sources */,
-				700DE18B1AEDC1AE00CBF19F /* PPLVoteData.m in Sources */,
 				70C5FDE01AE8BA87003C006C /* PPLVoteTableViewCell.m in Sources */,
+				705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */,
+				709F7FE91B0D8C8B00B6CB6E /* PPLVoteData.m in Sources */,
 				3C28F54C1AE8D5B700457923 /* PlotItem.m in Sources */,
+				6CDC93231B140C1A00E1F7D1 /* PPLNotificationCenter.m in Sources */,
 				70F49CB41AE9D8D000815ED9 /* PPLUtils.m in Sources */,
 				70F49CB11AE9D49600815ED9 /* PPLNetworkingHelper.m in Sources */,
 				70C5FDB81AE8B3C0003C006C /* main.m in Sources */,
 				704B97BC1B057C6400422C4B /* PPLVoteManagerClass.m in Sources */,
 				70C5FDD71AE8B892003C006C /* PPLLaunchViewController.m in Sources */,
 				70C5FDDD1AE8B8BE003C006C /* PPLVoteViewController.m in Sources */,
+				70A6D11B1B0D9A2A00720272 /* PPLVoteDetailViewController.m in Sources */,
 				709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */,
 				3C7AF0121AE9EBC600106662 /* PPLSummaryData.m in Sources */,
 				70C5FDB61AE8B3C0003C006C /* AppDelegate.m in Sources */,
 				6CC95BF31AEE05E80036447F /* PPLColoredBarChart.m in Sources */,
+				7050264B1B0AEB9600B31919 /* PPLAuthenticationController.m in Sources */,
+				709F7FDF1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m in Sources */,
+				709F7FE01B0D8BF900B6CB6E /* PPLVoteContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +700,9 @@
 			files = (
 				70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */,
 				70C5FDC81AE8B620003C006C /* PPLVoteTests.m in Sources */,
+				705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */,
+				7087CC0F1B1D8B6A00D62260 /* PPLNetworkTests.m in Sources */,
+				3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */,
 				70C5FDCA1AE8B62B003C006C /* PPLSummaryTests.m in Sources */,
 				70C5FDC41AE8B59B003C006C /* PPLLaunchTests.m in Sources */,
 			);
@@ -609,12 +757,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -658,12 +806,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -692,7 +840,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -700,7 +847,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PacteraPulse/Others/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -720,7 +867,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -728,7 +874,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PacteraPulse/Others/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -769,7 +915,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -779,6 +924,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PacteraPulse.app/PacteraPulse";
+			};
+			name = Release;
+		};
+		7006E75B1B15AD1900D5B138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7006E75C1B15AD1900D5B138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -808,6 +967,15 @@
 			buildConfigurations = (
 				6CC95BA41AE883C10036447F /* Debug */,
 				6CC95BA51AE883C10036447F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7006E75D1B15AD1900D5B138 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7006E75B1B15AD1900D5B138 /* Debug */,
+				7006E75C1B15AD1900D5B138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

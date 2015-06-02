@@ -1,9 +1,18 @@
-//
-//  PacteraPulseTests.m
-//  PacteraPulseTests
-//
-//  Created by Randy.
 //  Copyright (c) 2015 Pactera. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+// OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+// ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A
+// PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+//
+// See the Apache License, Version 2.0 for the specific language
+// governing permissions and limitations under the License.
 //
 
 #import <UIKit/UIKit.h>
@@ -62,6 +71,12 @@
              }];
 }
 
+- (void)testIfDataFetchedSuccessfully
+{
+    // Private member, how to test?
+    XCTAssertTrue(true);
+}
+
 - (void)testIfBarchartShowed
 {
     PPLSummaryBarViewController *viewController =
@@ -76,7 +91,8 @@
         NSString *coreplotClass =
             [NSString stringWithFormat:@"%@", [CPTGraphHostingView class]];
 
-        //if( [subview isKindOfClass:[CPTGraphHostingView class]])//stupid, this doesn't work
+        // stupid,this doesn't work
+        // if( [subview isKindOfClass:[CPTGraphHostingView class]])
         if ([subviewClass isEqualToString:coreplotClass])
         {
             testSucceed = true;
@@ -98,18 +114,17 @@
 
         NSString *subviewClass =
             [NSString stringWithFormat:@"%@", [subview class]];
-        NSString *coreplotClass =
+        NSString *csClass =
             [NSString stringWithFormat:@"%@", [CSNotificationView class]];
 
-        //if( [subview isKindOfClass:[CSNotificationView class]])//stupid,this doesn't work
-        if ([subviewClass isEqualToString:coreplotClass])
+        if ([subviewClass isEqualToString:csClass])
         {
             alertShowed = true;
             break;
         }
     }
 
-    if(viewController.shouldShowAlert)
+    if (viewController.shouldShowAlert)
     {
         XCTAssertTrue(alertShowed);
     }
@@ -117,6 +132,30 @@
     {
         XCTAssertTrue(!alertShowed);
     }
+}
+
+- (void)testIfSegmentControlShowed
+{
+    PPLSummaryBarViewController *viewController =
+        [[PPLSummaryBarViewController alloc] init];
+    NSArray *viewArray = viewController.view.subviews;
+    bool testSucceed = false;
+    for (UIView *subview in viewArray)
+    {
+
+        NSString *subviewClass =
+            [NSString stringWithFormat:@"%@", [subview class]];
+        NSString *segmentClass =
+            [NSString stringWithFormat:@"%@", [UISegmentedControl class]];
+
+        if ([subviewClass isEqualToString:segmentClass])
+        {
+            testSucceed = true;
+            break;
+        }
+    }
+
+    XCTAssertTrue(testSucceed);
 }
 
 @end

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteRow.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteRow</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>PPLVoteRow.h</DeclaredIn>
+            
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLVoteRow/initObjects</TokenIdentifier>
+			<Abstract type="html">Class level function which initializes all the objects and return in an
+Array</Abstract>
+			<DeclaredIn>PPLVoteRow.h</DeclaredIn>
+			
+			<Declaration>+ (NSArray *)initObjects</Declaration>
+			
+			<ReturnValue><Abstract type="html">return the created array with images and values</Abstract></ReturnValue>
+			<Anchor>//api/name/initObjects</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteRow/initWithImage:Tag:</TokenIdentifier>
+			<Abstract type="html">Initilization for this object with Image and tag(which would be the value
+sent to server)</Abstract>
+			<DeclaredIn>PPLVoteRow.m</DeclaredIn>
+			
+			<Declaration>- (id)initWithImage:(UIImage *)image Tag:(NSInteger)tag</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>image</Name>
+					<Abstract type="html">Image to display on the row</Abstract>
+				</Parameter><Parameter>
+					<Name>tag</Name>
+					<Abstract type="html">Tag or value related to this image which would be sent to
+server</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithImage:Tag:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

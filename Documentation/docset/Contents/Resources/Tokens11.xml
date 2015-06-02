@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLVoteManagerClass.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLVoteManagerClass</TokenIdentifier>
+			<Abstract type="html">Vote manager class will keep a track of votes, for now we restrict voting
+to one vote per day, so this class will keep a track of submitted votes
+and check if another can be submitted</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.h</DeclaredIn>
+            
+			
+			<NodeRef refid="11"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLVoteManagerClass/sharedInstance</TokenIdentifier>
+			<Abstract type="html">Create a singleton instans</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.h</DeclaredIn>
+			
+			<Declaration>+ (PPLVoteManagerClass *)sharedInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">return the signleton instans</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedInstance</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerClass/recordVoteSubmission:</TokenIdentifier>
+			<Abstract type="html">This function records the current date and value of last vote</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.h</DeclaredIn>
+			
+			<Declaration>- (void)recordVoteSubmission:(NSString *)value</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">value of this vote</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/recordVoteSubmission:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerClass/checkIfVoteSubmittedToday</TokenIdentifier>
+			<Abstract type="html">This function is used to check if the user has already submitted his vote
+for the current day</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)checkIfVoteSubmittedToday</Declaration>
+			
+			<ReturnValue><Abstract type="html">returns true if vote has been submitted and false otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/checkIfVoteSubmittedToday</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerClass/getCurrentDate</TokenIdentifier>
+			<Abstract type="html">Internal funciton to get only the date portion (removing the time element)</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.m</DeclaredIn>
+			
+			<Declaration>- (NSDate *)getCurrentDate</Declaration>
+			
+			<ReturnValue><Abstract type="html">Date object with time set to default start of the day</Abstract></ReturnValue>
+			<Anchor>//api/name/getCurrentDate</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLVoteManagerClass/ifDateIsToday:</TokenIdentifier>
+			<Abstract type="html">Internal function to check if the date passed is todays</Abstract>
+			<DeclaredIn>PPLVoteManagerClass.m</DeclaredIn>
+			
+			<Declaration>- (BOOL)ifDateIsToday:(NSDate *)date</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>date</Name>
+					<Abstract type="html">date which is to be checked</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">returns true if the date sent for checking is today and false
+otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/ifDateIsToday:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

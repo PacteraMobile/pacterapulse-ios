@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PPLAuthenticationController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PPLAuthenticationController</TokenIdentifier>
+			<Abstract type="html">Class to manage authentication related functionality</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/PPLAuthenticationController/sharedInstance</TokenIdentifier>
+			<Abstract type="html">Create a singleton instans</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>+ (PPLAuthenticationController *)sharedInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">return the signleton instans</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedInstance</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationController/checkIfLoggedIn:</TokenIdentifier>
+			<Abstract type="html">Function to check if the session created by the user is still valid and
+he can continue ahead to the main app functionality</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)checkIfLoggedIn:(UIViewController *)viewController</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the user is logged in and session is valid otherwise
+return NO</Abstract></ReturnValue>
+			<Anchor>//api/name/checkIfLoggedIn:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationController/loginUser:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Login user will call the authentication method needed to login the user,</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>- (void)loginUser:(UIViewController *)viewController completionHandler:(void ( ^ ) ( NSString *, NSError *))completionblock</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the user logged in successfully NO if login failed</Abstract></ReturnValue>
+			<Anchor>//api/name/loginUser:completionHandler:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationController/getToken:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Helper function for checking if the user is logged in, this will verify the
+stored token and check its validity</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>- (void)getToken:(UIViewController *)viewController completionHandler:(void ( ^ ) ( NSString *, NSError *))completionblock</Declaration>
+			
+			<ReturnValue><Abstract type="html">return YES if the token is still valid NO if it has expired</Abstract></ReturnValue>
+			<Anchor>//api/name/getToken:completionHandler:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationController/inValidateToken</TokenIdentifier>
+			<Abstract type="html">Helper function to remove the token from the system and device, this will be
+used by the lgout functionality</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>- (void)inValidateToken</Declaration>
+			
+			
+			<Anchor>//api/name/inValidateToken</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PPLAuthenticationController/logoutUser</TokenIdentifier>
+			<Abstract type="html">Log the current user out of the system</Abstract>
+			<DeclaredIn>PPLAuthenticationController.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)logoutUser</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the logout process was successful NO otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/logoutUser</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
