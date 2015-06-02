@@ -101,8 +101,6 @@ NSString *const kSummaryPageSegueId = @"showSummary";
 
 - (IBAction)clickSubmitButton:(id)sender {
 
-  [self.navigationController popViewControllerAnimated:YES];
-  self.voteData.feedbackSubmitted = NO;
   PPLVoteManagerClass *voteManager = [PPLVoteManagerClass sharedInstance];
   NSString *voteID = [voteManager getVoteIDFromCache];
   NSArray *comments = [self.voteContentView fetchVoteComments];
@@ -116,7 +114,10 @@ NSString *const kSummaryPageSegueId = @"showSummary";
                 callBack:^(BOOL status, NSString *serverResponse,
                            NSError *error) {
                   if (status) {
+                    self.voteData.feedbackSubmitted = NO;
                     NSLog(@"Vote Detail:  %@", serverResponse);
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
                   } else {
                     UIAlertView *alert = [[UIAlertView alloc]
                             initWithTitle:@"Error"
