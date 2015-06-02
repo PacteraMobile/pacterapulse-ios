@@ -27,6 +27,7 @@
 NSString *const kLauchFirstTime = @"LauchFirstTime";
 NSString *const kLaunchScreen = @"launchController";
 NSString *const kVoteScreen = @"voteController";
+NSString *const kVoteDetailScreen = @"VoteDetailView";
 
 NSString *const kStoryboardId = @"Main";
 

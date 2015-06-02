@@ -21,6 +21,7 @@ extern NSString *const kLauchFirstTime;
 extern NSString *const kStoryboardId;
 extern NSString *const kLaunchScreen;
 extern NSString *const kVoteScreen;
+extern NSString *const kVoteDetailScreen;
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
