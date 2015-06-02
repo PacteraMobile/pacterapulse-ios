@@ -31,6 +31,7 @@
 @property(nonatomic, strong) UINavigationController *navigationController;
 @property(nonatomic, strong) XCTestExpectation *navigationComplete;
 
+
 @end
 
 @implementation PPLVoteTests
@@ -102,7 +103,18 @@
 
         XCTAssertTrue([cell isKindOfClass:[PPLVoteTableViewCell class]]);
     }
+
+    [[PPLUtils sharedInstance] showLaunch:self.voteViewController];
+    double delayInSeconds = 5.0;
+    dispatch_time_t popTime = dispatch_time(
+        DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+      XCTAssertTrue([self.navigationController.topViewController
+                        isKindOfClass:[PPLLaunchViewController class]],
+                    @"Did not navigate to Start Controller");
+    });
 }
+
 
 - (void)testFeedbackSubmitted
 {
@@ -127,24 +139,8 @@
     }] sendFeedback:[OCMArg any]];
 
     [self.voteViewController handleClick:temp];
-
-
-    //  TODO update the test case, or remove it into the votedetail testcase
-    //    PPLVoteData *dataModel = [PPLVoteData shareInstance];
-    //    XCTestExpectation *completionExpectation = [self
-    //    expectationWithDescription:@"Checkin Submitted Fetch"];
-    //
-    //    [dataModel sendFeedback:[NSString stringWithFormat:@"%d", (rand()%3+1
-    //    )]
-    //                   callBack:^(BOOL status, NSString* serverResponse,
-    //                   NSError
-    //                   *error)
-    //     {
-    //         XCTAssertTrue(status);
-    //         [completionExpectation fulfill];
-    //     }];
-    //    [self waitForExpectationsWithTimeout:5.0 handler:nil];
 }
+
 
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
@@ -156,6 +152,4 @@
         [self.navigationComplete fulfill];
     }
 }
-
-
 @end
