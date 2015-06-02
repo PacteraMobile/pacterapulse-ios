@@ -16,9 +16,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPLVoteData.h"
 
 @interface PPLVoteViewController
     : UIViewController <UITableViewDelegate, UITableViewDataSource,
                         UIAlertViewDelegate>
+@property(nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) NSArray *data;
+@property(nonatomic, strong) PPLVoteData *voteData;
+
+
+- (void)handleClick:(id)sender;
 
 @end

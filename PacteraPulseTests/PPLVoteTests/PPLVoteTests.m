@@ -17,7 +17,17 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "PPLVoteViewController.h"
+#import "AppDelegate.h"
+#import "PPLLaunchViewController.h"
+#import "PPLVoteTableViewCell.h"
+#import "OCMockObject.h"
+#import "OCMArg.h"
+#import "OCMStubRecorder.h"
 @interface PPLVoteTests : XCTestCase
+
+@property(nonatomic, strong) PPLVoteViewController *voteViewController;
+@property(nonatomic, strong) UINavigationController *navigationController;
 
 @end
 
@@ -26,8 +36,25 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each
-    // test method in the class.
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    _navigationController =
+        (UINavigationController *)appDelegate.window.rootViewController;
+    ;
+
+    UIViewController *visibleView =
+        self.navigationController.viewControllers[0];
+
+    if ([visibleView isKindOfClass:[PPLVoteViewController class]])
+    {
+
+        _voteViewController = (PPLVoteViewController *)visibleView;
+    }
+    else
+    {
+
+        [visibleView performSegueWithIdentifier:kVoteSegueId sender:nil];
+        _voteViewController = self.navigationController.viewControllers[1];
+    }
 }
 
 - (void)tearDown
@@ -37,9 +64,42 @@
     // test method in the class.
     [super tearDown];
 }
+- (void)testUIElementsVoteScreen
+{
+    XCTAssertEqual(_voteViewController.data.count, 3);
+
+    for (id cell in self.voteViewController.tableView.visibleCells)
+    {
+
+        XCTAssertTrue([cell isKindOfClass:[PPLVoteTableViewCell class]]);
+    }
+}
 
 - (void)testFeedbackSubmitted
 {
+
+    UIButton *temp = [UIButton new];
+
+    temp.tag = 1;
+    PPLVoteData *voteData = self.voteViewController.voteData;
+
+    [voteData setDeviceID:[[PPLUtils sharedInstance] getUniqueId]];
+    [voteData setUserID:@"myName"];
+    id voteDataMock = [OCMockObject partialMockForObject:voteData];
+    [[[voteDataMock stub] andDo:^(NSInvocation *invocation) {
+      void (^sendFeedBackResponse)(BOOL status, NSString *serverResponse,
+                                   NSError *error);
+      [invocation getArgument:&sendFeedBackResponse atIndex:2];
+      BOOL status = YES;
+      NSString *serverResponse = @"";
+      NSError *error = nil;
+      sendFeedBackResponse(status, serverResponse, error);
+      XCTAssert(YES, @"Pass");
+    }] sendFeedback:[OCMArg any]];
+
+    [self.voteViewController handleClick:temp];
+
+
     //  TODO update the test case, or remove it into the votedetail testcase
     //    PPLVoteData *dataModel = [PPLVoteData shareInstance];
     //    XCTestExpectation *completionExpectation = [self

@@ -19,4 +19,6 @@
 
 @interface PPLLaunchViewController : UIViewController
 
+extern NSString *const kVoteSegueId;
+
 @end
