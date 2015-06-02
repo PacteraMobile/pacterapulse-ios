@@ -37,6 +37,7 @@
 		705026531B0AFA3B00B31919 /* PPLAuthenticationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */; };
 		705026591B0B04EB00B31919 /* AuthenticationSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 705026581B0B04EB00B31919 /* AuthenticationSettings.plist */; };
 		70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */; };
+		7087CC0F1B1D8B6A00D62260 /* PPLNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */; };
 		709441761AF04C6E006C30EB /* PPLVoteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 709441751AF04C6E006C30EB /* PPLVoteRow.m */; };
 		709F7FDF1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDC1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.m */; };
 		709F7FE01B0D8BF900B6CB6E /* PPLVoteContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709F7FDE1B0D8BF900B6CB6E /* PPLVoteContentView.m */; };
@@ -99,6 +100,7 @@
 		705026521B0AFA3B00B31919 /* PPLAuthenticationSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLAuthenticationSettings.m; sourceTree = "<group>"; };
 		705026581B0B04EB00B31919 /* AuthenticationSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AuthenticationSettings.plist; sourceTree = "<group>"; };
 		70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteManagerTests.m; sourceTree = "<group>"; };
+		7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLNetworkTests.m; sourceTree = "<group>"; };
 		709441741AF04C6E006C30EB /* PPLVoteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteRow.h; sourceTree = "<group>"; };
 		709441751AF04C6E006C30EB /* PPLVoteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLVoteRow.m; sourceTree = "<group>"; };
 		709F7FDB1B0D8BF900B6CB6E /* PPLVoteContentQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLVoteContentQuestionView.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		6CC95B991AE883C10036447F /* PacteraPulseTests */ = {
 			isa = PBXGroup;
 			children = (
+				7087CC0D1B1D8B2800D62260 /* PPLNetworkTests */,
 				705026421B0AE83700B31919 /* PPLAuthenticationTests */,
 				3CDD84CA1B0AD59500F490B1 /* PPLVoteDetailTests */,
 				70668F701B045D4E0080E8B2 /* PPLVoteManagerTests */,
@@ -262,6 +265,14 @@
 				70668F711B045D630080E8B2 /* PPLVoteManagerTests.m */,
 			);
 			path = PPLVoteManagerTests;
+			sourceTree = "<group>";
+		};
+		7087CC0D1B1D8B2800D62260 /* PPLNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				7087CC0E1B1D8B6A00D62260 /* PPLNetworkTests.m */,
+			);
+			path = PPLNetworkTests;
 			sourceTree = "<group>";
 		};
 		70C5FDAE1AE8B3C0003C006C /* Others */ = {
@@ -690,6 +701,7 @@
 				70668F721B045D630080E8B2 /* PPLVoteManagerTests.m in Sources */,
 				70C5FDC81AE8B620003C006C /* PPLVoteTests.m in Sources */,
 				705026441B0AE85100B31919 /* PPLAuthenticationTests.m in Sources */,
+				7087CC0F1B1D8B6A00D62260 /* PPLNetworkTests.m in Sources */,
 				3CDD84CC1B0AD5B000F490B1 /* PPLVoteDetailTests.m in Sources */,
 				70C5FDCA1AE8B62B003C006C /* PPLSummaryTests.m in Sources */,
 				70C5FDC41AE8B59B003C006C /* PPLLaunchTests.m in Sources */,
@@ -835,7 +847,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PacteraPulse/Others/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -862,7 +874,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/PacteraPulse/Others/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
